@@ -1,0 +1,2 @@
+name~health~itemList~defaultAttack
+bob~100~knife,potion~10
