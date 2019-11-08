@@ -166,7 +166,7 @@ public class FileManager
 			{
 				String[] tokens = inFile.nextLine().trim().split("~");
 				allMonsters.add(new Monster(tokens[0], tokens[1], tokens[2], Boolean.parseBoolean(tokens[3]),
-						Integer.parseInt(tokens[4]), Integer.parseInt(tokens[5])));
+						Integer.parseInt(tokens[4]), Integer.parseInt(tokens[5]), Integer.parseInt(tokens[6])));
 			}
 
 			inFile.close();

@@ -1,5 +1,7 @@
 package zGame;
 
+import java.util.Random;
+
 public class Monster
 {
 	private String id;
@@ -7,16 +9,18 @@ public class Monster
 	private String description;
 	private boolean isDead;
 	private int healthPoints;
-	private int attackPoints;
+	private int attackPointsMin;
+	private int attackPointsMax;
 
-	public Monster(String id, String name, String description, boolean isDead, int healthPoints, int attackPoints)
+	public Monster(String id, String name, String description, boolean isDead, int healthPoints, int attackPointsMin, int attackPointsMax)
 	{
 		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.isDead = isDead;
 		this.healthPoints = healthPoints;
-		this.attackPoints = attackPoints;
+		this.attackPointsMin = attackPointsMin;
+		this.attackPointsMax = attackPointsMax;
 	}
 
 	public String getMonsterID()
@@ -56,7 +60,8 @@ public class Monster
 
 	public int getAttackPoints()
 	{
-		return attackPoints;
+		Random r = new Random();
+		return r.nextInt((attackPointsMax - attackPointsMin) + 1) + attackPointsMin;
 	}
 	
 	public String getStats()

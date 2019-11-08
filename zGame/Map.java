@@ -124,6 +124,7 @@ public class Map
 		}
 	}
 
+	//TDOD refactor to connection number
 	public String movePlayerNorth() throws InvalidRoomException
 	{
 		if (currentRoom.isNorthLocked())
