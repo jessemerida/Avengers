@@ -5,15 +5,17 @@ import java.util.ArrayList;
 public class Player
 {
 	private String name;
-	private int healthPoints;
+	private int currenthealthPoints;
+	private int maxHealthPoints;
 	private ArrayList<String> items;
 	private int defaultAttack;
 	private String equippedItem;
 
-	public Player(String name, int healthPoints, ArrayList<String> items, int defaultAttack)
+	public Player(String name, int currentHealthPoints, int maxHealthPoints, ArrayList<String> items, int defaultAttack)
 	{
 		this.name = name;
-		this.healthPoints = healthPoints;
+		this.currenthealthPoints = currentHealthPoints;
+		this.maxHealthPoints = maxHealthPoints;
 		this.items = items;
 		this.defaultAttack = defaultAttack;
 	}
@@ -42,12 +44,12 @@ public class Player
 
 	public String getStats()
 	{
-		return "Name: " + name + "\nHealth: " + healthPoints;
+		return "Name: " + name + "\nHealth: " + currenthealthPoints;
 	}
-	
+
 	public int getHealth()
 	{
-		return healthPoints;
+		return currenthealthPoints;
 	}
 
 	public ArrayList<String> getInventory()
@@ -79,12 +81,17 @@ public class Player
 
 	public void acceptDamage(int damage)
 	{
-		healthPoints -= damage;
+		currenthealthPoints -= damage;
 	}
 
 	public void acceptHeal(int hp)
 	{
-		healthPoints += hp;
+		currenthealthPoints += hp;
+
+		if (currenthealthPoints > maxHealthPoints)
+		{
+			currenthealthPoints = maxHealthPoints;
+		}
 	}
 
 }

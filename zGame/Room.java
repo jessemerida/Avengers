@@ -11,7 +11,7 @@ public class Room
 	private ArrayList<String> items;
 	private String puzzleID;
 	private String monsterID;
-	//TDOD refactor to connection number
+	// TDOD refactor to connection number
 	private String connection1;
 	private String connection2;
 	private String connection3;
@@ -28,8 +28,9 @@ public class Room
 
 	public Room(String roomId, boolean isVisited, String description, String descriptionVisited,
 			ArrayList<String> items, String puzzleID, String monsterID, String connection1, String connection2,
-			String connection3, String connection4, boolean connection1Locked, boolean connection2Locked, boolean connection3Locked,
-			boolean connection4Locked, int connection1Key, int connection2Key, int connection3Key, int connection4Key, int pattern)
+			String connection3, String connection4, boolean connection1Locked, boolean connection2Locked,
+			boolean connection3Locked, boolean connection4Locked, int connection1Key, int connection2Key,
+			int connection3Key, int connection4Key, int pattern)
 	{
 		this.roomId = roomId;
 		this.isVisited = isVisited;
@@ -133,106 +134,86 @@ public class Room
 		return des;
 	}
 
-	public String getNorthRoomID()
+	public String getConnection1ID()
 	{
 		return connection1;
 	}
 
-	public String getEastRoomID()
+	public String getConnection2ID()
 	{
 		return connection2;
 	}
 
-	public String getSouthRoomID()
+	public String getConnection3ID()
 	{
 		return connection3;
 	}
 
-	public String getWestRoomID()
+	public String getConnection4ID()
 	{
 		return connection4;
 	}
 
-	public boolean isNorthLocked()
+	public boolean isConnection1Locked()
 	{
 		return connection1Locked;
 	}
 
-	public void setNorthLocked(boolean northLocked)
+	public void setConnection1Locked(boolean northLocked)
 	{
 		this.connection1Locked = northLocked;
 	}
 
-	public boolean isEastLocked()
+	public boolean isConnection2Locked()
 	{
 		return connection2Locked;
 	}
 
-	public void setEastLocked(boolean eastLocked)
+	public void setConnection2Locked(boolean eastLocked)
 	{
 		this.connection2Locked = eastLocked;
 	}
 
-	public boolean isSouthLocked()
+	public boolean isConnection3Locked()
 	{
 		return connection3Locked;
 	}
 
-	public void setSouthLocked(boolean southLocked)
+	public void setConnection3Locked(boolean southLocked)
 	{
 		this.connection3Locked = southLocked;
 	}
 
-	public boolean isWestLocked()
+	public boolean isConnection4Locked()
 	{
 		return connection4Locked;
 	}
 
-	public void setWestLocked(boolean westLocked)
+	public void setConnection4Locked(boolean westLocked)
 	{
 		this.connection4Locked = westLocked;
 	}
 
-	public int getNorthKey()
+	public int getConnection1Key()
 	{
 		return connection1Key;
 	}
 
-	public void setNorthKey(int northKey)
-	{
-		this.connection1Key = northKey;
-	}
-
-	public int getEastKey()
+	public int getConnection2Key()
 	{
 		return connection2Key;
 	}
 
-	public void setEastKey(int eastKey)
-	{
-		this.connection2Key = eastKey;
-	}
-
-	public int getSouthKey()
+	public int getConnection3Key()
 	{
 		return connection3Key;
 	}
 
-	public void setSouthKey(int southKey)
-	{
-		this.connection3Key = southKey;
-	}
-
-	public int getWestKey()
+	public int getConnection4Key()
 	{
 		return connection4Key;
 	}
 
-	public void setWestKey(int westKey)
-	{
-		this.connection4Key = westKey;
-	}
-	
 	public int getPattern()
 	{
 		return pattern;

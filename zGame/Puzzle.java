@@ -9,8 +9,12 @@ public class Puzzle
 	private String failMessage;
 	private int attemptsAllowed;
 	private boolean solved;
+	private int damageMin;
+	private int damageMax;
+	//TODO puzzle damage if exit puzzle
 
-	public Puzzle(String id, String question, String answer, String passMessage, String failMessage, int attempts, boolean solved)
+	public Puzzle(String id, String question, String answer, String passMessage, String failMessage, int attempts,
+			boolean solved, int damageMin, int damageMax)
 	{
 		this.id = id;
 		this.question = question;
@@ -19,6 +23,8 @@ public class Puzzle
 		this.failMessage = failMessage;
 		this.attemptsAllowed = attempts;
 		this.solved = solved;
+		this.damageMin = damageMin;
+		this.damageMax = damageMax;
 	}
 
 	public boolean isSolved()
@@ -53,12 +59,11 @@ public class Puzzle
 
 	public String solvePuzzle(String text) throws InvalidPuzzleException
 	{
-		if(text.equalsIgnoreCase(answer))
+		if (text.equalsIgnoreCase(answer))
 		{
 			setSolved(true);
 			return passMessage;
-		}
-		else
+		} else
 		{
 			return failMessage;
 		}

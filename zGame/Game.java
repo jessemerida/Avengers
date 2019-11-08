@@ -117,22 +117,37 @@ public class Game
 
 		if (map.isCurrentRoomPuzzleSolved() == false)
 		{
-			findAndActivatePuzzle();
+			if (findAndActivatePuzzle() == false)
+			{
+				System.out.println(map.movePlayerToPreviousRoom());
+			}
 		}
 
 	}
 
-	private void findAndActivatePuzzle() throws InvalidPuzzleException
+	private boolean findAndActivatePuzzle() throws InvalidPuzzleException
 	{
 		for (int i = 0; i < map.getPuzzleAttempts() && map.isCurrentRoomPuzzleSolved() == false; i++)
 		{
 			System.out.println(map.getPuzzleQuestion());
 
-			System.out.println(map.solveCurrentRoomPuzzle(input.nextLine()));
+			String answer = input.nextLine();
+			if (answer.equalsIgnoreCase("exit"))
+			{
+				return false;
+			}
+
+			System.out.println(map.solveCurrentRoomPuzzle(answer));
 		}
 
+		if (map.isCurrentRoomPuzzleSolved() == false)
+		{
+			return false;
+		}
+		return true;
 	}
 
+	// TODO return bool if exit command
 	private void findAndActivateMonster()
 	{
 		while (map.isCurrentRoomMonsterDead() == false)
@@ -173,8 +188,7 @@ public class Game
 				} else if (command.equalsIgnoreCase("study"))
 				{
 					System.out.println(map.getMonsterDescription());
-				}
-				else if (command.equalsIgnoreCase("i"))
+				} else if (command.equalsIgnoreCase("i"))
 				{
 					System.out.println(map.getPlayerInventory().toString());
 				} else if (command.contains("inspect"))

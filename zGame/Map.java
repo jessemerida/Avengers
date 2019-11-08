@@ -7,6 +7,7 @@ public class Map
 {
 	private Player player;
 	private Room currentRoom;
+	private Room previousRoom;
 
 	private ArrayList<Room> allRooms;
 	private ArrayList<Item> allItems;
@@ -41,6 +42,7 @@ public class Map
 		}
 
 		currentRoom.setVisited(true);
+		previousRoom = currentRoom;
 		return room;
 	}
 
@@ -104,68 +106,74 @@ public class Map
 		return monster;
 	}
 
+	public String movePlayerToPreviousRoom()
+	{
+		currentRoom = previousRoom;
+		return currentRoom.getDescription();
+	}
+
 	public String movePlayerTo(String roomID) throws InvalidRoomException
 	{
-		if (roomID.equals(currentRoom.getNorthRoomID()))
+		if (roomID.equals(currentRoom.getConnection1ID()))
 		{
-			return movePlayerNorth();
-		} else if (roomID.equals(currentRoom.getEastRoomID()))
+			return movePlayerToC1();
+		} else if (roomID.equals(currentRoom.getConnection2ID()))
 		{
-			return movePlayerEast();
-		} else if (roomID.equals(currentRoom.getSouthRoomID()))
+			return movePlayerToC2();
+		} else if (roomID.equals(currentRoom.getConnection3ID()))
 		{
-			return movePlayerSouth();
-		} else if (roomID.equals(currentRoom.getWestRoomID()))
+			return movePlayerToC3();
+		} else if (roomID.equals(currentRoom.getConnection4ID()))
 		{
-			return movePlayerWest();
+			return movePlayerToC4();
 		} else
 		{
 			throw new InvalidRoomException("That room is not valid");
 		}
 	}
 
-	//TDOD refactor to connection number
-	public String movePlayerNorth() throws InvalidRoomException
+	// TODO refactor to connection number
+	public String movePlayerToC1() throws InvalidRoomException
 	{
-		if (currentRoom.isNorthLocked())
+		if (currentRoom.isConnection1Locked())
 		{
 			throw new InvalidRoomException("That room is locked");
 		}
 
-		currentRoom = getRoom(currentRoom.getNorthRoomID());
+		currentRoom = getRoom(currentRoom.getConnection1ID());
 		return currentRoom.getDescription();
 	}
 
-	public String movePlayerEast() throws InvalidRoomException
+	public String movePlayerToC2() throws InvalidRoomException
 	{
-		if (currentRoom.isEastLocked())
+		if (currentRoom.isConnection2Locked())
 		{
 			throw new InvalidRoomException("That room is locked");
 		}
 
-		currentRoom = getRoom(currentRoom.getEastRoomID());
+		currentRoom = getRoom(currentRoom.getConnection2ID());
 		return currentRoom.getDescription();
 	}
 
-	public String movePlayerSouth() throws InvalidRoomException
+	public String movePlayerToC3() throws InvalidRoomException
 	{
-		if (currentRoom.isSouthLocked())
+		if (currentRoom.isConnection3Locked())
 		{
 			throw new InvalidRoomException("That room is locked");
 		}
 
-		currentRoom = getRoom(currentRoom.getSouthRoomID());
+		currentRoom = getRoom(currentRoom.getConnection3ID());
 		return currentRoom.getDescription();
 	}
 
-	public String movePlayerWest() throws InvalidRoomException
+	public String movePlayerToC4() throws InvalidRoomException
 	{
-		if (currentRoom.isWestLocked())
+		if (currentRoom.isConnection4Locked())
 		{
 			throw new InvalidRoomException("That room is locked");
 		}
 
-		currentRoom = getRoom(currentRoom.getWestRoomID());
+		currentRoom = getRoom(currentRoom.getConnection4ID());
 		return currentRoom.getDescription();
 	}
 
@@ -173,17 +181,17 @@ public class Map
 	{
 		return currentRoom.getDescription();
 	}
-	
+
 	public ArrayList<String> getCurrentRoomItems()
 	{
 		return currentRoom.getItems();
 	}
-	
+
 	public String getCurrentRoomConnections()
 	{
 		return currentRoom.getConnections();
 	}
-	
+
 	public int getCurrentRoomPattern()
 	{
 		return currentRoom.getPattern();
@@ -284,14 +292,14 @@ public class Map
 	{
 		return getMonster(currentRoom.getMonsterID()).getStats();
 	}
-	
+
 	public int getMonsterHealth() throws InvalidMonsterException
 	{
 		Monster monster = getMonster(currentRoom.getMonsterID());
-		
+
 		return monster.getHealthPoints();
 	}
-	
+
 	public int getPlayerHealth()
 	{
 		return player.getHealth();
@@ -354,7 +362,7 @@ public class Map
 		return equippedItem.getItemName() + " is used";
 	}
 
-	public String playerUnlocksDoor(String direction) throws InvalidItemException
+	public String playerUnlocksDoor(String connection) throws InvalidItemException
 	{
 		Item equippedItem = null;
 		try
@@ -370,90 +378,90 @@ public class Map
 			throw new InvalidItemException("Key must be equipped.");
 		}
 
-		if (direction.equalsIgnoreCase("north"))
+		if (connection.equalsIgnoreCase(currentRoom.getConnection1ID()))
 		{
-			if (currentRoom.isNorthLocked())
+			if (currentRoom.isConnection1Locked())
 			{
-				if (equippedItem.getItemDelta() == currentRoom.getNorthKey())
+				if (equippedItem.getItemDelta() == currentRoom.getConnection1Key())
 				{
-					currentRoom.setNorthLocked(false);
+					currentRoom.setConnection1Locked(false);
 
 					player.dropItem(player.getEquippedItem());
 					player.clearEquippedItem();
 
-					return "north is now unlocked";
+					return connection + " is now unlocked";
 				} else
 				{
 					throw new InvalidItemException(equippedItem.getItemName() + " is not the right key");
 				}
 			} else
 			{
-				throw new InvalidItemException("north is already unlocked");
+				throw new InvalidItemException(connection + " is already unlocked");
 			}
 
-		} else if (direction.equalsIgnoreCase("east"))
+		} else if (connection.equalsIgnoreCase(currentRoom.getConnection2ID()))
 		{
-			if (currentRoom.isEastLocked())
+			if (currentRoom.isConnection2Locked())
 			{
-				if (equippedItem.getItemDelta() == currentRoom.getEastKey())
+				if (equippedItem.getItemDelta() == currentRoom.getConnection2Key())
 				{
-					currentRoom.setEastLocked(false);
+					currentRoom.setConnection2Locked(false);
 
 					player.dropItem(player.getEquippedItem());
 					player.clearEquippedItem();
 
-					return "east is now unlocked";
+					return connection + " is now unlocked";
 				} else
 				{
 					throw new InvalidItemException(equippedItem.getItemName() + " is not the right key");
 				}
 			} else
 			{
-				throw new InvalidItemException("east is already unlocked");
+				throw new InvalidItemException(connection + " is already unlocked");
 			}
-		} else if (direction.equalsIgnoreCase("south"))
+		} else if (connection.equalsIgnoreCase(currentRoom.getConnection3ID()))
 		{
-			if (currentRoom.isSouthLocked())
+			if (currentRoom.isConnection3Locked())
 			{
-				if (equippedItem.getItemDelta() == currentRoom.getSouthKey())
+				if (equippedItem.getItemDelta() == currentRoom.getConnection3Key())
 				{
-					currentRoom.setSouthLocked(false);
+					currentRoom.setConnection3Locked(false);
 
 					player.dropItem(player.getEquippedItem());
 					player.clearEquippedItem();
 
-					return "south is now unlocked";
+					return connection + " is now unlocked";
 				} else
 				{
 					throw new InvalidItemException(equippedItem.getItemName() + " is not the right key");
 				}
 			} else
 			{
-				throw new InvalidItemException("south is already unlocked");
+				throw new InvalidItemException(connection + " is already unlocked");
 			}
-		} else if (direction.equalsIgnoreCase("west"))
+		} else if (connection.equalsIgnoreCase(currentRoom.getConnection3ID()))
 		{
-			if (currentRoom.isWestLocked())
+			if (currentRoom.isConnection4Locked())
 			{
-				if (equippedItem.getItemDelta() == currentRoom.getWestKey())
+				if (equippedItem.getItemDelta() == currentRoom.getConnection4Key())
 				{
-					currentRoom.setWestLocked(false);
+					currentRoom.setConnection4Locked(false);
 
 					player.dropItem(player.getEquippedItem());
 					player.clearEquippedItem();
 
-					return "west is not unlocked";
+					return connection + " is now unlocked";
 				} else
 				{
 					throw new InvalidItemException(equippedItem.getItemName() + " is not the right key");
 				}
 			} else
 			{
-				throw new InvalidItemException("west is already unlocked");
+				throw new InvalidItemException(connection + " is already unlocked");
 			}
 		} else
 		{
-			throw new InvalidItemException(direction + " is not a valid direction");
+			throw new InvalidItemException(connection + " is not a valid direction");
 		}
 	}
 }

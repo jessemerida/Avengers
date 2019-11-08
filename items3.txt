@@ -1,4 +1,4 @@
-itemName~itemDescription
+itemName~itemType~deltaValue~itemDescription
 knife~weapon~15~this is a pointy thing
 potion~consumable~20~this is the good stuff
 potion2~consumable~30~this is also good stuff
