@@ -23,11 +23,12 @@ public class Room
 	private int eastKey;
 	private int southKey;
 	private int westKey;
+	private int pattern;
 
 	public Room(String roomId, boolean isVisited, String description, String descriptionVisited,
 			ArrayList<String> items, String puzzleID, String monsterID, String northRoomID, String eastRoomID,
 			String southRoomID, String westRoomID, boolean northLocked, boolean eastLocked, boolean southLocked,
-			boolean westLocked, int northKey, int eastKey, int southKey, int westKey)
+			boolean westLocked, int northKey, int eastKey, int southKey, int westKey, int pattern)
 	{
 		this.roomId = roomId;
 		this.isVisited = isVisited;
@@ -48,6 +49,7 @@ public class Room
 		this.eastKey = eastKey;
 		this.southKey = southKey;
 		this.westKey = westKey;
+		this.pattern = pattern;
 	}
 
 	public String getRoomId()
@@ -228,6 +230,11 @@ public class Room
 	public void setWestKey(int westKey)
 	{
 		this.westKey = westKey;
+	}
+	
+	public int getPattern()
+	{
+		return pattern;
 	}
 
 }

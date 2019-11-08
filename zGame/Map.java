@@ -182,6 +182,11 @@ public class Map
 	{
 		return currentRoom.getConnections();
 	}
+	
+	public int getCurrentRoomPattern()
+	{
+		return currentRoom.getPattern();
+	}
 
 	public ArrayList<String> getPlayerInventory() throws InvalidItemException
 	{

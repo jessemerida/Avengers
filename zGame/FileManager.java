@@ -72,7 +72,7 @@ public class FileManager
 						Boolean.parseBoolean(roomLockedTokens[0]), Boolean.parseBoolean(roomLockedTokens[1]),
 						Boolean.parseBoolean(roomLockedTokens[2]), Boolean.parseBoolean(roomLockedTokens[3]),
 						Integer.parseInt(roomKeys[0]), Integer.parseInt(roomKeys[1]), Integer.parseInt(roomKeys[2]),
-						Integer.parseInt(roomKeys[3])));
+						Integer.parseInt(roomKeys[3]), Integer.parseInt(tokens[10])));
 			}
 
 			inFile.close();
