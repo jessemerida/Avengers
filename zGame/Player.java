@@ -44,6 +44,11 @@ public class Player
 	{
 		return "Name: " + name + "\nHealth: " + healthPoints;
 	}
+	
+	public int getHealth()
+	{
+		return healthPoints;
+	}
 
 	public ArrayList<String> getInventory()
 	{

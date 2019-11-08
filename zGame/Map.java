@@ -283,6 +283,18 @@ public class Map
 	{
 		return getMonster(currentRoom.getMonsterID()).getStats();
 	}
+	
+	public int getMonsterHealth() throws InvalidMonsterException
+	{
+		Monster monster = getMonster(currentRoom.getMonsterID());
+		
+		return monster.getHealthPoints();
+	}
+	
+	public int getPlayerHealth()
+	{
+		return player.getHealth();
+	}
 
 	public String playerAttacksMonster() throws InvalidMonsterException
 	{
