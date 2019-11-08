@@ -1,4 +1,4 @@
-roomId~isVisted~roomDescription~2roomDescription~items~puzzleID~monsterID~roomConnectionsIds~roomConnectionsLocked~roomConnectionsKeys~roomPattern
+roomId~isVisted~roomDescription~2roomDescription~items~puzzleID~monsterID~roomConnectionsIds~roomConnectionsLocked~roomConnectionsKeys
 1~false~1Forest~1ForestVisted~key1~0~0~0,2,3,0~false,true,false,false~0,6,0,0~0
 2~false~2Volcano~2VolcanoVisited~sword~2~0~0,0,4,1~false,false,false,false~0,0,0,0~0
 3~false~3Swamp~3SwampVisited~creature,potion2,key2~0~0~1,4,5,0~false,false,false,false~0,0,0,0~0
