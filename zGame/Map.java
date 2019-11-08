@@ -185,7 +185,6 @@ public class Map
 
 	public ArrayList<String> getPlayerInventory() throws InvalidItemException
 	{
-		// TODO loop through items and list out descriptions
 		return player.getInventory();
 	}
 
