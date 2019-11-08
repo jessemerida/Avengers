@@ -1,5 +1,7 @@
 package zGame;
 
+import java.util.Random;
+
 public class Puzzle
 {
 	private String id;
@@ -11,7 +13,6 @@ public class Puzzle
 	private boolean solved;
 	private int damageMin;
 	private int damageMax;
-	//TODO puzzle damage if exit puzzle
 
 	public Puzzle(String id, String question, String answer, String passMessage, String failMessage, int attempts,
 			boolean solved, int damageMin, int damageMax)
@@ -55,6 +56,12 @@ public class Puzzle
 	public int getAttempts()
 	{
 		return attemptsAllowed;
+	}
+	
+	public int getDamage()
+	{
+		Random r = new Random();
+		return r.nextInt((damageMax - damageMin) + 1) + damageMin;
 	}
 
 	public String solvePuzzle(String text) throws InvalidPuzzleException

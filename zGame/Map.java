@@ -258,6 +258,13 @@ public class Map
 	{
 		return getPuzzle(currentRoom.getPuzzleId()).getAttempts();
 	}
+	
+	public int applyPuzzleDamageToPlayer() throws InvalidPuzzleException
+	{
+		int damage = getPuzzle(currentRoom.getPuzzleId()).getDamage();
+		player.acceptDamage(damage);
+		return damage;
+	}
 
 	public boolean isCurrentRoomMonsterDead()
 	{
@@ -332,9 +339,10 @@ public class Map
 	public String monsterAttacksPlayer() throws InvalidMonsterException
 	{
 		Monster monster = getMonster(currentRoom.getMonsterID());
-		player.acceptDamage(monster.getAttackPoints());
+		int damage = monster.getAttackPoints();
+		player.acceptDamage(damage);
 
-		return "monster did " + monster.getAttackPoints() + " damage";
+		return "monster did " + damage + " damage";
 	}
 
 	public String playerHeal() throws InvalidItemException

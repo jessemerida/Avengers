@@ -112,13 +112,18 @@ public class Game
 
 		if (map.isCurrentRoomMonsterDead() == false)
 		{
-			findAndActivateMonster();
+			if(findAndActivateMonster() == false)
+			{
+				System.out.println(map.movePlayerToPreviousRoom());
+			}
 		}
 
 		if (map.isCurrentRoomPuzzleSolved() == false)
 		{
 			if (findAndActivatePuzzle() == false)
 			{
+				System.out.println(
+						"Player accepts " + map.applyPuzzleDamageToPlayer() + " damage for escaping the puzzle");
 				System.out.println(map.movePlayerToPreviousRoom());
 			}
 		}
@@ -148,7 +153,7 @@ public class Game
 	}
 
 	// TODO return bool if exit command
-	private void findAndActivateMonster()
+	private boolean findAndActivateMonster()
 	{
 		while (map.isCurrentRoomMonsterDead() == false)
 		{
@@ -200,7 +205,11 @@ public class Game
 				} else if (command.contains("equip"))
 				{
 					System.out.println(map.equipPlayerItem(command.split(" ")[1]));
-				} else
+				} else if(command.equalsIgnoreCase("exit"))
+				{
+					return false;
+				}
+				else
 				{
 					System.out.println(
 							"Please ented a valid command. \nEnter 'Commands' to see a list of valid commands");
@@ -214,6 +223,7 @@ public class Game
 			}
 
 		}
+		return true;
 
 	}
 }
