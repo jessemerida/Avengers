@@ -403,7 +403,84 @@ public class FileManager
 			throw new FileNotFoundException("Monster file not found.");
 		}
 		return allMonsters;
-
 	}
+	
+	public static ArrayList<Monster> readMonsters2(String fileName) throws FileNotFoundException
+	{
+		ArrayList<Monster> allMonsters = new ArrayList<Monster>();
+		String currLine = null;
+		
+		String id = null;
+		String name = null;
+		String description = null;
+		boolean isDead = null;
+		int healthPoints = null;
+		int attackPointsMin = null;
+		int attackPointsMax = null;
+		
+		try
+		{
+			FileReader fileReader = new FileReader(fileName);
+			Scanner inFile = new Scanner(fileReader);
+			
+			while (inFile.hasNextLine())
+			{
+				currLine = inFile.nextLine();
+				if (!currLine.contains("+"))
+				{
+					if (currLine.contains("@m"))
+					{
+						id = Integer.parseInt(currLine.substring(2));
+					}
+					if (currLine.contains("@n"))
+					{
+						name = currLine.substring(2);
+					}
+					if (currLine.contains("~"))
+					{
+						if (description.isEmpty())
+							description += currLine.substring(1);
+						else
+							description += "\n" + currLine.substring(1);
+					}
+					if (currLine.contains("@ds"))
+					{
+						isDead = Boolean.parseBoolean(currLine.substring(3));
+					}
+					if (currLine.contains("@hp"))
+					{
+						healthPoints = Integer.parseInt(currLine.substring(3));
+					}
+					if (currLine.contains("@apmin"))
+					{
+						attackPointsMin = Integer.parseInt(currLine.substring(6));
+					}
+					if (currLine.contains("@apmax"))
+					{
+						attackPointsMax = Integer.parseInt(currLine.substring(6));
+					}
+				}
+				if (currLine.contains("+"))
+				{
+					allMonsters.add(new Monster(id, name, description, passMisDeadessage, healthPoints, attackPointsMin, attackPointsMax));
+					id = null;
+					name = null;
+					description = null;
+					isDead = null;
+					healthPoints = null;
+					attackPointsMin = null;
+					attackPointsMax = null;
+				}
+			}
+		} catch (IOException e)
+		{
+			throw new FileNotFoundException("Monster file not found.");
+		} finally
+		{
+			inFile.close();
+			fileReader.close();
+		}
 
+		return allMonsters;
+	}
 }
