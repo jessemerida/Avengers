@@ -112,10 +112,17 @@ public class Game
 
 		if (map.isCurrentRoomMonsterDead() == false)
 		{
-			if(findAndActivateMonster() == false)
+			if (findAndActivateMonster() == false)
 			{
 				System.out.println(map.movePlayerToPreviousRoom());
 			}
+
+			if (map.getPlayerHealth() <= 0)
+			{
+				System.out.println("Player has been killed! Game over.");
+				System.exit(0);
+			}
+
 		}
 
 		if (map.isCurrentRoomPuzzleSolved() == false)
@@ -181,6 +188,11 @@ public class Game
 						System.out.println(map.monsterAttacksPlayer());
 					}
 
+					if (map.getPlayerHealth() <= 0)
+					{
+						return true;
+					}
+
 				} else if (command.equalsIgnoreCase("heal"))
 				{
 					System.out.println(map.playerHeal());
@@ -205,11 +217,10 @@ public class Game
 				} else if (command.contains("equip"))
 				{
 					System.out.println(map.equipPlayerItem(command.split(" ")[1]));
-				} else if(command.equalsIgnoreCase("exit"))
+				} else if (command.equalsIgnoreCase("exit"))
 				{
 					return false;
-				}
-				else
+				} else
 				{
 					System.out.println(
 							"Please ented a valid command. \nEnter 'Commands' to see a list of valid commands");
