@@ -144,12 +144,19 @@ public class Game
 			System.out.println(map.getPuzzleQuestion());
 
 			String answer = input.nextLine();
-			if (answer.equalsIgnoreCase("exit"))
+			if (answer.equalsIgnoreCase("hint"))
+			{
+				System.out.println(map.getPuzzleHint());
+				i--; //this is so using the hint does not use any of the attempts
+			}
+			else if (answer.equalsIgnoreCase("exit"))
 			{
 				return false;
+			} else
+			{
+				System.out.println(map.solveCurrentRoomPuzzle(answer));
 			}
 
-			System.out.println(map.solveCurrentRoomPuzzle(answer));
 		}
 
 		if (map.isCurrentRoomPuzzleSolved() == false)

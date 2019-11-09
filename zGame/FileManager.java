@@ -25,7 +25,8 @@ public class FileManager
 
 			String[] tokens = inFile.nextLine().split("~");
 			ArrayList<String> items = new ArrayList<String>(Arrays.asList(tokens[3].trim().split(",")));
-			player = new Player(tokens[0], Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), items, Integer.parseInt(tokens[4]));
+			player = new Player(tokens[0], Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), items,
+					Integer.parseInt(tokens[4]));
 
 			inFile.close();
 			fileReader.close();
@@ -135,8 +136,8 @@ public class FileManager
 			{
 				String[] tokens = inFile.nextLine().trim().split("~");
 				allPuzzles.add(new Puzzle(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4],
-						Integer.parseInt(tokens[5]), Boolean.parseBoolean(tokens[6]), Integer.parseInt(tokens[7]),
-						Integer.parseInt(tokens[8])));
+						Integer.parseInt(tokens[5]), tokens[6], Boolean.parseBoolean(tokens[7]),
+						Integer.parseInt(tokens[8]), Integer.parseInt(tokens[9])));
 			}
 
 			inFile.close();

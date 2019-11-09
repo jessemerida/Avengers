@@ -259,6 +259,11 @@ public class Map
 		return getPuzzle(currentRoom.getPuzzleId()).getAttempts();
 	}
 	
+	public String getPuzzleHint() throws InvalidPuzzleException
+	{
+		return getPuzzle(currentRoom.getPuzzleId()).getHint();
+	}
+	
 	public int applyPuzzleDamageToPlayer() throws InvalidPuzzleException
 	{
 		int damage = getPuzzle(currentRoom.getPuzzleId()).getDamage();
