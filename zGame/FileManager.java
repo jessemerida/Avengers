@@ -147,7 +147,7 @@ public class FileManager
 
 		} catch (IOException e)
 		{
-			throw new FileNotFoundException("Map file not found.");
+			throw new FileNotFoundException("Room file not found.");
 		}
 
 		return allRooms;
@@ -272,7 +272,7 @@ public class FileManager
 
 		} catch (IOException e)
 		{
-			throw new FileNotFoundException("Item file not found.");
+			throw new FileNotFoundException("Puzzle file not found.");
 		}
 		return allPuzzles;
 
@@ -303,7 +303,7 @@ public class FileManager
 
 		} catch (IOException e)
 		{
-			throw new FileNotFoundException("Item file not found.");
+			throw new FileNotFoundException("Monster file not found.");
 		}
 		return allMonsters;
 
