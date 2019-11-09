@@ -44,6 +44,7 @@ public class FileManager
 	{
 		Player player = null;
 		String currLine = null;
+		
 		String playername = null;
 		int currenthealthPoints = null;
 		int maxHealthPoints = null;
@@ -103,7 +104,6 @@ public class FileManager
 		}
 
 		return player;
-
 	}
 
 	public static ArrayList<Room> readRooms(String fileName) throws FileNotFoundException
@@ -185,6 +185,67 @@ public class FileManager
 		return allItems;
 	}
 
+	public static ArrayList<Item> readItems2(String fileName) throws FileNotFoundException
+	{
+		ArrayList<Item> allItems = new ArrayList<Item>();
+		String currLine = null;
+		
+		String itemName = null;
+		ItemType itemType = null;
+		int itemDelta = null;
+		String description = null;
+		
+		try
+		{
+			FileReader fileReader = new FileReader(fileName);
+			Scanner inFile = new Scanner(fileReader);
+			
+			while (inFile.hasNextLine())
+			{
+				currLine = inFile.nextLine();
+				if (!currLine.contains("+"))
+				{
+					if (currLine.contains("@i"))
+					{
+						itemName = currLine.substring(2);
+					}
+					if (currLine.contains("@t"))
+					{
+						itemType = ItemType.valueOf(currLine.substring(2).toUpperCase())
+					}
+					if (currLine.contains("@dv"))
+					{
+						itemDelta = Integer.parseInt(currLine.substring(3));
+					}
+					if (currLine.contains("~"))
+					{
+						if (description.isEmpty())
+							description += currLine.substring(1);
+						else
+							description += "\n" + currLine.substring(1);
+					}					
+				}
+				if (currLine.contains("+"))
+				{
+					allItems.add(new Item(itemName, itemType, itemDelta, description));
+					itemName = null;
+					itemType = null;
+					itemDelta = null;
+					description = null;
+				}
+			}
+		} catch (IOException e)
+		{
+			throw new FileNotFoundException("Item file not found.");
+		} finally
+		{
+			inFile.close();
+			fileReader.close();
+		}
+
+		return allItems;
+	}
+	
 	public static ArrayList<Puzzle> readPuzzles(String fileName) throws FileNotFoundException
 	{
 		ArrayList<Puzzle> allPuzzles = new ArrayList<Puzzle>();
