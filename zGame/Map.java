@@ -132,7 +132,6 @@ public class Map
 		}
 	}
 
-	// TODO refactor to connection number
 	public String movePlayerToC1() throws InvalidRoomException
 	{
 		if (currentRoom.isConnection1Locked())
@@ -258,12 +257,12 @@ public class Map
 	{
 		return getPuzzle(currentRoom.getPuzzleId()).getAttempts();
 	}
-	
+
 	public String getPuzzleHint() throws InvalidPuzzleException
 	{
 		return getPuzzle(currentRoom.getPuzzleId()).getHint();
 	}
-	
+
 	public int applyPuzzleDamageToPlayer() throws InvalidPuzzleException
 	{
 		int damage = getPuzzle(currentRoom.getPuzzleId()).getDamage();
@@ -345,7 +344,24 @@ public class Map
 	{
 		Monster monster = getMonster(currentRoom.getMonsterID());
 		int damage = monster.getAttackPoints();
-		player.acceptDamage(damage);
+
+		Item equippedItem = null;
+		try
+		{
+			equippedItem = getItem(player.getEquippedItem());
+		} catch (InvalidItemException e)
+		{
+
+		}
+
+		if (equippedItem == null || equippedItem.getItemType() != ItemType.ARMOR)
+		{
+			player.acceptDamage(damage);
+		} else
+		{
+			damage -= equippedItem.getItemDelta();
+			player.acceptDamage(damage);
+		}
 
 		return "monster did " + damage + " damage";
 	}
