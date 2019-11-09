@@ -1,0 +1,64 @@
+﻿@m1
+@nCorpsewings
+~At first the corpse wings was no more than a chill in the air, a shimmer of mist, diffuse. Through ~it the furniture and the wallpaper that peeled with the rising damp became slightly out of focus, ~like a poorly taken photograph
+@dsfalse
+@hp40
+@apmin10
+@apmax25
++
+@m2
+@nCurseface
+~The curse face would whimper like a lost child, clutching at a rag doll, it's eyes brimming with ~silver tears that shone brightly in the moonlight.
+@dsfalse
+@hp30
+@apmin10
+@apmax25
++
+@m3
+@nTheQuickCreeper
+~The quick creeper was something of a poltergeist.He was hung by the neck and had his guts ~cut from him while he was still alive. Now he is restless, unable to rest in peace and full of fury.
+@dsfalse
+@hp60
+@apmin10
+@apmax25
++
+@m4
+@nStoneseeker(Boss)
+~It rose, a mass of tangled limbs, each one armour plated with a paralyzing goo seeping from black pores. The monster clicked it's mandibles and followed me with it's enormous compound eye.
+@dsfalse
+@hp100
+@apmin10
+@apmax25
++
+@m5
+@nAngryChest(Boss)
+~The tunnel had been abandoned decades before Mike and Jake had been born. Its brickwork ~had begun to crumble and its mouth gaped black and dank. They exchanged mischievous ~grins and dared each other to go in.
+@dsfalse
+@hp100
+@apmin10
+@apmax25
++
+@m6
+@nVampire(Boss)
+~Without warning the vampire appeared. With skin as pale as freshly poured milk and fangs ~protruding over the thin blue lips, he stood staring. Running or screaming seemed pointless, ~then inexplicably the vampire seemed to melt away into the shadows as soundlessly as it had ~arrived.
+@dsfalse
+@hp100
+@apmin10
+@apmax25
++
+@m7
+@nHunBats
+~The monster was a predator. His frontal eyes were better than any hawk and his teeth sharper ~than steak knives. He moved in the shadows until his victim was in reach and then the ~tentacles would shoot out and pull them into his mouth.
+@dsfalse
+@hp40
+@apmin10
+@apmax25
++
+@m8
+@nScorpion
+~The monster didn't need bulk, her muscles were many times stronger than her human prey. ~She was little more than a wisp of a creature with diminutive limbs and still took down the meal ~of her choice each dawn.
+@dsfalse
+@hp20
+@apmin10
+@apmax25
++
