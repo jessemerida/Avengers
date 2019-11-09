@@ -39,6 +39,72 @@ public class FileManager
 		return player;
 
 	}
+	
+	public static Player readPlayer2(String fileName) throws FileNotFoundException
+	{
+		Player player = null;
+		String currLine = null;
+		String playername = null;
+		int currenthealthPoints = null;
+		int maxHealthPoints = null;
+		ArrayList<String> items = new ArrayList<String>();
+		int defaultAttack = null;
+		String equippedItem = null;
+		
+		try
+		{
+			FileReader fileReader = new FileReader(fileName);
+			Scanner inFile = new Scanner(fileReader);
+			
+			while (inFile.hasNextLine())
+			{
+				currLine = inFile.nextLine();
+				if (!currLine.contains("+"))
+				{
+					if (currLine.contains("@n"))
+					{
+						playername = currLine.substring(2);
+					}
+					if (currLine.contains("@hp"))
+					{
+						currenthealthPoints = Integer.parseInt(currLine.substring(3));
+					}
+					if (currLine.contains("@mhp"))
+					{
+						maxHealthPoints = Integer.parseInt(currLine.substring(4));
+					}
+					if (currLine.contains("@i"))
+					{
+						items = Arrays.asList(currLine.substring(2).split(","));
+					}
+					if (currLine.contains("@ap"))
+					{
+						defaultAttack = Integer.parseInt(currLine.substring(3));
+					}					
+				}
+				if (currLine.contains("+"))
+				{
+					player = new Player(playername, currenthealthPoints, maxHealthPoints, items, defaultAttack, equippedItems);
+					playername = null;
+					currenthealthPoints = null;
+					maxHealthPoints = null;
+					items = new ArrayList<String>();
+					defaultAttack = null;
+					equippedItem = null;
+				}
+			}
+		} catch (IOException e)
+		{
+			throw new FileNotFoundException("Player file not found.");
+		} finally
+		{
+			inFile.close();
+			fileReader.close();
+		}
+
+		return player;
+
+	}
 
 	public static ArrayList<Room> readRooms(String fileName) throws FileNotFoundException
 	{
