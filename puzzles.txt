@@ -1,5 +1,6 @@
 ﻿@p1
-~This body has no ears or tongue, so he's not able to use phones, tickling doesn't work on him ~because he's only made of bones.
+~This body has no ears or tongue, so he's not able to use phones, tickling doesn't work on him 
+~because he's only made of bones.
 @aSkeleton
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -10,7 +11,8 @@
 @dmax15
 +
 @p2
-~In the center of a web, are several trapped little flies, heading in to eat them all, is this creature ~with bulging eyes.
+~In the center of a web, are several trapped little flies, heading in to eat them all, is this creature 
+~with bulging eyes.
 @aSpider
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -21,7 +23,8 @@
 @dmax15
 +
 @p3
-~This animal can be quite long, but it doesn’t have a great height, it can have deadly venom ~though, so beware because it can bite.
+~This animal can be quite long, but it doesn’t have a great height, it can have deadly venom 
+~though, so beware because it can bite.
 @aSnake
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -32,7 +35,8 @@
 @dmax15
 +
 @p4
-~This builds a hill but isn’t a mole, in fact it is a small insect, it can sometimes be red or fire, and ~it builds tunnels that connect.
+~This builds a hill but isn’t a mole, in fact it is a small insect, it can sometimes be red or fire, and 
+~it builds tunnels that connect.
 @aAnt
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -43,7 +47,8 @@
 @dmax15
 +
 @p5
-~These winged creatures often scare people, if you touch one you are brave, they’re often ~found just hanging out, upside down inside a cave.
+~These winged creatures often scare people, if you touch one you are brave, they’re often 
+~found just hanging out, upside down inside a cave.
 @aBat
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -54,7 +59,8 @@
 @dmax15
 +
 @p6
-~It’s sometimes in the form of a bat, and upside down it hangs, but when it’s in its human form, ~in its mouth you will find fangs.
+~It’s sometimes in the form of a bat, and upside down it hangs, but when it’s in its human form, 
+~in its mouth you will find fangs.
 @aVampire
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -65,7 +71,8 @@
 @dmax15
 +
 @p7
-~Sometimes to get inside a door, all you need to do is knock, other times you will need this ~thing, so the door you can unlock.
+~Sometimes to get inside a door, all you need to do is knock, other times you will need this 
+~thing, so the door you can unlock.
 @aKey
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -76,7 +83,8 @@
 @dmax15
 +
 @p8
-~When you put a person in this you shouldn’t hear any knocks if you do there’s been a mistake ~and you should open this pine box.
+~When you put a person in this you shouldn’t hear any knocks if you do there’s been a mistake 
+~and you should open this pine box.
 @aCoffin
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -87,7 +95,8 @@
 @dmax15
 +
 @p9
-~I’m often a rectangle but I’m not a soccer goal I often have a handle and sometimes have a ~keyhole.
+~I’m often a rectangle but I’m not a soccer goal I often have a handle and sometimes have a 
+~keyhole.
 @aDoor
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
@@ -98,7 +107,8 @@
 @dmax15
 +
 @p10
-~I am a type of family pet that is sometimes known as a feline if I get into an accident it’s OK ~because lives I have nine.
+~I am a type of family pet that is sometimes known as a feline if I get into an accident it’s OK 
+~because lives I have nine.
 @aCat
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
