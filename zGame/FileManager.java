@@ -211,7 +211,7 @@ public class FileManager
 					}
 					if (currLine.contains("@t"))
 					{
-						itemType = ItemType.valueOf(currLine.substring(2).toUpperCase())
+						itemType = ItemType.valueOf(currLine.substring(2).toUpperCase());
 					}
 					if (currLine.contains("@dv"))
 					{
@@ -278,6 +278,103 @@ public class FileManager
 
 	}
 
+	public static ArrayList<Puzzle> readPuzzles2(String fileName) throws FileNotFoundException
+	{
+		ArrayList<Puzzle> allPuzzles = new ArrayList<Puzzle>();
+		String currLine = null;
+		
+		String id = null;
+		String question = null;
+		String answer = null;
+		String passMessage = null;
+		String failMessage = null;
+		int attemptsAllowed = null;
+		String hint = null;
+		boolean solved = null;
+		int damageMin = null;
+		int damageMax = null;
+		
+		try
+		{
+			FileReader fileReader = new FileReader(fileName);
+			Scanner inFile = new Scanner(fileReader);
+			
+			while (inFile.hasNextLine())
+			{
+				currLine = inFile.nextLine();
+				if (!currLine.contains("+"))
+				{
+					if (currLine.contains("@p"))
+					{
+						id = Integer.parseInt(currLine.substring(2));
+					}
+					if (currLine.contains("~"))
+					{
+						if (question.isEmpty())
+							question += currLine.substring(1);
+						else
+							question += "\n" + currLine.substring(1);
+					}
+					if (currLine.contains("@a"))
+					{
+						answer = currLine.substring(2);
+					}
+					if (currLine.contains("@pmsg"))
+					{
+						passMessage = currLine.substring(5);
+					}
+					if (currLine.contains("@fmsg"))
+					{
+						failMessage = currLine.substring(5);
+					}					
+					if (currLine.contains("@at"))
+					{
+						attemptsAllowed = Integer.parseInt(currLine.substring(3));
+					}
+					if (currLine.contains("@h"))
+					{
+						hint = currLine.substring(2);
+					}
+					if (currLine.contains("@ss"))
+					{
+						solved = Boolean.parseBoolean(currLine.substring(3));
+					}
+					if (currLine.contains("@dmin"))
+					{
+						damageMin = Integer.parseInt(currLine.substring(5));
+					}
+					if (currLine.contains("@dmax"))
+					{
+						damageMax = Integer.parseInt(currLine.substring(5));
+					}
+				}
+				if (currLine.contains("+"))
+				{
+					allPuzzles.add(new Puzzle(id, question, answer, passMessage, failMessage, attemptsAllowed, hint, solved, damageMin, damageMax));
+					id = null;
+					question = null;
+					answer = null;
+					passMessage = null;
+					failMessage = null;
+					attemptsAllowed = null;
+					hint = null;
+					solved = null;
+					damageMin = null;
+					damageMax = null;
+				}
+			}
+		} catch (IOException e)
+		{
+			throw new FileNotFoundException("Puzzle file not found.");
+		} finally
+		{
+			inFile.close();
+			fileReader.close();
+		}
+
+		return allPuzzles;
+	}
+	
 	public static ArrayList<Monster> readMonsters(String fileName) throws FileNotFoundException
 	{
 		ArrayList<Monster> allMonsters = new ArrayList<Monster>();
