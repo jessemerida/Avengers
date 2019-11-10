@@ -63,25 +63,15 @@ public class FileManager
 				if (!currLine.contains("+"))
 				{
 					if (currLine.contains("@n"))
-					{
 						playername = currLine.substring(2);
-					}
 					if (currLine.contains("@hp"))
-					{
 						currenthealthPoints = Integer.parseInt(currLine.substring(3));
-					}
 					if (currLine.contains("@mhp"))
-					{
 						maxHealthPoints = Integer.parseInt(currLine.substring(4));
-					}
 					if (currLine.contains("@i"))
-					{
 						items = Arrays.asList(currLine.substring(2).split(","));
-					}
 					if (currLine.contains("@ap"))
-					{
 						defaultAttack = Integer.parseInt(currLine.substring(3));
-					}					
 				}
 				if (currLine.contains("+"))
 				{
@@ -151,7 +141,149 @@ public class FileManager
 		}
 
 		return allRooms;
+	}
+	
+	public static ArrayList<Room> readRooms2(String fileName) throws FileNotFoundException
+	{
+		ArrayList<Room> allRooms = new ArrayList<Room>();
+		String currLine = null;
+		
+		String roomId = null;
+		boolean isVisited = null;
+		String description = null;
+		String descriptionVisited = null;
+		ArrayList<String> items = null;
+		String puzzleID = null;
+		String monsterID = null;
+		String connection1 = null;
+		String connection2 = null;
+		String connection3 = null;
+		String connection4 = null;
+		boolean connection1Locked = null;
+		boolean connection2Locked = null;
+		boolean connection3Locked = null;
+		boolean connection4Locked = null;
+		int connection1Key = null;
+		int connection2Key = null;
+		int connection3Key = null;
+		int connection4Key = null;
+		int pattern = null;
+		
+		try
+		{
+			FileReader fileReader = new FileReader(fileName);
+			Scanner inFile = new Scanner(fileReader);
+			
+			while (inFile.hasNextLine())
+			{
+				currLine = inFile.nextLine();
+				if (!currLine.contains("+"))
+				{
+					if (currLine.contains("@m"))
+						id = Integer.parseInt(currLine.substring(2));
+					if (currLine.contains("@n"))
+						name = currLine.substring(2);
+					if (currLine.contains("~"))
+					{
+						if (description.isEmpty())
+							description += currLine.substring(1);
+						else
+							description += "\n" + currLine.substring(1);
+					}
+					if (currLine.contains("@ds"))
+						isDead = Boolean.parseBoolean(currLine.substring(3));
+					if (currLine.contains("@i"))
+						items = Arrays.asList(currLine.substring(2).split(","));
+					
+					
+					
+					
+					if (currLine.contains("#"))
+						roomId = Integer.parseInt(currLine.substring(1));
+					if (currLine.contains("@v"))
+						isVisited = Boolean.parseBoolean(currLine.substring(2));
+					if (currLine.contains("~"))
+					{
+						if (description.isEmpty())
+							description += currLine.substring(1);
+						else
+							description += "\n" + currLine.substring(1);
+					}
+					if (currLine.contains("~-"))
+					{
+						if (description.isEmpty())
+							description += currLine.substring(2);
+						else
+							description += "\n" + currLine.substring(2);
+					}
+					if (currLine.contains("@i"))
+						items = Arrays.asList(currLine.substring(2).split(","));
+					if (currLine.contains("@p"))
+						puzzleID = Integer.parseInt(currLine.substring(2));
+					if (currLine.contains("@m"))
+						monsterID = Integer.parseInt(currLine.substring(2));
+					if (currLine.contains("@c1"))
+						connection1 = Integer.parseInt(currLine.substring(3));
+					if (currLine.contains("@c2"))
+						connection2 = Integer.parseInt(currLine.substring(3));
+					if (currLine.contains("@c3"))
+						connection3 = Integer.parseInt(currLine.substring(3));
+					if (currLine.contains("@c4"))
+						connection4 = Integer.parseInt(currLine.substring(3));
+					if (currLine.contains("@l1"))
+						connection1Locked = Boolean.parseBoolean(currLine.substring(3));
+					if (currLine.contains("@l2"))
+						connection2Locked = Boolean.parseBoolean(currLine.substring(3));
+					if (currLine.contains("@l3"))
+						connection3Locked = Boolean.parseBoolean(currLine.substring(3));
+					if (currLine.contains("@l4"))
+						connection4Locked = Boolean.parseBoolean(currLine.substring(3));
+					if (currLine.contains("@k1"))
+						connection1Key = Integer.parseInt(currLine.substring(3));
+					if (currLine.contains("@k2"))
+						connection2Key = Integer.parseInt(currLine.substring(3));
+					if (currLine.contains("@k3"))
+						connection3Key = Integer.parseInt(currLine.substring(3));
+					if (currLine.contains("@k4"))
+						connection4Key = Integer.parseInt(currLine.substring(3));
+					if (currLine.contains("@pa"))
+						pattern = Integer.parseInt(currLine.substring(3));
+				}
+				if (currLine.contains("+"))
+				{
+					allRooms.add(new Room(id, roomId, isVisited, description, descriptionVisited, items, puzzleID, connection1, connection2, connection3, connection4, connection1Locked, connection2Locked, connection3Locked, connection4Locked, connection1Key, connection2Key, connection3Key, connection4Key, pattern));
+					roomId = null;
+					isVisited = null;
+					description = null;
+					descriptionVisited = null;
+					items = null;
+					puzzleID = null;
+					monsterID = null;
+					connection1 = null;
+					connection2 = null;
+					connection3 = null;
+					connection4 = null;
+					connection1Locked = null;
+					connection2Locked = null;
+					connection3Locked = null;
+					connection4Locked = null;
+					connection1Key = null;
+					connection2Key = null;
+					connection3Key = null;
+					connection4Key = null;
+					pattern = null;
+				}
+			}
+		} catch (IOException e)
+		{
+			throw new FileNotFoundException("Room file not found.");
+		} finally
+		{
+			inFile.close();
+			fileReader.close();
+		}
 
+		return allRooms;
 	}
 
 	public static ArrayList<Item> readItems(String fileName) throws FileNotFoundException
@@ -206,17 +338,11 @@ public class FileManager
 				if (!currLine.contains("+"))
 				{
 					if (currLine.contains("@i"))
-					{
 						itemName = currLine.substring(2);
-					}
 					if (currLine.contains("@t"))
-					{
 						itemType = ItemType.valueOf(currLine.substring(2).toUpperCase());
-					}
 					if (currLine.contains("@dv"))
-					{
 						itemDelta = Integer.parseInt(currLine.substring(3));
-					}
 					if (currLine.contains("~"))
 					{
 						if (description.isEmpty())
@@ -305,9 +431,7 @@ public class FileManager
 				if (!currLine.contains("+"))
 				{
 					if (currLine.contains("@p"))
-					{
 						id = Integer.parseInt(currLine.substring(2));
-					}
 					if (currLine.contains("~"))
 					{
 						if (question.isEmpty())
@@ -316,37 +440,21 @@ public class FileManager
 							question += "\n" + currLine.substring(1);
 					}
 					if (currLine.contains("@a"))
-					{
 						answer = currLine.substring(2);
-					}
 					if (currLine.contains("@pmsg"))
-					{
 						passMessage = currLine.substring(5);
-					}
 					if (currLine.contains("@fmsg"))
-					{
 						failMessage = currLine.substring(5);
-					}					
 					if (currLine.contains("@at"))
-					{
 						attemptsAllowed = Integer.parseInt(currLine.substring(3));
-					}
 					if (currLine.contains("@h"))
-					{
 						hint = currLine.substring(2);
-					}
 					if (currLine.contains("@ss"))
-					{
 						solved = Boolean.parseBoolean(currLine.substring(3));
-					}
 					if (currLine.contains("@dmin"))
-					{
 						damageMin = Integer.parseInt(currLine.substring(5));
-					}
 					if (currLine.contains("@dmax"))
-					{
 						damageMax = Integer.parseInt(currLine.substring(5));
-					}
 				}
 				if (currLine.contains("+"))
 				{
@@ -429,13 +537,9 @@ public class FileManager
 				if (!currLine.contains("+"))
 				{
 					if (currLine.contains("@m"))
-					{
 						id = Integer.parseInt(currLine.substring(2));
-					}
 					if (currLine.contains("@n"))
-					{
 						name = currLine.substring(2);
-					}
 					if (currLine.contains("~"))
 					{
 						if (description.isEmpty())
@@ -444,21 +548,13 @@ public class FileManager
 							description += "\n" + currLine.substring(1);
 					}
 					if (currLine.contains("@ds"))
-					{
 						isDead = Boolean.parseBoolean(currLine.substring(3));
-					}
 					if (currLine.contains("@hp"))
-					{
-						healthPoints = Integer.parseInt(currLine.substring(3));
 					}
 					if (currLine.contains("@apmin"))
-					{
 						attackPointsMin = Integer.parseInt(currLine.substring(6));
-					}
 					if (currLine.contains("@apmax"))
-					{
 						attackPointsMax = Integer.parseInt(currLine.substring(6));
-					}
 				}
 				if (currLine.contains("+"))
 				{
