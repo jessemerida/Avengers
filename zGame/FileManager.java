@@ -251,6 +251,9 @@ public class FileManager
 				}
 				if (currLine.contains("+"))
 				{
+					if (items.get(0).equals("0"))
+						items.clear();
+					
 					allRooms.add(new Room(id, roomId, isVisited, description, descriptionVisited, items, puzzleID, connection1, connection2, connection3, connection4, connection1Locked, connection2Locked, connection3Locked, connection4Locked, connection1Key, connection2Key, connection3Key, connection4Key, pattern));
 					roomId = null;
 					isVisited = null;
