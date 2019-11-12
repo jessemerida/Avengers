@@ -1,0 +1,3 @@
+monsterID~name~description~isDead~healthPoints~attackPointsMin~attackPointsMax
+1~goblin~slimy creature~false~100~10~25
+2~dragon~fire creature~false~100~10~25

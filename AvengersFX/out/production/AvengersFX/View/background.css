@@ -1,0 +1,15 @@
+.bodybg{
+    -fx-background-image: url(parchmentpaper.png);
+    -fx-background-size: 100% 100%;
+}
+
+.myBorder{
+    -fx-border-color: #757264;
+    -fx-border-width: 7px;
+    -fx-background-color: #FFFBF2;
+}
+
+.imagebg{
+    -fx-background-image: url(exampleDoor.png);
+    -fx-background-size: 100% 100%;
+}

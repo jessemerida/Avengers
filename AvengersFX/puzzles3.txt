@@ -1,0 +1,3 @@
+puzzleId~puzzleQuestion~puzzleAnswer~puzzlePasssmsg~puzzleFailedmsg~puzzleAttempts~hint~isSolved~damageMin~damageMax
+1~what planet do you live on?~earth~answer correct~answer not correct~3~you should know this~false~5~15
+2~What color is the sky?~blue~answer correct~answer not correct~5~you should know this fr~false~5~15
