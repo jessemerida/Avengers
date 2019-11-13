@@ -485,41 +485,41 @@
 @vfalse
 ~As you enter the room you notice the floor is really sick and the smell is unbearable…..You notice a small little pouch hanging on a ledge.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iLargeHealthPotion
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@c121
+@c20
+@c328
+@c40
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 
 #25
 @vfalse
 ~You walk into the room and you see a man that is barely alive laying in the corner. You go over to assist him and he tells you that he isn't going to be able to carry on and wants you to take his Armor to use.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iBatteredArmor
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
+@c121
+@c20
+@c30
+@c429
+@l1false
+@l2false
+@l3false
 @l4true
-@k16
-@k26
-@k36
+@k10
+@k20
+@k30
 @k46
 
 
@@ -527,41 +527,41 @@
 @vfalse
 ~SPLLAAASHHHHHH!!! Walking into the room you trip over a tripwire and the room starts to fill bats and they are thirsty for BLOOD…..
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
-@p0
+@iLargeHealthPotion
+@pP05
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@c122
+@c20
+@c30
+@c40
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 
 #27
 @vfalse
 ~As you enter the room the floor starts to rumble…..There seems to be an inscription on the door.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
-@p0
-@m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
+@iLargeHealthPotion
+@pP07
+@mM08	
+@c10
+@c223
+@c30
+@c430
+@l1false
+@l2false
+@l3false
 @l4true
-@k16
-@k26
-@k36
+@k10
+@k20
+@k30
 @k46
 
 
@@ -569,60 +569,60 @@
 @vfalse
 ~You walk into a room and you see lots of shelves and racks along the wall. There is nothing in the middle of the floor. Wonder if they’re still alive.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iSmallHealthPotion, AncientSword
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@c10
+@c20
+@c324
+@c430
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 
 #29
 @vfalse
 ~You walk slowly into the room and you notice that there is a dark figure in the corner. “Chuckles” What do you want BOYYYY???? It's the Mighty HUN BATS!!! A one eyed ulger!!!
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iLargeHealthPotion
 @p0
-@m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@mM07	
+@c10
+@c20
+@c30
+@c425
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 
 #30
 @vfalse
 ~ROARRRRR!!! You walk into a room and you notice it is piping hot ...You look up and you see Vampire!! The 3 headed dragon from the depths of the UNDERWORLD!!!
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
-@p0
-@m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@iShiningArmor
+@pP10
+@mM06	
+@c10
+@c228
+@c327
+@c40
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
