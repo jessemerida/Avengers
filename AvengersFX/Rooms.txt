@@ -254,7 +254,7 @@
 @vfalse
 ~There are old expired fruits and canned goods. It seems like there were others here not too long ago. Wonder if they’re still alive.
 ~-You've been here before.
-@i
+@iRustyIronKey
 @p0
 @m0	
 @c111
@@ -317,41 +317,40 @@
 @vfalse
 ~The door was a little stuck but you finally push it open and walk into a small room with no doors….
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iLargeHealthPotion
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
-
+@c111
+@c212
+@c30
+@c40
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 #17
 @vfalse
 ~**CRACKKKK** as you walk into the room you see that the floor has infringed 2 inches and you hear a click. There is an army of ants starting to move towards you to covering the pathway.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
-@p0
+@iSmallHealthPotion
+@pP04
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
+@c10
+@c213
+@c30
+@c420
+@l1false
+@l2false
+@l3false
 @l4true
-@k16
-@k26
-@k36
+@k10
+@k20
+@k30
 @k46
 
 
@@ -359,20 +358,20 @@
 @vfalse
 ~It seems a bit cold, and you feel a draft on coming from a vent in the floor.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iBatteredArmor
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
+@c10
+@c20
+@c314
+@c420
+@l1false
+@l2false
+@l3false
 @l4true
-@k16
-@k26
-@k36
+@k10
+@k20
+@k30
 @k46
 
 
@@ -380,105 +379,104 @@
 @vfalse
 ~*OOOSSSHHH* as you walk into the room you are rushed with a gust of wind and are surrounded by vampires.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
-@p0
-@m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@i
+@pP06
+@mM03	
+@c10
+@c20
+@c30
+@c415
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 
 #20
 @vfalse
 ~ROARRRRR!!! You walk into a room and you notice it is piping hot ...You look up and you see Angry Chest!! The 3 headed dragon from the depths of the UNDERWORLD!!!
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
-@p0
-@m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
+@ShiningArmor
+@pP09
+@mM05	
+@c10
+@c217
+@c318
+@c421
+@l1false
+@l2false
+@l3false
 @l4true
-@k16
-@k26
-@k36
+@k10
+@k20
+@k30
 @k46
-
 
 #21
 @vfalse
 ~Congratulations HUN BATS has fallen ...Make sure you heal up to be sure you’re ready for any other obstacles in your way.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iSmallHealthPotion
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@c122
+@c223
+@c324
+@c425
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 
 #22
 @vfalse
 ~It is dark…..No light anywhere...as you grab the torch on the wall you begin to see that this is a dungeon where undesirables are kept in chains.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iSmallHealthPotion, SmallHealthPotion
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@c121
+@c226
+@c30
+@c40
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 
 #23
 @vfalse
 ~As you enter the room the door is blocked by a Brick that has protruded out of the floor. You slide through the opening in the door and see a chest in the corner.
 ~-You've been here before.
-@iRustyDagger, key1, key2, key3, key4
+@iRustyIronKey
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
-@l1true
-@l2true
-@l3true
-@l4true
-@k16
-@k26
-@k36
-@k46
+@c121
+@c227
+@c30
+@c40
+@l1false
+@l2false
+@l3false
+@l4false
+@k10
+@k20
+@k30
+@k40
 
 
 #24
