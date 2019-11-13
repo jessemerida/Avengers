@@ -18,7 +18,7 @@
 @k36
 @k46
 @pa1
-
++
 #2
 @vfalse
 ~The ancient civilization believed that potions were best to be taken. Life is uncertain, even in the afterlife. Room has an eerie ancient feel. You look across and see there is a deadlock on the door across. It is locked. 
@@ -39,7 +39,7 @@
 @k30
 @k40
 @pa2
-
++
 #3
 @vfalse
 ~It is dam and dim, but one can still see. Clank! You step on something.
@@ -60,12 +60,12 @@
 @k30
 @k40
 @pa3
-
++
 #4
 @vfalse
 ~***Boom!*** The walls are closing in slowly through the sides. Booby Trap! 
 ~-You've been here before.
-@i
+@i0
 @pP01
 @m0	
 @c11
@@ -81,7 +81,7 @@
 @k30
 @k40
 @pa2
-
++
 #5
 @vfalse
 ~You remember it’s your ringtone to remind you to feed your newborn. What a relief!! There are a lot of cobwebs, meaning no one has been here in a while. 
@@ -102,7 +102,7 @@
 @k30
 @k40
 @pa2
-
++
 #6
 @vfalse
 ~You feel mist all around you. It’s as if the rain was drizzling inside. Finally, the blurred Corpse Wing is appears. You run into the closet out of fear and desperation.
@@ -123,12 +123,12 @@
 @k30
 @k40
 @pa3
-
++
 #7
 @vfalse
 ~Darn it ! Another Booby Trap! The door across is locked. Smoke starts to seem in through the cracks of the doors and vents. Another health potion appears.
 ~-You've been here before.
-@i
+@i0
 @pP02
 @m0	
 @c10
@@ -144,7 +144,7 @@
 @k30
 @k46
 @pa2
-
++
 #8
 @vfalse
 ~Small little spiders scatter across when you enter. There’s a desk with open drawers.
@@ -165,7 +165,7 @@
 @k30
 @k46
 @pa2
-
++
 #9
 @vfalse
 ~As the crying child noise continues, you realize it was not just your ringtone. There’s an actual child in this room. It’s curse face. There are no other doors. 
@@ -186,12 +186,12 @@
 @k30
 @k40
 @pa3
-
++
 #10
 @vfalse
 ~**Pssssssttt!** It’s a bloody stoneseeker guarding something. Its strangely the size of a car. Better find something to fight or end up like the rest of these carcass lying around. The door in the room is locked. Hurry up, before you get cornered.
 ~-You've been here before.
-@i
+@i0
 @pP08
 @mM04	
 @c10
@@ -207,12 +207,12 @@
 @k30
 @k46
 @pa4
-
++
 #11
 @vfalse
 ~You hear rats scrambling turn on the lights. There are four doors again. Ugh! 
 ~-You've been here before.
-@i
+@i0
 @p0
 @m0	
 @c112
@@ -228,12 +228,12 @@
 @k30
 @k40
 @pa1
-
++
 #12
 @vfalse
 ~The room is toasty hot and lit. There are candles everywhere, along with the wax trailing off with dead insects trapped along it.
 ~-You've been here before.
-@i
+@i0
 @p0
 @m0	
 @c111
@@ -249,7 +249,7 @@
 @k30
 @k40
 @pa2
-
++
 #13
 @vfalse
 ~There are old expired fruits and canned goods. It seems like there were others here not too long ago. Wonder if they’re still alive.
@@ -270,12 +270,12 @@
 @k30
 @k40
 @pa2
-
++
 #14
 @vfalse
 ~Ave Maria! Poison darts slowly start to shoot and increase at a faster pace. Table in the center of the room. It is locked. 
 ~-You've been here before.
-@i
+@i0
 @pP03
 @m0	
 @c111
@@ -291,7 +291,7 @@
 @k30
 @k40
 @pa2
-
++
 #15
 @vfalse
 ~You walk into a room that is dry and dark. You hear screaming down the hall……..
@@ -312,7 +312,7 @@
 @k30
 @k46
 @pa2
-
++
 #16
 @vfalse
 ~The door was a little stuck but you finally push it open and walk into a small room with no doors….
@@ -333,7 +333,7 @@
 @k30
 @k40
 @pa3
-
++
 #17
 @vfalse
 ~**CRACKKKK** as you walk into the room you see that the floor has infringed 2 inches and you hear a click. There is an army of ants starting to move towards you to covering the pathway.
@@ -354,7 +354,7 @@
 @k30
 @k46
 @pa2
-
++
 #18
 @vfalse
 ~It seems a bit cold, and you feel a draft on coming from a vent in the floor.
@@ -375,12 +375,12 @@
 @k30
 @k46
 @pa2
-
++
 #19
 @vfalse
 ~*OOOSSSHHH* as you walk into the room you are rushed with a gust of wind and are surrounded by vampires.
 ~-You've been here before.
-@i
+@i0
 @pP06
 @mM03	
 @c10
@@ -396,7 +396,7 @@
 @k30
 @k40
 @pa3
-
++
 #20
 @vfalse
 ~ROARRRRR!!! You walk into a room and you notice it is piping hot ...You look up and you see Angry Chest!! The 3 headed dragon from the depths of the UNDERWORLD!!!
@@ -417,7 +417,7 @@
 @k30
 @k46
 @pa4
-
++
 #21
 @vfalse
 ~Congratulations HUN BATS has fallen ...Make sure you heal up to be sure you’re ready for any other obstacles in your way.
@@ -438,7 +438,7 @@
 @k30
 @k40
 @pa1
-
++
 #22
 @vfalse
 ~It is dark…..No light anywhere...as you grab the torch on the wall you begin to see that this is a dungeon where undesirables are kept in chains.
@@ -459,7 +459,7 @@
 @k30
 @k40
 @pa2
-
++
 #23
 @vfalse
 ~As you enter the room the door is blocked by a Brick that has protruded out of the floor. You slide through the opening in the door and see a chest in the corner.
@@ -480,7 +480,7 @@
 @k30
 @k40
 @pa2
-
++
 #24
 @vfalse
 ~As you enter the room you notice the floor is really sick and the smell is unbearable…..You notice a small little pouch hanging on a ledge.
@@ -501,7 +501,7 @@
 @k30
 @k40
 @pa2
-
++
 #25
 @vfalse
 ~You walk into the room and you see a man that is barely alive laying in the corner. You go over to assist him and he tells you that he isn't going to be able to carry on and wants you to take his Armor to use.
@@ -522,7 +522,7 @@
 @k30
 @k46
 @pa2
-
++
 #26
 @vfalse
 ~SPLLAAASHHHHHH!!! Walking into the room you trip over a tripwire and the room starts to fill bats and they are thirsty for BLOOD…..
@@ -543,7 +543,7 @@
 @k30
 @k40
 @pa3
-
++
 #27
 @vfalse
 ~As you enter the room the floor starts to rumble…..There seems to be an inscription on the door.
@@ -564,7 +564,7 @@
 @k30
 @k46
 @pa2
-
++
 #28
 @vfalse
 ~You walk into a room and you see lots of shelves and racks along the wall. There is nothing in the middle of the floor. Wonder if they’re still alive.
@@ -585,7 +585,7 @@
 @k30
 @k40
 @pa2
-
++
 #29
 @vfalse
 ~You walk slowly into the room and you notice that there is a dark figure in the corner. “Chuckles” What do you want BOYYYY???? It's the Mighty HUN BATS!!! A one eyed ulger!!!
@@ -606,7 +606,7 @@
 @k30
 @k40
 @pa3
-
++
 #30
 @vfalse
 ~ROARRRRR!!! You walk into a room and you notice it is piping hot ...You look up and you see Vampire!! The 3 headed dragon from the depths of the UNDERWORLD!!!
@@ -627,3 +627,4 @@
 @k30
 @k40
 @pa5
++

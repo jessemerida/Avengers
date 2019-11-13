@@ -17,6 +17,7 @@ public class Map {
     public Map() throws IOException, FileNotFoundException, InvalidRoomException {
         readTeamMemberFiles("Jesse");
         currentRoom = allRooms.get(0);
+        System.out.println("Total Rooms: " + allRooms.size());
     }
 
     private void readTeamMemberFiles(String name) throws IOException, FileNotFoundException, InvalidRoomException {
