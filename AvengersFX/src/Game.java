@@ -124,7 +124,6 @@ public class Game
 				System.out.println("Player has been killed! Game over.");
 				System.exit(0);
 			}
-
 		}
 
 		if (map.isCurrentRoomPuzzleSolved() == false)
