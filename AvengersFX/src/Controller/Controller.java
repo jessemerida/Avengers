@@ -156,7 +156,7 @@ public class Controller implements Initializable {
                 }
             }
         } catch (InvalidPuzzleException e) {
-            consoleTextAreaStringBuilder.append("\nPuzzle Exception");
+            consoleTextAreaStringBuilder.append("\nPuzzle Exception from Puzzle Part");
         }
 
 
