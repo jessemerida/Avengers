@@ -441,9 +441,10 @@ public class FileManager {
                     attackPointsMin = 0;
                     attackPointsMax = 0;
                 }
-                inFile.close();
-                fileReader.close();
             }
+
+            inFile.close();
+            fileReader.close();
         } catch (IOException e) {
             throw new FileNotFoundException("Monster file not found.");
         }
