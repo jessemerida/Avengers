@@ -1,12 +1,12 @@
 ﻿@iSmallHealthPotion
-@tHealing
+@tConsumable
 @dv10
-~A small vial full of red liquid with mysterious healing properties.
+~A small vial full of red liquid with mysterious Consumable properties.
 +
 @iLargeHealthPotion
-@tHealing
+@tConsumable
 @dv420
-~A big flask full of red healing liquid.
+~A big flask full of red Consumable liquid.
 +
 @iRustyIronKey1
 @tKey

@@ -15,7 +15,7 @@ public class Map {
     private ArrayList<Monster> allMonsters;
 
     public Map() throws IOException, FileNotFoundException, InvalidRoomException {
-        readTeamMemberFiles("HASAN");
+        readTeamMemberFiles("Jesse");
         currentRoom = allRooms.get(0);
     }
 
