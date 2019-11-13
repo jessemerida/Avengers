@@ -14,6 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -42,6 +43,9 @@ public class Controller implements Initializable {
         } catch (FileNotFoundException e) {
             consoleTextArea.setText(e.getMessage());
             System.exit(0);
+        }
+        catch (IOException e){
+            System.out.println(e.getMessage());
         }
 
         consoleTextFieldEventHandlerSetUp();
