@@ -1,0 +1,314 @@
+# 1
+@v false
+~ You came across 4 doors. To open a door you can knock or use this item to unlock. 
+1st door, you can hear an animal-like noises of scratching and breathing. 2nd door has blood splattered across with chants from rituals. 3rd door is almost falling off the edges. 4th door has sounds of babies crying.
+~- You've been here before.
+@i RustyDagger, key1, key2, key3, key4
+@p 0
+@m 0	
+@c1 2
+@c2 3
+@c3 4
+@c4 5
+@l1 true
+@l2 true
+@l3 true
+@l4 true
+@k1 6
+@k2 6
+@k3 6
+@k4 6
+
+
+# 2
+@v false
+~ The ancient civilization believed that potions were best to be taken. Life is uncertain, even in the afterlife. Room has an eerie ancient feel. You look across and see there is a deadlock on the door across. It is locked. 
+~- You've been here before.
+@i SmallHealthPotion, SmallHealthPotion
+@p 0
+@m 0	
+@c1 1
+@c2 6
+@c3 0
+@c4 0
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 3
+@v false
+~ It is dam and dim, but one can still see. Clank! You step on something.
+~- You've been here before.
+@i RustyIronKey
+@p 0
+@m 0	
+@c1 1
+@c2 0
+@c3 7
+@c4 0
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 4
+@v false
+~ ***Boom!*** The walls are closing in slowly through the sides. Booby Trap! 
+~- You've been here before.
+@i 
+@p P01
+@m 0	
+@c1 1
+@c2 0
+@c3 8
+@c4 0
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 5
+@v false
+~ You remember it’s your ringtone to remind you to feed your newborn. What a relief!! There are a lot of cobwebs, meaning no one has been here in a while. 
+~- You've been here before.
+@i 0
+@p 0
+@m 0	
+@c1 1
+@c2 0
+@c3 0
+@c4 9
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 6
+@v false
+~ You feel mist all around you. It’s as if the rain was drizzling inside. Finally, the blurred Corpse Wing is appears. You run into the closet out of fear and desperation.
+~- You've been here before.
+@i LargeHealthPotion, GoldenKey, BatteredArmor
+@p 0
+@m M01	
+@c1 2
+@c2 0
+@c3 0
+@c4 0
+@l1 true
+@l2 false
+@l3 false
+@l4 false
+@k1 6
+@k2 0
+@k3 0
+@k4 0
+
+
+# 7
+@v false
+~ Darn it ! Another Booby Trap! The door across is locked. Smoke starts to seem in through the cracks of the doors and vents. Another health potion appears.
+~- You've been here before.
+@i 
+@p P02
+@m 0	
+@c1 0
+@c2 3
+@c3 0
+@c4 10
+@l1 false
+@l2 false
+@l3 false
+@l4 true
+@k1 0
+@k2 0
+@k3 0
+@k4 6
+
+
+# 8
+@v false
+~ Small little spiders scatter across when you enter. There’s a desk with open drawers.
+~- You've been here before.
+@i 0
+@p 0
+@m 0	
+@c1 0
+@c2 0
+@c3 4
+@c4 10
+@l1 false
+@l2 false
+@l3 false
+@l4 true
+@k1 0
+@k2 0
+@k3 0
+@k4 6
+
+
+# 9
+@v false
+~ As the crying child noise continues, you realize it was not just your ringtone. There’s an actual child in this room. It’s curse face. There are no other doors. 
+~- You've been here before.
+@i LargeHealthPotion
+@p 0
+@m M02	
+@c1 0
+@c2 0
+@c3 0
+@c4 5
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 10
+@v false
+~ **Pssssssttt!** It’s a bloody stoneseeker guarding something. Its strangely the size of a car. Better find something to fight or end up like the rest of these carcass lying around. The door in the room is locked. Hurry up, before you get cornered.
+~- You've been here before.
+@i 
+@p P08
+@m M04	
+@c1 0
+@c2 7
+@c3 8
+@c4 11
+@l1 false
+@l2 false
+@l3 false
+@l4 true
+@k1 0
+@k2 0
+@k3 0
+@k4 6
+
+
+# 11
+@v false
+~ You hear rats scrambling turn on the lights. There are four doors again. Ugh! 
+~- You've been here before.
+@i 
+@p 0
+@m 0	
+@c1 12
+@c2 13
+@c3 14
+@c4 15
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 12
+@v false
+~ The room is toasty hot and lit. There are candles everywhere, along with the wax trailing off with dead insects trapped along it.
+~- You've been here before.
+@i 
+@p 0
+@m 0	
+@c1 11
+@c2 16
+@c3 0
+@c4 0
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 13
+@v false
+~ There are old expired fruits and canned goods. It seems like there were others here not too long ago. Wonder if they’re still alive.
+~- You've been here before.
+@i 
+@p 0
+@m 0	
+@c1 11
+@c2 0
+@c3 18
+@c4 0
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 14
+@v false
+~ Ave Maria! Poison darts slowly start to shoot and increase at a faster pace. Table in the center of the room. It is locked. 
+~- You've been here before.
+@i 
+@p P03
+@m 0	
+@c1 11
+@c2 0
+@c3 18
+@c4 0
+@l1 false
+@l2 false
+@l3 false
+@l4 false
+@k1 0
+@k2 0
+@k3 0
+@k4 0
+
+
+# 15
+@v false
+~You walk into a room that is dry and dark. You hear screaming down the hall……..
+~- You've been here before.
+@i LargeHealthPotion
+@p 0
+@m 0	
+@c1 11
+@c2 0
+@c3 0
+@c4 19
+@l1 false
+@l2 false
+@l3 false
+@l4 true
+@k1 0
+@k2 0
+@k3 0
+@k4 6
