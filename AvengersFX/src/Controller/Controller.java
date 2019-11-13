@@ -50,7 +50,7 @@ public class Controller implements Initializable {
         consoleTextAreaStringBuilder.append("\n");
         consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
         consoleTextAreaStringBuilder.append("\n");
-        consoleTextAreaStringBuilder.append("Connections:" + map.getCurrentRoomConnections());
+        consoleTextAreaStringBuilder.append("Connections:" + map.getCurrentRoomValidConnections());
 
         updateConsoleTextArea();
     }
@@ -98,7 +98,7 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
                 consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Connections: " + map.getCurrentRoomConnections());
+                consoleTextAreaStringBuilder.append("Connections: " + map.getCurrentRoomValidConnections());
             } else if (command.equalsIgnoreCase("stats")) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getPlayerStats());
@@ -129,7 +129,7 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
                 consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Connections:" + map.getCurrentRoomConnections());
+                consoleTextAreaStringBuilder.append("Connections:" + map.getCurrentRoomValidConnections());
             } else if (command.contains("unlock")) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.playerUnlocksDoor(command.split(" ")[1]));

@@ -186,9 +186,14 @@ public class Map
 		return currentRoom.getItems();
 	}
 
-	public String getCurrentRoomConnections()
+	public ArrayList<String> getCurrentRoomValidConnections()
 	{
-		return currentRoom.getConnections();
+		return currentRoom.getValidConnections();
+	}
+
+	public ArrayList<String> getCurrentRoomAllConnections()
+	{
+		return currentRoom.getAllConnections();
 	}
 
 	public int getCurrentRoomPattern()

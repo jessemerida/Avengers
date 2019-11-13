@@ -110,28 +110,40 @@ public class Room
 		return monsterID;
 	}
 
-	public String getConnections()
+	public ArrayList<String> getValidConnections()
 	{
-		String des = "";
+		ArrayList<String> connections = new ArrayList<String>();
 
 		if (!connection1.equals("0"))
 		{
-			des = connection1;
+			connections.add(connection1);
 		}
 		if (!connection2.equals("0"))
 		{
-			des += " " + connection2;
+			connections.add(connection2);
 		}
 		if (!connection3.equals("0"))
 		{
-			des += " " + connection3;
+			connections.add(connection3);
 		}
 		if (!connection4.equals("0"))
 		{
-			des += " " + connection4;
+			connections.add(connection4);
 		}
 
-		return des;
+		return connections;
+	}
+
+	public ArrayList<String> getAllConnections()
+	{
+		ArrayList<String> connections = new ArrayList<String>();
+
+		connections.add(connection1);
+		connections.add(connection2);
+		connections.add(connection3);
+		connections.add(connection4);
+
+		return connections;
 	}
 
 	public String getConnection1ID()

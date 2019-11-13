@@ -26,7 +26,7 @@ public class Game
 			map = new Map();
 			System.out.println(map.getCurrentRoomDescription());
 			System.out.println(map.getCurrentRoomItems());
-			System.out.println("Connections:" + map.getCurrentRoomConnections());
+			System.out.println("Connections:" + map.getCurrentRoomValidConnections());
 		} catch (GameException e)
 		{
 			System.out.println(e.getMessage());
@@ -74,7 +74,7 @@ public class Game
 		{
 			System.out.println(map.movePlayerTo(command.split(" ")[2]));
 			System.out.println(map.getCurrentRoomItems());
-			System.out.println("Connections: " + map.getCurrentRoomConnections());
+			System.out.println("Connections: " + map.getCurrentRoomValidConnections());
 		} else if (command.equalsIgnoreCase("stats"))
 		{
 			System.out.println(map.getPlayerStats());
@@ -103,7 +103,7 @@ public class Game
 		{
 			System.out.println(map.getCurrentRoomDescription());
 			System.out.println(map.getCurrentRoomItems());
-			System.out.println("Connections:" + map.getCurrentRoomConnections());
+			System.out.println("Connections:" + map.getCurrentRoomValidConnections());
 		} else if (command.contains("unlock"))
 		{
 			System.out.println(map.playerUnlocksDoor(command.split(" ")[1]));
