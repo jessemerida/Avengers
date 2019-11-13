@@ -40,15 +40,15 @@ public class FileManager
 
 	}
 	
-	public static Player readPlayer2(String fileName) throws IOException
+	public static Player readPlayer2(String fileName) throws FileNotFoundException
 	{
 		FileReader fileReader = null;
 		Scanner inFile = null;
 		
 		Player player = null;
-		String currLine = null;
+		String currLine = "";
 
-		String playername = null;
+		String playername = "";
 		int currenthealthPoints = 0;
 		int maxHealthPoints = 0;
 		ArrayList<String> items = new ArrayList<String>();
@@ -85,13 +85,11 @@ public class FileManager
 					defaultAttack = 0;
 				}
 			}
+			inFile.close();
+			fileReader.close();
 		} catch (IOException e)
 		{
 			throw new FileNotFoundException("Player file not found.");
-		} finally
-		{
-			inFile.close();
-			fileReader.close();
 		}
 
 		return player;
@@ -144,25 +142,25 @@ public class FileManager
 		return allRooms;
 	}
 	
-	public static ArrayList<Room> readRooms2(String fileName) throws IOException
+	public static ArrayList<Room> readRooms2(String fileName) throws FileNotFoundException
 	{
 		FileReader fileReader = null;
 		Scanner inFile = null;
 		
 		ArrayList<Room> allRooms = new ArrayList<Room>();
-		String currLine = null;
+		String currLine = "";
 
-		String roomId = null;
+		String roomId = "";
 		boolean isVisited = false;
-		String description = null;
-		String descriptionVisited = null;
-		ArrayList<String> items = null;
-		String puzzleID = null;
-		String monsterID = null;
-		String connection1 = null;
-		String connection2 = null;
-		String connection3 = null;
-		String connection4 = null;
+		String description = "";
+		String descriptionVisited = "";
+		ArrayList<String> items = new ArrayList<String>();
+		String puzzleID = "";
+		String monsterID = "";
+		String connection1 = "";
+		String connection2 = "";
+		String connection3 = "";
+		String connection4 = "";
 		boolean connection1Locked = false;
 		boolean connection2Locked = false;
 		boolean connection3Locked = false;
@@ -240,17 +238,17 @@ public class FileManager
 						items.clear();
 
 					allRooms.add(new Room(roomId, isVisited, description, descriptionVisited, items, puzzleID, monsterID, connection1, connection2, connection3, connection4, connection1Locked, connection2Locked, connection3Locked, connection4Locked, connection1Key, connection2Key, connection3Key, connection4Key, pattern));
-					roomId = null;
+					roomId = "";
 					isVisited = false;
-					description = null;
-					descriptionVisited = null;
-					items = null;
-					puzzleID = null;
-					monsterID = null;
-					connection1 = null;
-					connection2 = null;
-					connection3 = null;
-					connection4 = null;
+					description = "";
+					descriptionVisited = "";
+					items = new ArrayList<String>();
+					puzzleID = "";
+					monsterID = "";
+					connection1 = "";
+					connection2 = "";
+					connection3 = "";
+					connection4 = "";
 					connection1Locked = false;
 					connection2Locked = false;
 					connection3Locked = false;
@@ -262,13 +260,11 @@ public class FileManager
 					pattern = 0;
 				}
 			}
+			inFile.close();
+			fileReader.close();
 		} catch (IOException e)
 		{
 			throw new FileNotFoundException("Room file not found.");
-		} finally
-		{
-			inFile.close();
-			fileReader.close();
 		}
 
 		return allRooms;
@@ -305,18 +301,18 @@ public class FileManager
 		return allItems;
 	}
 
-	public static ArrayList<Item> readItems2(String fileName) throws IOException
+	public static ArrayList<Item> readItems2(String fileName) throws FileNotFoundException
 	{
 		FileReader fileReader = null;
 		Scanner inFile = null;
 		
 		ArrayList<Item> allItems = new ArrayList<Item>();
-		String currLine = null;
+		String currLine = "";
 
-		String itemName = null;
+		String itemName = "";
 		ItemType itemType = null;
 		int itemDelta = 0;
-		String description = null;
+		String description = "";
 
 		try
 		{
@@ -345,19 +341,17 @@ public class FileManager
 				if (currLine.contains("+"))
 				{
 					allItems.add(new Item(itemName, itemType, itemDelta, description));
-					itemName = null;
+					itemName = "";
 					itemType = null;
 					itemDelta = 0;
-					description = null;
+					description = "";
 				}
 			}
+			inFile.close();
+			fileReader.close();
 		} catch (IOException e)
 		{
 			throw new FileNotFoundException("Item file not found.");
-		} finally
-		{
-			inFile.close();
-			fileReader.close();
 		}
 
 		return allItems;
@@ -395,21 +389,21 @@ public class FileManager
 
 	}
 
-	public static ArrayList<Puzzle> readPuzzles2(String fileName) throws IOException
+	public static ArrayList<Puzzle> readPuzzles2(String fileName) throws FileNotFoundException
 	{
 		FileReader fileReader = null;
 		Scanner inFile = null;
 		
 		ArrayList<Puzzle> allPuzzles = new ArrayList<Puzzle>();
-		String currLine = null;
+		String currLine = "";
 
-		String id = null;
-		String question = null;
-		String answer = null;
-		String passMessage = null;
-		String failMessage = null;
+		String id = "";
+		String question = "";
+		String answer = "";
+		String passMessage = "";
+		String failMessage = "";
 		int attemptsAllowed = 0;
-		String hint = null;
+		String hint = "";
 		boolean solved = false;
 		int damageMin = 0;
 		int damageMax = 0;
@@ -453,25 +447,23 @@ public class FileManager
 				if (currLine.contains("+"))
 				{
 					allPuzzles.add(new Puzzle(id, question, answer, passMessage, failMessage, attemptsAllowed, hint, solved, damageMin, damageMax));
-					id = null;
-					question = null;
-					answer = null;
-					passMessage = null;
-					failMessage = null;
+					id = "";
+					question = "";
+					answer = "";
+					passMessage = "";
+					failMessage = "";
 					attemptsAllowed = 0;
-					hint = null;
+					hint = "";
 					solved = false;
 					damageMin = 0;
 					damageMax = 0;
 				}
 			}
+			inFile.close();
+			fileReader.close();
 		} catch (IOException e)
 		{
 			throw new FileNotFoundException("Puzzle file not found.");
-		} finally
-		{
-			inFile.close();
-			fileReader.close();
 		}
 
 		return allPuzzles;
@@ -507,17 +499,17 @@ public class FileManager
 		return allMonsters;
 	}
 	
-	public static ArrayList<Monster> readMonsters2(String fileName) throws IOException
+	public static ArrayList<Monster> readMonsters2(String fileName) throws FileNotFoundException
 	{
 		FileReader fileReader = null;
 		Scanner inFile = null;
 		
 		ArrayList<Monster> allMonsters = new ArrayList<Monster>();
-		String currLine = null;
+		String currLine = "";
 
-		String id = null;
-		String name = null;
-		String description = null;
+		String id = "";
+		String name = "";
+		String description = "";
 		boolean isDead = false;
 		int healthPoints = 0;
 		int attackPointsMin = 0;
@@ -556,22 +548,20 @@ public class FileManager
 				if (currLine.contains("+"))
 				{
 					allMonsters.add(new Monster(id, name, description, isDead, healthPoints, attackPointsMin, attackPointsMax));
-					id = null;
-					name = null;
-					description = null;
+					id = "";
+					name = "";
+					description = "";
 					isDead = false;
 					healthPoints = 0;
 					attackPointsMin = 0;
 					attackPointsMax = 0;
 				}
+				inFile.close();
+				fileReader.close();
 			}
 		} catch (IOException e)
 		{
 			throw new FileNotFoundException("Monster file not found.");
-		} finally
-		{
-			inFile.close();
-			fileReader.close();
 		}
 
 		return allMonsters;
