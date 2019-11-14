@@ -1,15 +1,65 @@
-.bodybg{
+.bodybg {
     -fx-background-image: url(parchmentpaper.png);
     -fx-background-size: 100% 100%;
 }
 
-.myBorder{
+.myBorder {
     -fx-border-color: #757264;
     -fx-border-width: 7px;
     -fx-background-color: #FFFBF2;
 }
 
-.imagebg{
+.imagebg {
     -fx-background-image: url(exampleDoor.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg0 {
+    -fx-background-image: url(image0.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg1 {
+    -fx-background-image: url(image1.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg2 {
+    -fx-background-image: url(image2.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg3 {
+    -fx-background-image: url(image3.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg4 {
+    -fx-background-image: url(image4.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg0a {
+    -fx-background-image: url(../../Images/image0.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg1a {
+    -fx-background-image: url(../../Images/image1.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg2a {
+    -fx-background-image: url(../../Images/image2.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg3a {
+    -fx-background-image: url(../../Images/image3.png);
+    -fx-background-size: 100% 100%;
+}
+
+.imagebg4a {
+    -fx-background-image: url(../../Images/image4.png);
     -fx-background-size: 100% 100%;
 }

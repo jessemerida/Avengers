@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.StackPane;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,6 +32,9 @@ public class Controller implements Initializable {
     @FXML
     private TextArea consoleTextArea;
 
+    @FXML
+    private StackPane imageStackPane;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -47,6 +51,7 @@ public class Controller implements Initializable {
             System.out.println(e.getMessage());
         }
 
+        imageStackPane.getStyleClass().add("imagebg4");
         consoleTextFieldEventHandlerSetUp();
 
         consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
