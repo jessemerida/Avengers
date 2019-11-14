@@ -8,15 +8,18 @@ import Model.Map;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -27,13 +30,16 @@ public class Controller implements Initializable {
     private StringBuilder consoleTextAreaStringBuilder;
 
     @FXML
-    private TextField consoleTextField;
+    private GridPane navigationGridPane;
+
+    @FXML
+    private StackPane imageStackPane;
 
     @FXML
     private TextArea consoleTextArea;
 
     @FXML
-    private StackPane imageStackPane;
+    private TextField consoleTextField;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,8 +57,11 @@ public class Controller implements Initializable {
             System.out.println(e.getMessage());
         }
 
+        navigationGridPane.getChildren().clear();
         imageStackPane.getStyleClass().add("imagebg4");
-        consoleTextFieldEventHandlerSetUp();
+
+        setUpNavigationGridPane();
+        setUpConsoleTextFieldEventHandler();
 
         consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
         consoleTextAreaStringBuilder.append("\n");
@@ -81,8 +90,34 @@ public class Controller implements Initializable {
         returnToResults();
     }
 
+    private void createNavigationButtonEventHandler(Button button, int index) {
+        button.setOnAction((event -> {
+            try {
+                map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
+            } catch (InvalidRoomException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+            updateConsoleTextArea();
+        }));
 
-    private void consoleTextFieldEventHandlerSetUp() {
+    }
+
+    private void createNavigationButton(String name, int index) {
+        Button button = new Button(name);
+        navigationGridPane.add(button, index, 0);
+        createNavigationButtonEventHandler(button, index);
+    }
+
+    private void setUpNavigationGridPane() {
+        ArrayList<String> connections = map.getCurrentRoomValidConnections();
+        for (int i = 0; i < connections.size(); i++) {
+            System.out.println(connections.get(i));
+            createNavigationButton(connections.get(i), i);
+        }
+    }
+
+    private void setUpConsoleTextFieldEventHandler() {
         consoleTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {

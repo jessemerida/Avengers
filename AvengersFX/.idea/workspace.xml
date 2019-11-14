@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/View/image0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/View/image4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/image1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/image1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/image2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/image2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Images/image4.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/image4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Controller/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Controller/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/View/background.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/View/background.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Model/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Model/FileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Model/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Model/Map.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/View/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/View/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/background.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/background.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -90,34 +82,25 @@
     <favorites_list name="JavaFxApplication" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/sample.fxml">
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="918">
+            <state relative-caret-position="461">
               <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+            <state relative-caret-position="374">
+              <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/background.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -179,9 +162,9 @@
         <option value="$PROJECT_DIR$/src/Model/Room.java" />
         <option value="$PROJECT_DIR$/rooms2.txt" />
         <option value="$PROJECT_DIR$/src/Model/FileManager.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/View/background.css" />
         <option value="$PROJECT_DIR$/src/View/sample.fxml" />
+        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -201,8 +184,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -397,18 +380,19 @@
       <workItem from="1573695420371" duration="176000" />
       <workItem from="1573695613407" duration="568000" />
       <workItem from="1573696204610" duration="243000" />
-      <workItem from="1573696469234" duration="72000" />
+      <workItem from="1573696469234" duration="490000" />
+      <workItem from="1573698406239" duration="2354000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36283000" />
+    <option name="totallyTimeSpent" value="39055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1554" height="916" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49425286" visible="true" weight="0.2021419" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49425286" visible="true" weight="0.16131191" />
       <window_info id="Structure" order="1" sideWeight="0.5019157" side_tool="true" weight="0.32931727" />
       <window_info id="Favorites" order="2" sideWeight="0.49808428" weight="0.32931727" />
       <window_info id="Designer" order="3" />
@@ -446,9 +430,9 @@
       <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" weight="0.18875502" />
-      <window_info id="Structure" order="1" visible="true" weight="0.16398929" />
-      <window_info id="Favorites" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49425286" visible="true" weight="0.15997322" />
+      <window_info id="Structure" order="1" sideWeight="0.5019157" side_tool="true" weight="0.32931727" />
+      <window_info id="Favorites" order="2" sideWeight="0.49808428" weight="0.32931727" />
       <window_info id="Designer" order="3" />
       <window_info id="Learn" order="4" />
       <window_info id="Image Layers" order="5" />
@@ -456,13 +440,13 @@
       <window_info id="UI Designer" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2707535" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30395913" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39974457" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32950193" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
@@ -695,21 +679,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/sample.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="918">
+        <state relative-caret-position="461">
           <caret line="54" column="26" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="103" column="5" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
