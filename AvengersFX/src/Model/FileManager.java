@@ -159,8 +159,8 @@ public class FileManager {
                         else description += "\n" + currLine.substring(1);
                     }
                     if (currLine.contains("~-")) {
-                        if (description.isEmpty()) description += currLine.substring(2);
-                        else description += "\n" + currLine.substring(2);
+                        if (descriptionVisited.isEmpty()) descriptionVisited += currLine.substring(2);
+                        else descriptionVisited += "\n" + currLine.substring(2);
                     }
                     if (currLine.contains("@i"))
                         items = new ArrayList<String>(Arrays.asList(currLine.substring(2).split(",")));
