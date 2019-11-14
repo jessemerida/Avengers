@@ -79,7 +79,7 @@
 ~Brand new armor in pristine condition.
 +
 @iRustyDagger
-@Weapon
+@tWeapon
 @dv5
 ~The blade of this dagger has been dulled by rust, but it beats fighting with your bare hands.
 +
