@@ -112,7 +112,7 @@ public class Controller implements Initializable {
             } else if (command.contains("pickup")) {
                 consoleTextAreaStringBuilder.append("\n");
                 String string = command.split(" ")[1];
-                consoleTextAreaStringBuilder.append("\n!!" + string + "!!");
+                //consoleTextAreaStringBuilder.append("\n!!" + string + "!!");
                 consoleTextAreaStringBuilder.append(map.pickupPlayerItem(string));
             } else if (command.contains("drop")) {
                 consoleTextAreaStringBuilder.append("\n");

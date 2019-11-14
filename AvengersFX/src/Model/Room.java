@@ -74,7 +74,6 @@ public class Room {
 
     public void dropItem(String item) throws InvalidItemException {
         if (items.contains(item) == false) {
-            System.out.println(items);
             throw new InvalidItemException(item + " is not here");
         } else {
             items.remove(items.indexOf(item));
