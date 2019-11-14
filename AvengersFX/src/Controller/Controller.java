@@ -65,10 +65,14 @@ public class Controller implements Initializable {
         imageStackPane.getStyleClass().add("imagebg4");
 
         initializeButtonsNotInFXML();
-        initializeButtonsNotInFXMLEventHandler();
+
 
         setUpNavigationGridPane();
+
         setUpConsoleTextFieldEventHandler();
+
+        setUpButtonsNotInFXML();
+        setUpButtonsNotInFXMLEventHandler();
 
 
         consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
@@ -102,11 +106,19 @@ public class Controller implements Initializable {
         button.setOnAction((event -> {
             try {
                 map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
+                consoleTextAreaStringBuilder.setLength(0);
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
             } catch (InvalidRoomException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
             updateConsoleTextArea();
+            setUpNavigationGridPane();
         }));
 
     }
@@ -121,13 +133,17 @@ public class Controller implements Initializable {
 
     private void initializeButtonsNotInFXML() {
         exploreButton = new Button("Explore");
+    }
+
+    private void setUpButtonsNotInFXML() {
         GridPane.setHalignment(exploreButton, HPos.CENTER);
         GridPane.setValignment(exploreButton, VPos.CENTER);
         navigationGridPane.add(exploreButton, 2, 2);
     }
 
-    private void initializeButtonsNotInFXMLEventHandler() {
+    private void setUpButtonsNotInFXMLEventHandler() {
         exploreButton.setOnAction((event -> {
+            consoleTextAreaStringBuilder.setLength(0);
             consoleTextAreaStringBuilder.append("\n");
             consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
             consoleTextAreaStringBuilder.append("\n");
@@ -139,6 +155,7 @@ public class Controller implements Initializable {
     }
 
     private void setUpNavigationGridPane() {
+        navigationGridPane.getChildren().clear();
         ArrayList<String> connections = map.getCurrentRoomValidConnections();
         for (int i = 0; i < connections.size(); i++) {
             System.out.println(connections.get(i));
