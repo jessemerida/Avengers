@@ -356,7 +356,7 @@ public class FileManager {
                     if (currLine.contains("@a")) answer = currLine.substring(2);
                     if (currLine.contains("@pmsg")) passMessage = currLine.substring(5);
                     if (currLine.contains("@fmsg")) failMessage = currLine.substring(5);
-                    if (currLine.contains("@at")) attemptsAllowed = Integer.parseInt(currLine.substring(3));
+                    if (currLine.contains("@try")) attemptsAllowed = Integer.parseInt(currLine.substring(4));
                     if (currLine.contains("@h")) hint = currLine.substring(2);
                     if (currLine.contains("@ss")) solved = Boolean.parseBoolean(currLine.substring(3));
                     if (currLine.contains("@dmin")) damageMin = Integer.parseInt(currLine.substring(5));
