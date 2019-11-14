@@ -1,7 +1,7 @@
 #1
 @vfalse
 ~You came across 4 doors. To open a door you can knock or use this item to unlock. 1st door, you can hear an animal-like noises of scratching and breathing. 2nd door has blood splattered across with chants from rituals. 3rd door is almost falling off the edges. 4th door has sounds of babies crying.
-~-You've been here before.
+=-You've been here before.
 @iRustyDagger, RustyIronKey1, RustyIronKey2, RustyIronKey3, RustyIronKey4
 @p0
 @m0	
@@ -22,7 +22,7 @@
 #2
 @vfalse
 ~The ancient civilization believed that potions were best to be taken. Life is uncertain, even in the afterlife. Room has an eerie ancient feel. You look across and see there is a deadlock on the door across. It is locked. 
-~-You've been here before.
+=-You've been here before.
 @iSmallHealthPotion, SmallHealthPotion
 @p0
 @m0	
@@ -43,7 +43,7 @@
 #3
 @vfalse
 ~It is dam and dim, but one can still see. Clank! You step on something.
-~-You've been here before.
+=-You've been here before.
 @iRustyIronKey
 @p0
 @m0	
@@ -64,7 +64,7 @@
 #4
 @vfalse
 ~***Boom!*** The walls are closing in slowly through the sides. Booby Trap! 
-~-You've been here before.
+=-You've been here before.
 @i0
 @pP01
 @m0	
@@ -85,7 +85,7 @@
 #5
 @vfalse
 ~You remember it’s your ringtone to remind you to feed your newborn. What a relief!! There are a lot of cobwebs, meaning no one has been here in a while. 
-~-You've been here before.
+=-You've been here before.
 @i0
 @p0
 @m0	
@@ -106,7 +106,7 @@
 #6
 @vfalse
 ~You feel mist all around you. It’s as if the rain was drizzling inside. Finally, the blurred Corpse Wing is appears. You run into the closet out of fear and desperation.
-~-You've been here before.
+=-You've been here before.
 @iLargeHealthPotion, GoldenKey, BatteredArmor
 @p0
 @mM01	
@@ -127,7 +127,7 @@
 #7
 @vfalse
 ~Darn it ! Another Booby Trap! The door across is locked. Smoke starts to seem in through the cracks of the doors and vents. Another health potion appears.
-~-You've been here before.
+=-You've been here before.
 @i0
 @pP02
 @m0	
@@ -148,7 +148,7 @@
 #8
 @vfalse
 ~Small little spiders scatter across when you enter. There’s a desk with open drawers.
-~-You've been here before.
+=-You've been here before.
 @i0
 @p0
 @m0	
@@ -169,7 +169,7 @@
 #9
 @vfalse
 ~As the crying child noise continues, you realize it was not just your ringtone. There’s an actual child in this room. It’s curse face. There are no other doors. 
-~-You've been here before.
+=-You've been here before.
 @iLargeHealthPotion
 @p0
 @mM02	
@@ -190,7 +190,7 @@
 #10
 @vfalse
 ~**Pssssssttt!** It’s a bloody stoneseeker guarding something. Its strangely the size of a car. Better find something to fight or end up like the rest of these carcass lying around. The door in the room is locked. Hurry up, before you get cornered.
-~-You've been here before.
+=-You've been here before.
 @i0
 @pP08
 @mM04	
@@ -211,7 +211,7 @@
 #11
 @vfalse
 ~You hear rats scrambling turn on the lights. There are four doors again. Ugh! 
-~-You've been here before.
+=-You've been here before.
 @i0
 @p0
 @m0	
@@ -232,7 +232,7 @@
 #12
 @vfalse
 ~The room is toasty hot and lit. There are candles everywhere, along with the wax trailing off with dead insects trapped along it.
-~-You've been here before.
+=-You've been here before.
 @i0
 @p0
 @m0	
@@ -253,7 +253,7 @@
 #13
 @vfalse
 ~There are old expired fruits and canned goods. It seems like there were others here not too long ago. Wonder if they’re still alive.
-~-You've been here before.
+=-You've been here before.
 @iRustyIronKey
 @p0
 @m0	
@@ -274,7 +274,7 @@
 #14
 @vfalse
 ~Ave Maria! Poison darts slowly start to shoot and increase at a faster pace. Table in the center of the room. It is locked. 
-~-You've been here before.
+=-You've been here before.
 @i0
 @pP03
 @m0	
@@ -295,7 +295,7 @@
 #15
 @vfalse
 ~You walk into a room that is dry and dark. You hear screaming down the hall……..
-~-You've been here before.
+=-You've been here before.
 @iLargeHealthPotion
 @p0
 @m0	
@@ -316,7 +316,7 @@
 #16
 @vfalse
 ~The door was a little stuck but you finally push it open and walk into a small room with no doors….
-~-You've been here before.
+=-You've been here before.
 @iLargeHealthPotion
 @p0
 @m0	
@@ -337,7 +337,7 @@
 #17
 @vfalse
 ~**CRACKKKK** as you walk into the room you see that the floor has infringed 2 inches and you hear a click. There is an army of ants starting to move towards you to covering the pathway.
-~-You've been here before.
+=-You've been here before.
 @iSmallHealthPotion
 @pP04
 @m0	
@@ -358,7 +358,7 @@
 #18
 @vfalse
 ~It seems a bit cold, and you feel a draft on coming from a vent in the floor.
-~-You've been here before.
+=-You've been here before.
 @iBatteredArmor
 @p0
 @m0	
@@ -379,7 +379,7 @@
 #19
 @vfalse
 ~*OOOSSSHHH* as you walk into the room you are rushed with a gust of wind and are surrounded by vampires.
-~-You've been here before.
+=-You've been here before.
 @i0
 @pP06
 @mM03	
@@ -400,7 +400,7 @@
 #20
 @vfalse
 ~ROARRRRR!!! You walk into a room and you notice it is piping hot ...You look up and you see Angry Chest!! The 3 headed dragon from the depths of the UNDERWORLD!!!
-~-You've been here before.
+=-You've been here before.
 @ShiningArmor
 @pP09
 @mM05	
@@ -421,7 +421,7 @@
 #21
 @vfalse
 ~Congratulations HUN BATS has fallen ...Make sure you heal up to be sure you’re ready for any other obstacles in your way.
-~-You've been here before.
+=-You've been here before.
 @iSmallHealthPotion
 @p0
 @m0	
@@ -442,7 +442,7 @@
 #22
 @vfalse
 ~It is dark…..No light anywhere...as you grab the torch on the wall you begin to see that this is a dungeon where undesirables are kept in chains.
-~-You've been here before.
+=-You've been here before.
 @iSmallHealthPotion, SmallHealthPotion
 @p0
 @m0	
@@ -463,7 +463,7 @@
 #23
 @vfalse
 ~As you enter the room the door is blocked by a Brick that has protruded out of the floor. You slide through the opening in the door and see a chest in the corner.
-~-You've been here before.
+=-You've been here before.
 @iRustyIronKey
 @p0
 @m0	
@@ -484,7 +484,7 @@
 #24
 @vfalse
 ~As you enter the room you notice the floor is really sick and the smell is unbearable…..You notice a small little pouch hanging on a ledge.
-~-You've been here before.
+=-You've been here before.
 @iLargeHealthPotion
 @p0
 @m0	
@@ -505,7 +505,7 @@
 #25
 @vfalse
 ~You walk into the room and you see a man that is barely alive laying in the corner. You go over to assist him and he tells you that he isn't going to be able to carry on and wants you to take his Armor to use.
-~-You've been here before.
+=-You've been here before.
 @iBatteredArmor
 @p0
 @m0	
@@ -526,7 +526,7 @@
 #26
 @vfalse
 ~SPLLAAASHHHHHH!!! Walking into the room you trip over a tripwire and the room starts to fill bats and they are thirsty for BLOOD…..
-~-You've been here before.
+=-You've been here before.
 @iLargeHealthPotion
 @pP05
 @m0	
@@ -547,7 +547,7 @@
 #27
 @vfalse
 ~As you enter the room the floor starts to rumble…..There seems to be an inscription on the door.
-~-You've been here before.
+=-You've been here before.
 @iLargeHealthPotion
 @pP07
 @mM08	
@@ -568,7 +568,7 @@
 #28
 @vfalse
 ~You walk into a room and you see lots of shelves and racks along the wall. There is nothing in the middle of the floor. Wonder if they’re still alive.
-~-You've been here before.
+=-You've been here before.
 @iSmallHealthPotion, AncientSword
 @p0
 @m0	
@@ -589,7 +589,7 @@
 #29
 @vfalse
 ~You walk slowly into the room and you notice that there is a dark figure in the corner. “Chuckles” What do you want BOYYYY???? It's the Mighty HUN BATS!!! A one eyed ulger!!!
-~-You've been here before.
+=-You've been here before.
 @iLargeHealthPotion
 @p0
 @mM07	
@@ -610,7 +610,7 @@
 #30
 @vfalse
 ~ROARRRRR!!! You walk into a room and you notice it is piping hot ...You look up and you see Vampire!! The 3 headed dragon from the depths of the UNDERWORLD!!!
-~-You've been here before.
+=-You've been here before.
 @iShiningArmor
 @pP10
 @mM06	
