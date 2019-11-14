@@ -26,6 +26,7 @@ public class Controller implements Initializable {
     private StringBuilder consoleTextAreaStringBuilder;
 
     private Button exploreButton;
+    private Button pickupAllButton;
 
     @FXML
     private GridPane navigationGridPane;
@@ -61,14 +62,11 @@ public class Controller implements Initializable {
         navigationGridPane.getChildren().clear();
         imageStackPane.getStyleClass().add("imagebg4");
 
-        initializeButtonsNotInFXML();
-
-
         setUpNavigationGridPane();
+        initializeNavigationButtonsNotInFXML();
 
         setUpConsoleTextFieldEventHandler();
 
-        setUpButtonsNotInFXML();
         setUpButtonsNotInFXMLEventHandler();
 
 
@@ -104,17 +102,39 @@ public class Controller implements Initializable {
         consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
     }
 
-    private void initializeButtonsNotInFXML() {
+    private void initializeNavigationButtonsNotInFXML() {
         exploreButton = new Button("Explore");
+        initializeNavigationButtonsNotInFXMLHelper(exploreButton, 2, 2);
+        pickupAllButton = new Button("PickUp All");
+        initializeNavigationButtonsNotInFXMLHelper(pickupAllButton, 2, 1);
     }
 
-    private void setUpButtonsNotInFXML() {
-        GridPane.setHalignment(exploreButton, HPos.CENTER);
-        GridPane.setValignment(exploreButton, VPos.CENTER);
-        navigationGridPane.add(exploreButton, 2, 2);
+    private void initializeNavigationButtonsNotInFXMLHelper(Button buttonsNotInFXML, int columnIndex, int rowIndex) {
+        GridPane.setHalignment(buttonsNotInFXML, HPos.CENTER);
+        GridPane.setValignment(buttonsNotInFXML, VPos.CENTER);
+        navigationGridPane.add(buttonsNotInFXML, columnIndex, rowIndex);
     }
 
     private void setUpButtonsNotInFXMLEventHandler() {
+        pickupAllButton.setOnAction(event -> {
+            try {
+                for (int i = 0; i < map.getCurrentRoomItems().size(); ) {
+                    consoleTextAreaStringBuilder.append("\n");
+                    consoleTextAreaStringBuilder.append("Picked up " + map.getCurrentRoomItems().get(0) + ".");
+                    map.pickupPlayerItem(map.getCurrentRoomItems().get(0));
+                    updateConsoleTextArea();
+                }
+                setUpInventoryGridPane();
+            } catch (InvalidItemException e) {
+                consoleTextAreaStringBuilder.setLength(0);
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("Could not pick up all items.");
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+                updateConsoleTextArea();
+            }
+        });
+
         exploreButton.setOnAction((event -> {
             roomDescriptionAssembler();
             updateConsoleTextArea();
