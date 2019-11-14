@@ -73,6 +73,7 @@ public class Room {
     }
 
     public void dropItem(String item) throws InvalidItemException {
+        System.out.println(items);
         if (items.contains(item) == false) {
             throw new InvalidItemException(item + " is not here");
         } else {
