@@ -67,7 +67,7 @@ public class Controller implements Initializable {
 
         setUpConsoleTextFieldEventHandler();
 
-        setUpButtonsNotInFXMLEventHandler();
+        setUpButtonsNotInFXMLEventHandlerHelper();
 
 
         roomDescriptionAssembler();
@@ -107,6 +107,7 @@ public class Controller implements Initializable {
         initializeNavigationButtonsNotInFXMLHelper(exploreButton, 2, 2);
         pickupAllButton = new Button("PickUp All");
         initializeNavigationButtonsNotInFXMLHelper(pickupAllButton, 2, 1);
+        setUpButtonsNotInFXMLEventHandlerHelper();
     }
 
     private void initializeNavigationButtonsNotInFXMLHelper(Button buttonsNotInFXML, int columnIndex, int rowIndex) {
@@ -115,7 +116,7 @@ public class Controller implements Initializable {
         navigationGridPane.add(buttonsNotInFXML, columnIndex, rowIndex);
     }
 
-    private void setUpButtonsNotInFXMLEventHandler() {
+    private void setUpButtonsNotInFXMLEventHandlerHelper() {
         pickupAllButton.setOnAction(event -> {
             try {
                 for (int i = 0; i < map.getCurrentRoomItems().size(); ) {
@@ -166,6 +167,7 @@ public class Controller implements Initializable {
 
     private void setUpNavigationGridPane() {
         navigationGridPane.getChildren().clear();
+        initializeNavigationButtonsNotInFXML();
         ArrayList<String> connections = map.getCurrentRoomValidConnections();
         for (int i = 0; i < connections.size(); i++) {
             navigationButtonCreateHelper(connections.get(i), i);
@@ -176,7 +178,7 @@ public class Controller implements Initializable {
         nameButton.setOnAction((event -> {
             try {
                 consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index));
+                consoleTextAreaStringBuilder.append(map.inspectItem(map.getPlayerInventory().get(index)));
                 updateConsoleTextArea();
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilder.append("\n");
