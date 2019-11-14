@@ -2,7 +2,7 @@
 ~This body has no ears or tongue, so he's not able to use phones, tickling doesn't work on him 
 ~because he's only made of bones.
 @aSkeleton
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hA boney body
@@ -14,7 +14,7 @@
 ~In the center of a web, are several trapped little flies, heading in to eat them all, is this creature 
 ~with bulging eyes.
 @aSpider
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hThey walk on webs
@@ -26,7 +26,7 @@
 ~This animal can be quite long, but it doesn’t have a great height, it can have deadly venom 
 ~though, so beware because it can bite.
 @aSnake
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hCobras, pythons, are considered a …..
@@ -38,7 +38,7 @@
 ~This builds a hill but isn’t a mole, in fact it is a small insect, it can sometimes be red or fire, and 
 ~it builds tunnels that connect.
 @aAnt
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hThey make their homes in the grass and they’re made up of sand
@@ -50,7 +50,7 @@
 ~These winged creatures often scare people, if you touch one you are brave, they’re often 
 ~found just hanging out, upside down inside a cave.
 @aBat
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hYou hit a baseball with this
@@ -62,7 +62,7 @@
 ~It’s sometimes in the form of a bat, and upside down it hangs, but when it’s in its human form, 
 ~in its mouth you will find fangs.
 @aVampire
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hThey transform into bats
@@ -74,7 +74,7 @@
 ~Sometimes to get inside a door, all you need to do is knock, other times you will need this 
 ~thing, so the door you can unlock.
 @aKey
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hYou need this to open a locked treasure chest
@@ -86,7 +86,7 @@
 ~When you put a person in this you shouldn’t hear any knocks if you do there’s been a mistake 
 ~and you should open this pine box.
 @aCoffin
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hVampires sleep in these
@@ -98,7 +98,7 @@
 ~I’m often a rectangle but I’m not a soccer goal I often have a handle and sometimes have a 
 ~keyhole.
 @aDoor
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hThey are located around your home and start with a d
@@ -110,7 +110,7 @@
 ~I am a type of family pet that is sometimes known as a feline if I get into an accident it’s OK 
 ~because lives I have nine.
 @aCat
-@pmsgAnswer correct.
+@msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
 @hA baby of this pet is called kitten
