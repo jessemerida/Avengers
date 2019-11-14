@@ -182,9 +182,9 @@ public class Controller implements Initializable {
     private void inventoryDropButtonEventHandlerCreateHelper(Button dropButton, int index) {
         dropButton.setOnAction(event -> {
             try {
-                map.dropPlayerItem(map.getPlayerInventory().get(index));
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " dropped.");
+                map.dropPlayerItem(map.getPlayerInventory().get(index));
                 updateConsoleTextArea();
                 setUpInventoryGridPane();
             } catch (InvalidItemException e) {
@@ -212,6 +212,7 @@ public class Controller implements Initializable {
     }
 
     private void setUpInventoryGridPane() {
+        inventoryGridPane.getChildren().clear();
         try {
             ArrayList<String> inventory = map.getPlayerInventory();
             for (int i = 0; i < inventory.size(); i++) {
