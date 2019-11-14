@@ -38,7 +38,7 @@
 @dv6
 ~A heavy key coated in a layer of red rust.
 +
-!RustyIronKey7
+@iRustyIronKey7
 @tKey
 @dv7
 ~A heavy key coated in a layer of red rust.
