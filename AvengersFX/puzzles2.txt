@@ -4,7 +4,7 @@
 @aSkeleton
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hA boney body
 @ssfalse
 @dmin5
@@ -16,7 +16,7 @@
 @aSpider
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hThey walk on webs
 @ssfalse
 @dmin5
@@ -28,7 +28,7 @@
 @aSnake
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hCobras, pythons, are considered a …..
 @ssfalse
 @dmin5
@@ -40,7 +40,7 @@
 @aAnt
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hThey make their homes in the grass and they’re made up of sand
 @ssfalse
 @dmin5
@@ -52,7 +52,7 @@
 @aBat
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hYou hit a baseball with this
 @ssfalse
 @dmin5
@@ -64,7 +64,7 @@
 @aVampire
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hThey transform into bats
 @ssfalse
 @dmin5
@@ -76,7 +76,7 @@
 @aKey
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hYou need this to open a locked treasure chest
 @ssfalse
 @dmin5
@@ -88,7 +88,7 @@
 @aCoffin
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hVampires sleep in these
 @ssfalse
 @dmin5
@@ -100,7 +100,7 @@
 @aDoor
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hThey are located around your home and start with a d
 @ssfalse
 @dmin5
@@ -112,7 +112,7 @@
 @aCat
 @pmsgAnswer correct.
 @fmsgAnswer incorrect.
-@at3
+@try3
 @hA baby of this pet is called kitten
 @ssfalse
 @dmin5
