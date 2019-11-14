@@ -43,8 +43,7 @@ public class Controller implements Initializable {
         } catch (FileNotFoundException e) {
             consoleTextArea.setText(e.getMessage());
             System.exit(0);
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
@@ -77,6 +76,7 @@ public class Controller implements Initializable {
         returnToResults();
     }
 
+
     private void consoleTextFieldEventHandlerSetUp() {
         consoleTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
@@ -91,7 +91,7 @@ public class Controller implements Initializable {
     }
 
     private void consoleTextFieldCommands() {
-        String command = consoleTextField.getText().toLowerCase();
+        String command = consoleTextField.getText();
         try {
             if (consoleTextField.getText().equalsIgnoreCase("Commands")) {
                 consoleTextAreaStringBuilder.append("\n");
@@ -111,7 +111,9 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append(map.getPlayerInventory().toString());
             } else if (command.contains("pickup")) {
                 consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.pickupPlayerItem(command.split(" ")[1]));
+                String string = command.split(" ")[1];
+                consoleTextAreaStringBuilder.append("\n!!" + string + "!!");
+                consoleTextAreaStringBuilder.append(map.pickupPlayerItem(string));
             } else if (command.contains("drop")) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.dropPlayerItem(command.split(" ")[1]));
