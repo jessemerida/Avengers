@@ -164,6 +164,10 @@ public class FileManager {
                     }
                     if (currLine.contains("@i"))
                         items = new ArrayList<String>(Arrays.asList(currLine.substring(2).split(",")));
+                    for (int i = 0; i < items.size(); i++) {
+                        String tempItem = items.get(i);
+                        items.set(i, tempItem.trim());
+                    }
                     if (currLine.contains("@p")) puzzleID = currLine.substring(2);
                     if (currLine.contains("@m")) monsterID = currLine.substring(2);
                     if (currLine.contains("@c1")) connection1 = currLine.substring(3);
