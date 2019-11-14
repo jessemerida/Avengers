@@ -8,6 +8,8 @@ import Model.Map;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -28,6 +30,8 @@ public class Controller implements Initializable {
     private Map map;
 
     private StringBuilder consoleTextAreaStringBuilder;
+
+    private Button exploreButton;
 
     @FXML
     private GridPane navigationGridPane;
@@ -60,8 +64,12 @@ public class Controller implements Initializable {
         navigationGridPane.getChildren().clear();
         imageStackPane.getStyleClass().add("imagebg4");
 
+        initializeButtonsNotInFXML();
+        initializeButtonsNotInFXMLEventHandler();
+
         setUpNavigationGridPane();
         setUpConsoleTextFieldEventHandler();
+
 
         consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
         consoleTextAreaStringBuilder.append("\n");
@@ -105,8 +113,29 @@ public class Controller implements Initializable {
 
     private void createNavigationButton(String name, int index) {
         Button button = new Button(name);
-        navigationGridPane.add(button, index, 0);
+        GridPane.setHalignment(button, HPos.CENTER);
+        GridPane.setValignment(button, VPos.CENTER);
         createNavigationButtonEventHandler(button, index);
+        navigationGridPane.add(button, index, 4);
+    }
+
+    private void initializeButtonsNotInFXML() {
+        exploreButton = new Button("Explore");
+        GridPane.setHalignment(exploreButton, HPos.CENTER);
+        GridPane.setValignment(exploreButton, VPos.CENTER);
+        navigationGridPane.add(exploreButton, 2, 2);
+    }
+
+    private void initializeButtonsNotInFXMLEventHandler() {
+        exploreButton.setOnAction((event -> {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
+            updateConsoleTextArea();
+        }));
     }
 
     private void setUpNavigationGridPane() {
