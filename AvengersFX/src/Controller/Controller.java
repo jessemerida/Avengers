@@ -82,6 +82,7 @@ public class Controller implements Initializable {
             @Override
             public void handle(KeyEvent event) {
                 if (event.getCode().equals(KeyCode.ENTER)) {
+                    consoleTextAreaStringBuilder.setLength(0);
                     consoleTextFieldCommands();
                     consoleTextField.setText("");
                     updateConsoleTextArea();
@@ -146,10 +147,10 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append("Please ented a valid command. \nEnter 'Commands' to see a list of valid commands");
             }
         } catch (InvalidRoomException e) {
-            consoleTextAreaStringBuilder.append("\nRoom Exception from Commands");
+            consoleTextAreaStringBuilder.append("\nRoom Exception from Commands\n");
             consoleTextAreaStringBuilder.append(e.getMessage());
         } catch (GameException e) {
-            consoleTextAreaStringBuilder.append("\nGame Exception from Commands");
+            consoleTextAreaStringBuilder.append("\nGame Exception from Commands\n");
             consoleTextAreaStringBuilder.append(e.getMessage());
         }
 
