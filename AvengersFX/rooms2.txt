@@ -2,7 +2,7 @@
 @vfalse
 ~You came across 4 doors. To open a door you can knock or use this item to unlock. 1st door, you can hear an animal-like noises of scratching and breathing. 2nd door has blood splattered across with chants from rituals. 3rd door is almost falling off the edges. 4th door has sounds of babies crying.
 ~-You've been here before.
-@iRustyDagger, RustyIronKey, RustyIronKey, RustyIronKey
+@iRustyDagger, RustyIronKey1, RustyIronKey2, RustyIronKey3, RustyIronKey4
 @p0
 @m0	
 @c12
@@ -13,10 +13,10 @@
 @l2true
 @l3true
 @l4true
-@k16
-@k26
-@k36
-@k46
+@k11
+@k22
+@k33
+@k44
 @pa1
 +
 #2
