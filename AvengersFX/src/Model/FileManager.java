@@ -354,7 +354,7 @@ public class FileManager {
                         else question += "\n" + currLine.substring(1);
                     }
                     if (currLine.contains("@a")) answer = currLine.substring(2);
-                    if (currLine.contains("@pmsg")) passMessage = currLine.substring(5);
+                    if (currLine.contains("@msg")) passMessage = currLine.substring(4);
                     if (currLine.contains("@fmsg")) failMessage = currLine.substring(5);
                     if (currLine.contains("@try")) attemptsAllowed = Integer.parseInt(currLine.substring(4));
                     if (currLine.contains("@h")) hint = currLine.substring(2);
