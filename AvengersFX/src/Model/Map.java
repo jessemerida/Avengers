@@ -208,6 +208,10 @@ public class Map {
         return player.clearEquippedItem();
     }
 
+    public boolean compareEquipedPlayerItem(String item) {
+        return item.equals(player.getEquippedItem());
+    }
+
     public boolean isCurrentRoomPuzzleSolved() {
         try {
             return getPuzzle(currentRoom.getPuzzleId()).isSolved();

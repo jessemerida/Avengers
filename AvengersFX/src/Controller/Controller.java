@@ -192,6 +192,22 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " equipped.");
                 updateConsoleTextArea();
+                setUpInventoryGridPane();
+            } catch (InvalidItemException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+        });
+    }
+
+    private void inventoryUnequipButtonEventHandlerCreateHelper(Button equipButton, int index) {
+        equipButton.setOnAction(event -> {
+            try {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " unequipped.");
+                map.unequipPlayerItem();
+                updateConsoleTextArea();
+                setUpInventoryGridPane();
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
@@ -219,12 +235,22 @@ public class Controller implements Initializable {
         inventoryGridPane.add(nameButton, 0, index);
         inventoryNameButtonEventHandlerCreateHelper(nameButton, index);
 
-        Button equipButton = new Button("Equip");
-        inventoryGridPane.add(equipButton, 1, index);
-        inventoryEquipButtonEventHandlerCreateHelper(equipButton, index);
-
-        //TODO fix me
-        Button unequipButton = new Button("Unequip");
+        try {
+            if (map.compareEquipedPlayerItem(map.getPlayerInventory().get(index))) {
+                Button unequipButton = new Button("Unequip");
+                inventoryGridPane.add(unequipButton, 1, index);
+                inventoryUnequipButtonEventHandlerCreateHelper(unequipButton, index);
+            } else {
+                Button equipButton = new Button("Equip");
+                inventoryGridPane.add(equipButton, 1, index);
+                inventoryEquipButtonEventHandlerCreateHelper(equipButton, index);
+            }
+        } catch (InvalidItemException e) {
+            consoleTextAreaStringBuilder.setLength(0);
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(e.getMessage());
+            updateConsoleTextArea();
+        }
 
         Button dropButton = new Button("Drop");
         inventoryDropButtonEventHandlerCreateHelper(dropButton, index);
