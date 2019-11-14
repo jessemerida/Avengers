@@ -1,11 +1,6 @@
-//test
 package Controller;
 
-import Model.GameException;
-import Model.InvalidPuzzleException;
-import Model.InvalidRoomException;
-import Model.Map;
-import javafx.event.EventHandler;
+import Model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
@@ -14,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
@@ -35,6 +29,9 @@ public class Controller implements Initializable {
 
     @FXML
     private GridPane navigationGridPane;
+
+    @FXML
+    private GridPane inventoryGridPane;
 
     @FXML
     private StackPane imageStackPane;
@@ -75,12 +72,7 @@ public class Controller implements Initializable {
         setUpButtonsNotInFXMLEventHandler();
 
 
-        consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
-        consoleTextAreaStringBuilder.append("\n");
-        consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
-        consoleTextAreaStringBuilder.append("\n");
-        consoleTextAreaStringBuilder.append("Connections:" + map.getCurrentRoomValidConnections());
-
+        roomDescriptionAssembler();
         updateConsoleTextArea();
     }
 
@@ -102,33 +94,14 @@ public class Controller implements Initializable {
         returnToResults();
     }
 
-    private void createNavigationButtonEventHandler(Button button, int index) {
-        button.setOnAction((event -> {
-            try {
-                map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
-                consoleTextAreaStringBuilder.setLength(0);
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
-            } catch (InvalidRoomException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
-            }
-            updateConsoleTextArea();
-            setUpNavigationGridPane();
-        }));
-
-    }
-
-    private void createNavigationButton(String name, int index) {
-        Button button = new Button(name);
-        GridPane.setHalignment(button, HPos.CENTER);
-        GridPane.setValignment(button, VPos.CENTER);
-        createNavigationButtonEventHandler(button, index);
-        navigationGridPane.add(button, index, 4);
+    private void roomDescriptionAssembler() {
+        consoleTextAreaStringBuilder.setLength(0);
+        consoleTextAreaStringBuilder.append("\n");
+        consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
+        consoleTextAreaStringBuilder.append("\n");
+        consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
+        consoleTextAreaStringBuilder.append("\n");
+        consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
     }
 
     private void initializeButtonsNotInFXML() {
@@ -143,36 +116,120 @@ public class Controller implements Initializable {
 
     private void setUpButtonsNotInFXMLEventHandler() {
         exploreButton.setOnAction((event -> {
-            consoleTextAreaStringBuilder.setLength(0);
-            consoleTextAreaStringBuilder.append("\n");
-            consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
-            consoleTextAreaStringBuilder.append("\n");
-            consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
-            consoleTextAreaStringBuilder.append("\n");
-            consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
+            roomDescriptionAssembler();
             updateConsoleTextArea();
         }));
+    }
+
+    private void navigationButtonEventHandlerCreateHelper(Button button, int index) {
+        button.setOnAction((event -> {
+            try {
+                map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
+                roomDescriptionAssembler();
+            } catch (InvalidRoomException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+            updateConsoleTextArea();
+            setUpNavigationGridPane();
+        }));
+
+    }
+
+    private void navigationButtonCreateHelper(String name, int index) {
+        Button button = new Button(name);
+        GridPane.setHalignment(button, HPos.CENTER);
+        GridPane.setValignment(button, VPos.CENTER);
+        navigationButtonEventHandlerCreateHelper(button, index);
+        navigationGridPane.add(button, index, 4);
     }
 
     private void setUpNavigationGridPane() {
         navigationGridPane.getChildren().clear();
         ArrayList<String> connections = map.getCurrentRoomValidConnections();
         for (int i = 0; i < connections.size(); i++) {
-            System.out.println(connections.get(i));
-            createNavigationButton(connections.get(i), i);
+            navigationButtonCreateHelper(connections.get(i), i);
+        }
+    }
+
+    private void inventoryNameButtonEventHandlerCreateHelper(Button nameButton, int index) {
+        nameButton.setOnAction((event -> {
+            try {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index));
+                updateConsoleTextArea();
+            } catch (InvalidItemException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+        }));
+    }
+
+    private void inventoryEquipButtonEventHandlerCreateHelper(Button equipButton, int index) {
+        equipButton.setOnAction(event -> {
+            try {
+                map.equipPlayerItem(map.getPlayerInventory().get(index));
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " equipped.");
+                updateConsoleTextArea();
+            } catch (InvalidItemException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+        });
+    }
+
+    private void inventoryDropButtonEventHandlerCreateHelper(Button dropButton, int index) {
+        dropButton.setOnAction(event -> {
+            try {
+                map.dropPlayerItem(map.getPlayerInventory().get(index));
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " dropped.");
+                updateConsoleTextArea();
+                setUpInventoryGridPane();
+            } catch (InvalidItemException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+        });
+    }
+
+    private void inventoryButtonsCreateHelper(String name, int index) {
+        Button nameButton = new Button(name);
+        inventoryGridPane.add(nameButton, 0, index);
+        inventoryNameButtonEventHandlerCreateHelper(nameButton, index);
+
+        Button equipButton = new Button("Equip");
+        inventoryGridPane.add(equipButton, 1, index);
+        inventoryEquipButtonEventHandlerCreateHelper(equipButton, index);
+
+        //TODO fix me
+        Button unequipButton = new Button("Unequip");
+
+        Button dropButton = new Button("Drop");
+        inventoryDropButtonEventHandlerCreateHelper(dropButton, index);
+        inventoryGridPane.add(dropButton, 2, index);
+    }
+
+    private void setUpInventoryGridPane() {
+        try {
+            ArrayList<String> inventory = map.getPlayerInventory();
+            for (int i = 0; i < inventory.size(); i++) {
+                inventoryButtonsCreateHelper(inventory.get(i), i);
+            }
+        } catch (InvalidItemException e) {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(e.getMessage());
         }
     }
 
     private void setUpConsoleTextFieldEventHandler() {
-        consoleTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if (event.getCode().equals(KeyCode.ENTER)) {
-                    consoleTextAreaStringBuilder.setLength(0);
-                    consoleTextFieldCommands();
-                    consoleTextField.setText("");
-                    updateConsoleTextArea();
-                }
+        consoleTextField.setOnKeyPressed((event) -> {
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                consoleTextAreaStringBuilder.setLength(0);
+                consoleTextFieldCommands();
+                consoleTextField.setText("");
+                updateConsoleTextArea();
             }
         });
     }
@@ -199,8 +256,8 @@ public class Controller implements Initializable {
             } else if (command.contains("pickup")) {
                 consoleTextAreaStringBuilder.append("\n");
                 String string = command.split(" ")[1];
-                //consoleTextAreaStringBuilder.append("\n!!" + string + "!!");
                 consoleTextAreaStringBuilder.append(map.pickupPlayerItem(string));
+                setUpInventoryGridPane();
             } else if (command.contains("drop")) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.dropPlayerItem(command.split(" ")[1]));
