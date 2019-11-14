@@ -394,7 +394,7 @@ public class Map {
             } else {
                 throw new InvalidItemException(connection + " is already unlocked");
             }
-        } else if (connection.equalsIgnoreCase(currentRoom.getConnection3ID())) {
+        } else if (connection.equalsIgnoreCase(currentRoom.getConnection4ID())) {
             if (currentRoom.isConnection4Locked()) {
                 if (equippedItem.getItemDelta() == currentRoom.getConnection4Key()) {
                     currentRoom.setConnection4Locked(false);
