@@ -63,6 +63,7 @@ public class FileManager {
                     if (currLine.contains("@ap")) defaultAttack = Integer.parseInt(currLine.substring(3));
                 }
                 if (currLine.contains("+")) {
+                    if (items.get(0).equals("0")) items.clear();
                     player = new Player(playername, currenthealthPoints, maxHealthPoints, items, defaultAttack);
                     playername = "";
                     currenthealthPoints = 0;
