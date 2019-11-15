@@ -92,6 +92,7 @@ public class Map {
         Monster monster = null;
 
         for (int i = 0; i < allMonsters.size(); i++) {
+            System.out.println("AllMonsterID:" + allMonsters.get(i).getMonsterID() + " monsterID:" + monsterID);
             if (allMonsters.get(i).getMonsterID().equals(monsterID)) {
                 monster = allMonsters.get(i);
             }
@@ -244,6 +245,8 @@ public class Map {
 
     public boolean isCurrentRoomMonsterDead() {
         try {
+            System.out.println("current room monster id:" + currentRoom.getMonsterID());
+            System.out.println(getMonster(currentRoom.getMonsterID()).getName());
             return getMonster(currentRoom.getMonsterID()).isMonsterDead();
         } catch (InvalidMonsterException e) {
             return true;

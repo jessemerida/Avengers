@@ -170,7 +170,11 @@ public class FileManager {
                         items.set(i, tempItem.trim());
                     }
                     if (currLine.contains("@p")) puzzleID = currLine.substring(2);
-                    if (currLine.contains("@m")) monsterID = currLine.substring(2);
+                    if (currLine.contains("@m")) {
+                        monsterID = currLine.substring(2);
+                        //System.out.println("readRooms2 roomId:"+roomId+" MonsterID:" + monsterID);
+                    }
+
                     if (currLine.contains("@c1")) connection1 = currLine.substring(3);
                     if (currLine.contains("@c2")) connection2 = currLine.substring(3);
                     if (currLine.contains("@c3")) connection3 = currLine.substring(3);
@@ -188,28 +192,28 @@ public class FileManager {
 
                 if (currLine.contains("+")) {
                     allRooms.add(new Room(roomId, isVisited, description, descriptionVisited, items, puzzleID, monsterID, connection1, connection2, connection3, connection4, connection1Locked, connection2Locked, connection3Locked, connection4Locked, connection1Key, connection2Key, connection3Key, connection4Key, pattern));
-//                                        if (items.get(0).equals("0")) items.clear();
-                                        // USED TO BE HERE
-                                        roomId = "";
-                                        isVisited = false;
-                                        description = "";
-                                        descriptionVisited = "";
-                                        items = new ArrayList<String>();
-                                        puzzleID = "";
-                                        monsterID = "";
-                                        connection1 = "";
-                                        connection2 = "";
-                                        connection3 = "";
-                                        connection4 = "";
-                                        connection1Locked = false;
-                                        connection2Locked = false;
-                                        connection3Locked = false;
-                                        connection4Locked = false;
-                                        connection1Key = 0;
-                                        connection2Key = 0;
-                                        connection3Key = 0;
-                                        connection4Key = 0;
-                                        pattern = 0;
+                    //                                        if (items.get(0).equals("0")) items.clear();
+                    // USED TO BE HERE
+                    roomId = "";
+                    isVisited = false;
+                    description = "";
+                    descriptionVisited = "";
+                    items = new ArrayList<String>();
+                    puzzleID = "";
+                    monsterID = "";
+                    connection1 = "";
+                    connection2 = "";
+                    connection3 = "";
+                    connection4 = "";
+                    connection1Locked = false;
+                    connection2Locked = false;
+                    connection3Locked = false;
+                    connection4Locked = false;
+                    connection1Key = 0;
+                    connection2Key = 0;
+                    connection3Key = 0;
+                    connection4Key = 0;
+                    pattern = 0;
                 }
                 /**
                  * LOOP END
@@ -433,7 +437,10 @@ public class FileManager {
             while (inFile.hasNextLine()) {
                 currLine = inFile.nextLine();
                 if (!currLine.contains("+")) {
-                    if (currLine.contains("@m")) id = currLine.substring(2);
+                    if (currLine.contains("@m")) {
+                        id = currLine.substring(2);
+                        //System.out.println("readMonsters2 MonsterID:" + id);
+                    }
                     if (currLine.contains("@n")) name = currLine.substring(2);
                     if (currLine.contains("~")) {
                         if (description.isEmpty()) description += currLine.substring(1);

@@ -139,10 +139,26 @@ public class Controller implements Initializable {
 
     public void setUpCombatButtonEventHandlers() {
         attackButton.setOnAction(event -> {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append("Mad deeps.");
+            updateConsoleTextArea();
         });
+
         examineMonsterButton.setOnAction(event -> {
+            try {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getMonsterDescription());
+            } catch (InvalidMonsterException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+            updateConsoleTextArea();
         });
+
         escapeButton.setOnAction(event -> {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append("RUN AWAY! Doesn't work yet.");
+            updateConsoleTextArea();
         });
     }
 
@@ -191,6 +207,13 @@ public class Controller implements Initializable {
             try {
                 map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
                 roomDescriptionAssembler();
+
+                if (map.isCurrentRoomMonsterDead()) {
+                    consoleTextAreaStringBuilder.append("\nMonster Dead.");
+                } else {
+                    consoleTextAreaStringBuilder.append("\nMonster Alive");
+                }
+
             } catch (InvalidRoomException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
