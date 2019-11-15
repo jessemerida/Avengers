@@ -159,7 +159,7 @@ public class FileManager {
                         if (description.isEmpty()) description += currLine.substring(1);
                         else description += "\n" + currLine.substring(1);
                     }
-                    if (currLine.contains("~-")) {
+                    if (currLine.contains("=-")) {
                         if (descriptionVisited.isEmpty()) descriptionVisited += currLine.substring(2);
                         else descriptionVisited += "\n" + currLine.substring(2);
                     }
@@ -188,28 +188,28 @@ public class FileManager {
 
                 if (currLine.contains("+")) {
                     allRooms.add(new Room(roomId, isVisited, description, descriptionVisited, items, puzzleID, monsterID, connection1, connection2, connection3, connection4, connection1Locked, connection2Locked, connection3Locked, connection4Locked, connection1Key, connection2Key, connection3Key, connection4Key, pattern));
-                    //                    if (items.get(0).equals("0")) items.clear();
-                    //                    // USED TO BE HERE
-                    //                    roomId = "";
-                    //                    isVisited = false;
-                    //                    description = "";
-                    //                    descriptionVisited = "";
-                    //                    items = new ArrayList<String>();
-                    //                    puzzleID = "";
-                    //                    monsterID = "";
-                    //                    connection1 = "";
-                    //                    connection2 = "";
-                    //                    connection3 = "";
-                    //                    connection4 = "";
-                    //                    connection1Locked = false;
-                    //                    connection2Locked = false;
-                    //                    connection3Locked = false;
-                    //                    connection4Locked = false;
-                    //                    connection1Key = 0;
-                    //                    connection2Key = 0;
-                    //                    connection3Key = 0;
-                    //                    connection4Key = 0;
-                    //                    pattern = 0;
+//                                        if (items.get(0).equals("0")) items.clear();
+                                        // USED TO BE HERE
+                                        roomId = "";
+                                        isVisited = false;
+                                        description = "";
+                                        descriptionVisited = "";
+                                        items = new ArrayList<String>();
+                                        puzzleID = "";
+                                        monsterID = "";
+                                        connection1 = "";
+                                        connection2 = "";
+                                        connection3 = "";
+                                        connection4 = "";
+                                        connection1Locked = false;
+                                        connection2Locked = false;
+                                        connection3Locked = false;
+                                        connection4Locked = false;
+                                        connection1Key = 0;
+                                        connection2Key = 0;
+                                        connection3Key = 0;
+                                        connection4Key = 0;
+                                        pattern = 0;
                 }
                 /**
                  * LOOP END
