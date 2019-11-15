@@ -85,9 +85,9 @@ public class Controller implements Initializable {
 
         setUpConsoleTextFieldEventHandler();
 
-        setUpNavigationButtonsNotInFXMLEventHandlerHelper();
+        navigationButtonsNotInFXMLEventHandlerHelper();
 
-
+        resetView();
         roomDescriptionAssembler();
         updateConsoleTextArea();
     }
@@ -124,6 +124,11 @@ public class Controller implements Initializable {
         GridPane.setHalignment(button, HPos.CENTER);
         GridPane.setValignment(button, VPos.CENTER);
         gridPane.add(button, columnIndex, rowIndex);
+    }
+
+    public void resetView() {
+        tabPane.getTabs().clear();
+        tabPane.getTabs().addAll(navigationTab, inventoryTab);
     }
 
     private void initializeCombatButtons() {
@@ -172,11 +177,11 @@ public class Controller implements Initializable {
         initializeGridPaneButtonsHelper(navigationGridPane, exploreButton, 2, 2);
         pickupAllButton = new Button("PickUp All");
         initializeGridPaneButtonsHelper(navigationGridPane, pickupAllButton, 2, 1);
-        setUpNavigationButtonsNotInFXMLEventHandlerHelper();
+        navigationButtonsNotInFXMLEventHandlerHelper();
     }
 
 
-    private void setUpNavigationButtonsNotInFXMLEventHandlerHelper() {
+    private void navigationButtonsNotInFXMLEventHandlerHelper() {
         pickupAllButton.setOnAction(event -> {
             try {
                 for (int i = 0; i < map.getCurrentRoomItems().size(); ) {
@@ -205,17 +210,27 @@ public class Controller implements Initializable {
     private void navigationButtonEventHandlerCreateHelper(Button button, int index) {
         button.setOnAction((event -> {
             try {
-                map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
-                roomDescriptionAssembler();
+                if (map.getIfPlayerEquippedKeyItem() && map.isConnectionLocked(map.getCurrentRoomValidConnections().get(index))) {
+                    map.playerUnlocksDoor(map.getCurrentRoomValidConnections().get(index));
+                    consoleTextAreaStringBuilder.append("\n");
+                    consoleTextAreaStringBuilder.append("Door " + map.getCurrentRoomValidConnections().get(index) + " unlocked!");
+                } else {
+                    map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
+                    roomDescriptionAssembler();
+                }
 
                 if (map.isCurrentRoomMonsterDead()) {
-                    consoleTextAreaStringBuilder.append("\nMonster Dead.");
+
                 } else {
                     consoleTextAreaStringBuilder.append("\nMonster Alive");
+                    tabPane.getTabs().remove(navigationTab);
                 }
 
             } catch (InvalidRoomException e) {
-                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("\nRoomException\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            } catch (InvalidItemException e) {
+                consoleTextAreaStringBuilder.append("\nItemException\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
             updateConsoleTextArea();

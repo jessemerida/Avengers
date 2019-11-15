@@ -97,10 +97,8 @@ public class Map {
         Monster monster = null;
 
         for (int i = 0; i < allMonsters.size(); i++) {
-            System.out.println("AllMonsterID:" + allMonsters.get(i).getMonsterID() + " monsterID:" + monsterID);
             if (allMonsters.get(i).getMonsterID().equals(monsterID)) {
                 monster = allMonsters.get(i);
-                System.out.println("MONSTER FOUND");
             }
         }
 
@@ -125,6 +123,20 @@ public class Map {
             return movePlayerToC3();
         } else if (roomID.equals(currentRoom.getConnection4ID())) {
             return movePlayerToC4();
+        } else {
+            throw new InvalidRoomException("That room is not valid");
+        }
+    }
+
+    public boolean isConnectionLocked(String roomID) throws InvalidRoomException {
+        if (roomID.equals(currentRoom.getConnection1ID())) {
+            return currentRoom.isConnection1Locked();
+        } else if (roomID.equals(currentRoom.getConnection2ID())) {
+            return currentRoom.isConnection2Locked();
+        } else if (roomID.equals(currentRoom.getConnection3ID())) {
+            return currentRoom.isConnection3Locked();
+        } else if (roomID.equals(currentRoom.getConnection4ID())) {
+            return currentRoom.isConnection4Locked();
         } else {
             throw new InvalidRoomException("That room is not valid");
         }
@@ -190,6 +202,18 @@ public class Map {
         return player.getInventory();
     }
 
+    public String getPlayerEquippedItem() {
+        return player.getEquippedItem();
+    }
+
+    public boolean getIfPlayerEquippedItem() {
+        return !player.getEquippedItem().equalsIgnoreCase("");
+    }
+
+    public boolean getIfPlayerEquippedKeyItem() {
+        return player.getEquippedItem().contains("key") || player.getEquippedItem().contains("Key");
+    }
+
     public String inspectItem(String item) throws InvalidItemException {
         if (!currentRoom.getItems().contains(item) && !player.getInventory().contains(item)) {
             throw new InvalidItemException("This item is not here");
@@ -251,8 +275,6 @@ public class Map {
 
     public boolean isCurrentRoomMonsterDead() {
         try {
-            System.out.println("current room monster id:" + currentRoom.getMonsterID());
-            System.out.println(getMonster(currentRoom.getMonsterID()).getName());
             return getMonster(currentRoom.getMonsterID()).isMonsterDead();
         } catch (InvalidMonsterException e) {
             return true;

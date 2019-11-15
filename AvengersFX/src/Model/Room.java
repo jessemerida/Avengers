@@ -10,7 +10,7 @@ public class Room {
     private ArrayList<String> items;
     private String puzzleID;
     private String monsterID;
-    // TDOD refactor to connection number
+    // TODO refactor to connection number
     private String connection1;
     private String connection2;
     private String connection3;

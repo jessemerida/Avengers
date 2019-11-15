@@ -170,11 +170,7 @@ public class FileManager {
                         items.set(i, tempItem.trim());
                     }
                     if (currLine.contains("@p")) puzzleID = currLine.substring(2);
-                    if (currLine.contains("@m")) {
-                        monsterID = currLine.substring(2);
-                        //System.out.println("readRooms2 roomId:"+roomId+" MonsterID:" + monsterID);
-                    }
-
+                    if (currLine.contains("@m")) monsterID = currLine.substring(2);
                     if (currLine.contains("@c1")) connection1 = currLine.substring(3);
                     if (currLine.contains("@c2")) connection2 = currLine.substring(3);
                     if (currLine.contains("@c3")) connection3 = currLine.substring(3);
@@ -437,10 +433,7 @@ public class FileManager {
             while (inFile.hasNextLine()) {
                 currLine = inFile.nextLine();
                 if (!currLine.contains("+")) {
-                    if (currLine.contains("@m")) {
-                        id = currLine.substring(2);
-                        //System.out.println("readMonsters2 MonsterID:" + id);
-                    }
+                    if (currLine.contains("@m")) id = currLine.substring(2);
                     if (currLine.contains("@n")) name = currLine.substring(2);
                     if (currLine.contains("~")) {
                         if (description.isEmpty()) description += currLine.substring(1);
