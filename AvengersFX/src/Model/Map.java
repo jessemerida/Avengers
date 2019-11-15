@@ -73,6 +73,8 @@ public class Map {
     }
 
     private Puzzle getPuzzle(String puzzleId) throws InvalidPuzzleException {
+        puzzleId = puzzleId.trim();
+
         Puzzle puzzle = null;
 
         for (int i = 0; i < allPuzzles.size(); i++) {
