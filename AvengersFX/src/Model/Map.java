@@ -89,12 +89,16 @@ public class Map {
     }
 
     private Monster getMonster(String monsterID) throws InvalidMonsterException {
+
+        monsterID = monsterID.trim();
+
         Monster monster = null;
 
         for (int i = 0; i < allMonsters.size(); i++) {
             System.out.println("AllMonsterID:" + allMonsters.get(i).getMonsterID() + " monsterID:" + monsterID);
             if (allMonsters.get(i).getMonsterID().equals(monsterID)) {
                 monster = allMonsters.get(i);
+                System.out.println("MONSTER FOUND");
             }
         }
 
