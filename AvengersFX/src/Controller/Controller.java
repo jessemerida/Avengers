@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
@@ -28,11 +26,30 @@ public class Controller implements Initializable {
     private Button exploreButton;
     private Button pickupAllButton;
 
-    @FXML
-    private GridPane navigationGridPane;
+    private Button attackButton;
+    private Button examineMonsterButton;
+    private Button escapeButton;
 
     @FXML
+    private GridPane navigationGridPane;
+    @FXML
     private GridPane inventoryGridPane;
+    @FXML
+    private GridPane combatGridPane;
+    @FXML
+    private GridPane puzzleGridPane;
+
+    @FXML
+    private Tab navigationTab;
+    @FXML
+    private Tab inventoryTab;
+    @FXML
+    private Tab combatTab;
+    @FXML
+    private Tab puzzleTab;
+
+    @FXML
+    private TabPane tabPane;
 
     @FXML
     private StackPane imageStackPane;
@@ -63,11 +80,12 @@ public class Controller implements Initializable {
         imageStackPane.getStyleClass().add("imagebg4");
 
         setUpNavigationGridPane();
+        setUpCombatGridPane();
         initializeNavigationButtonsNotInFXML();
 
         setUpConsoleTextFieldEventHandler();
 
-        setUpButtonsNotInFXMLEventHandlerHelper();
+        setUpNavigationButtonsNotInFXMLEventHandlerHelper();
 
 
         roomDescriptionAssembler();
@@ -102,21 +120,47 @@ public class Controller implements Initializable {
         consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
     }
 
+    private void initializeGridPaneButtonsHelper(GridPane gridPane, Button button, int columnIndex, int rowIndex) {
+        GridPane.setHalignment(button, HPos.CENTER);
+        GridPane.setValignment(button, VPos.CENTER);
+        gridPane.add(button, columnIndex, rowIndex);
+    }
+
+    private void initializeCombatButtons() {
+        attackButton = new Button("Attack");
+        initializeGridPaneButtonsHelper(combatGridPane, attackButton, 0, 0);
+
+        examineMonsterButton = new Button("Examine");
+        initializeGridPaneButtonsHelper(combatGridPane, examineMonsterButton, 0, 1);
+
+        escapeButton = new Button("Escape");
+        initializeGridPaneButtonsHelper(combatGridPane, escapeButton, 0, 2);
+    }
+
+    public void setUpCombatButtonEventHandlers() {
+        attackButton.setOnAction(event -> {
+        });
+        examineMonsterButton.setOnAction(event -> {
+        });
+        escapeButton.setOnAction(event -> {
+        });
+    }
+
+    private void setUpCombatGridPane() {
+        initializeCombatButtons();
+        setUpCombatButtonEventHandlers();
+    }
+
     private void initializeNavigationButtonsNotInFXML() {
         exploreButton = new Button("Explore");
-        initializeNavigationButtonsNotInFXMLHelper(exploreButton, 2, 2);
+        initializeGridPaneButtonsHelper(navigationGridPane, exploreButton, 2, 2);
         pickupAllButton = new Button("PickUp All");
-        initializeNavigationButtonsNotInFXMLHelper(pickupAllButton, 2, 1);
-        setUpButtonsNotInFXMLEventHandlerHelper();
+        initializeGridPaneButtonsHelper(navigationGridPane, pickupAllButton, 2, 1);
+        setUpNavigationButtonsNotInFXMLEventHandlerHelper();
     }
 
-    private void initializeNavigationButtonsNotInFXMLHelper(Button buttonsNotInFXML, int columnIndex, int rowIndex) {
-        GridPane.setHalignment(buttonsNotInFXML, HPos.CENTER);
-        GridPane.setValignment(buttonsNotInFXML, VPos.CENTER);
-        navigationGridPane.add(buttonsNotInFXML, columnIndex, rowIndex);
-    }
 
-    private void setUpButtonsNotInFXMLEventHandlerHelper() {
+    private void setUpNavigationButtonsNotInFXMLEventHandlerHelper() {
         pickupAllButton.setOnAction(event -> {
             try {
                 for (int i = 0; i < map.getCurrentRoomItems().size(); ) {
