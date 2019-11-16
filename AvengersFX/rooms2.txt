@@ -1,4 +1,3 @@
-
 #1
 @vfalse
 ~You came across 4 doors. To open a door you can knock or use this item to unlock. 1st door, you can hear an animal-like noises of scratching and breathing. 2nd door has blood splattered across with chants from rituals. 3rd door is almost falling off the edges. 4th door has sounds of babies crying.
@@ -6,10 +5,10 @@
 @iRustyDagger, RustyIronKey1, RustyIronKey2, RustyIronKey3, RustyIronKey4
 @p0
 @m0	
-@c12
-@c23
-@c34
-@c45
+@c11
+@c22
+@c33
+@c44
 @l1true
 @l2true
 @l3true
@@ -18,13 +17,13 @@
 @k22
 @k33
 @k44
-@pa1
+@rn1
 +
 #2
 @vfalse
 ~The ancient civilization believed that potions were best to be taken. Life is uncertain, even in the afterlife. Room has an eerie ancient feel. You look across and see there is a deadlock on the door across. It is locked. 
 =-The air in the room is thick with dust. Who knows how long it has gone untouched until you arrived.
-@iSmallHealthPotion, SmallHealthPotion
+@iSmallHealthPotion1, SmallHealthPotion2
 @p0
 @m0	
 @c11
@@ -32,20 +31,20 @@
 @c30
 @c40
 @l1false
-@l2false
+@l2true
 @l3false
 @l4false
 @k10
-@k20
+@k25
 @k30
 @k40
-@pa2
+@rn2
 +
 #3
 @vfalse
 ~It is damp and dim, but one can still see. Clank! You step on something.
 =-The room is still as dark as you left it. 
-@iRustyIronKey
+@iRustyIronKey5
 @p0
 @m0	
 @c11
@@ -60,13 +59,13 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #4
 @vfalse
 ~***Boom!*** The walls are closing in slowly through the sides. Booby Trap! 
 =-The booby trap still lies open on the ground. You do your best to avoid it while in the room.
-@i0
+@iSmallHealthPotion3
 @pP01
 @m0	
 @c11
@@ -81,7 +80,7 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #5
 @vfalse
@@ -102,20 +101,20 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #6
 @vfalse
 ~You feel mist all around you. It’s as if the rain was drizzling inside. Finally, the blurred Corpse Wing appears. You run into the closet out of fear and desperation.
 =-The creature lies on the ground. You wonder if it is still alive.
-@iLargeHealthPotion, GoldenKey, BatteredArmor
+@iLargeHealthPotion1, GoldenKey1, BatteredArmor1
 @p0
 @mM01	
 @c12
 @c20
 @c30
 @c40
-@l1false
+@l1true
 @l2false
 @l3false
 @l4false
@@ -123,7 +122,7 @@
 @k20
 @k30
 @k40
-@pa3
+@rn3
 +
 #7
 @vfalse
@@ -132,19 +131,19 @@
 @i0
 @pP02
 @m0	
-@c10
-@c23
+@c13
+@c210
 @c30
-@c410
+@c40
 @l1false
-@l2false
+@l2true
 @l3false
-@l4true
+@l4false
 @k10
-@k20
+@k26
 @k30
-@k46
-@pa2
+@k40
+@rn2
 +
 #8
 @vfalse
@@ -153,25 +152,25 @@
 @i0
 @p0
 @m0	
-@c10
-@c20
-@c34
-@c410
+@c14
+@c210
+@c30
+@c40
 @l1false
-@l2false
+@l2true
 @l3false
-@l4true
+@l4false
 @k10
-@k20
+@k27
 @k30
-@k46
-@pa2
+@k40
+@rn2
 +
 #9
 @vfalse
 ~As the crying child noise continues, you realize it was not just your ringtone. There’s an actual child in this room. It’s curse face. There are no other doors. 
 =-An ominous presence haunts the room. 
-@iLargeHealthPotion
+@iLargeHealthPotion2
 @p0
 @mM02	
 @c10
@@ -186,7 +185,7 @@
 @k20
 @k30
 @k40
-@pa3
+@rn3
 +
 #10
 @vfalse
@@ -207,7 +206,7 @@
 @k20
 @k30
 @k46
-@pa4
+@rn4
 +
 #11
 @vfalse
@@ -228,7 +227,7 @@
 @k20
 @k30
 @k40
-@pa1
+@rn1
 +
 #12
 @vfalse
@@ -249,13 +248,13 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #13
 @vfalse
 ~There are old expired fruits and canned goods. It seems like there were others here not too long ago. Wonder if they’re still alive.
 =-Seeing all the food is kind of making you hungry. How long have you been down here?
-@iRustyIronKey
+@iRustyIronKey6
 @p0
 @m0	
 @c111
@@ -270,7 +269,7 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #14
 @vfalse
@@ -291,34 +290,34 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #15
 @vfalse
-~You walk into a room that is dry and dark. You hear screaming down the hall……..
+~You walk into a room that is dry and dark. You hear screaming down the hall…
 =-You can still hear the scream echoing down the hall.
-@iLargeHealthPotion
+@iLargeHealthPotion3
 @p0
 @m0	
 @c111
-@c20
+@c219
 @c30
-@c419
+@c40
 @l1false
-@l2false
+@l2true
 @l3false
-@l4true
+@l4false
 @k10
-@k20
+@k28
 @k30
 @k46
-@pa2
+@rn2
 +
 #16
 @vfalse
 ~The door was a little stuck but you finally push it open and walk into a small room with no doors….
 =-The room appears to be as you left it.
-@iLargeHealthPotion
+@iLargeHealthPotion4
 @p0
 @m0	
 @c111
@@ -333,55 +332,55 @@
 @k20
 @k30
 @k40
-@pa3
+@rn3
 +
 #17
 @vfalse
 ~**CRACKKKK** as you walk into the room you see that the floor has infringed 2 inches and you hear a click. There is an army of ants starting to move towards you to covering the pathway.
 =-The insects still wonder the floor.
-@iSmallHealthPotion
+@iSmallHealthPotion4
 @pP04
-@m0	
-@c10
-@c213
+@m0
+@c113
+@c220
 @c30
-@c420
+@c40
 @l1false
-@l2false
+@l2true
 @l3false
-@l4true
+@l4false
 @k10
-@k20
+@k29
 @k30
-@k46
-@pa2
+@k40
+@rn2
 +
 #18
 @vfalse
 ~It seems a bit cold, and you feel a draft on coming from a vent in the floor.
 =-A chill runs up your spine from the sudden cold from the vent.
-@iBatteredArmor
+@iBatteredArmor2
 @p0
 @m0	
-@c10
-@c20
-@c314
-@c420
+@c114
+@c220
+@c30
+@c40
 @l1false
-@l2false
+@l2true
 @l3false
-@l4true
+@l4false
 @k10
-@k20
+@k210
 @k30
-@k46
-@pa2
+@k40
+@rn2
 +
 #19
 @vfalse
 ~*OOOSSSHHH* as you walk into the room you are rushed with a gust of wind and are surrounded by vampires.
 =-The smell of blood is strong in the room.
-@i0
+@iGoldenKey2
 @pP06
 @mM03	
 @c10
@@ -396,13 +395,13 @@
 @k20
 @k30
 @k40
-@pa3
+@rn3
 +
 #20
 @vfalse
 ~ROARRRRR!!! You walk into a room and you notice it is piping hot ...You look up and you see Angry Chest!! The 3 headed dragon from the depths of the UNDERWORLD!!!
 =-The room has cooled off a bit, but you still cautiously enter just in case.
-@ShiningArmor
+@iShiningArmor1
 @pP09
 @mM05	
 @c10
@@ -417,13 +416,13 @@
 @k20
 @k30
 @k46
-@pa4
+@rn4
 +
 #21
 @vfalse
 ~Congratulations HUN BATS has fallen ...Make sure you heal up to be sure you’re ready for any other obstacles in your way.
 =-You take a moment to breathe and prepare for another encounter.
-@iSmallHealthPotion
+@iSmallHealthPotion5
 @p0
 @m0	
 @c122
@@ -438,13 +437,13 @@
 @k20
 @k30
 @k40
-@pa1
+@rn1
 +
 #22
 @vfalse
 ~It is dark…..No light anywhere...as you grab the torch on the wall you begin to see that this is a dungeon where undesirables are kept in chains.
 =- You notice a set of empty chains on the wall. Your name is inscribed on the wall above them. Probably best to keep moving.
-@iSmallHealthPotion, SmallHealthPotion
+@iSmallHealthPotion6, SmallHealthPotion7
 @p0
 @m0	
 @c121
@@ -459,13 +458,13 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #23
 @vfalse
 ~As you enter the room the door is blocked by a Brick that has protruded out of the floor. You slide through the opening in the door and see a chest in the corner.
 =-The chest in the corner lies as you left it.
-@iRustyIronKey
+@iRustyIronKey7
 @p0
 @m0	
 @c121
@@ -480,13 +479,13 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #24
 @vfalse
 ~As you enter the room you notice the floor is really sticky and the smell is unbearable…..You notice a small little pouch hanging on a ledge.
 =-Your feet still stick to the floor as you walk through the room. Gross.
-@iLargeHealthPotion
+@iLargeHealthPotion5
 @p0
 @m0	
 @c121
@@ -501,34 +500,34 @@
 @k20
 @k30
 @k40
-@pa2
+@rn2
 +
 #25
 @vfalse
 ~You walk into the room and you see a man that is barely alive laying in the corner. You go over to assist him and he tells you that he isn't going to be able to carry on and wants you to take his Armor to use.
 =-You feel your skin crawl when you see the man in the corner. You are reminded of your own mortality.
-@iBatteredArmor
+@iBatteredArmor3
 @p0
 @m0	
 @c121
-@c20
+@c229
 @c30
-@c429
+@c40
 @l1false
-@l2false
+@l2true
 @l3false
-@l4true
+@l4false
 @k10
-@k20
+@k211
 @k30
-@k46
-@pa2
+@k40
+@rn2
 +
 #26
 @vfalse
 ~SPLLAAASHHHHHH!!! Walking into the room you trip over a tripwire and the room starts to fill bats and they are thirsty for BLOOD…..
 =-You can still hear the small squeaks of the bats around you. You can’t seem to figure out where they are coming from though.
-@iLargeHealthPotion
+@iLargeHealthPotion6
 @pP05
 @m0	
 @c122
@@ -543,55 +542,55 @@
 @k20
 @k30
 @k40
-@pa3
+@rn3
 +
 #27
 @vfalse
 ~As you enter the room the floor starts to rumble…..There seems to be an inscription on the door.
 =-The large pincers and tail on the scorpion still terrify you.
-@iLargeHealthPotion
+@iLargeHealthPotion7
 @pP07
 @mM08	
-@c10
-@c223
+@c123
+@c230
 @c30
-@c430
+@c40
 @l1false
-@l2false
+@l2true
 @l3false
-@l4true
+@l4false
 @k10
-@k20
+@k212
 @k30
-@k46
-@pa2
+@k40
+@rn2
 +
 #28
 @vfalse
 ~You walk into a room and you see lots of shelves and racks along the wall. There is nothing in the middle of the floor. Wonder if they’re still alive.
 =-You wonder what these old racks may have held at one point.
-@iSmallHealthPotion, AncientSword
+@iSmallHealthPotion8, AncientSword
 @p0
 @m0	
-@c10
-@c20
-@c324
-@c430
+@c124
+@c230
+@c30
+@c40
 @l1false
-@l2false
+@l2true
 @l3false
 @l4false
 @k10
-@k20
+@k213
 @k30
 @k40
-@pa2
+@rn2
 +
 #29
 @vfalse
-~You walk slowly into the room and you notice that there is a dark figure in the corner. “Chuckles” What do you want BOYYYY???? It's the Mighty HUN BATS!!! A one eyed ulger!!!
+~You walk slowly into the room and you notice that there is a dark figure in the corner. "Chuckles" What do you want BOYYYY???? It's the Mighty HUN BATS!!! A one eyed ulger!!!
 =-Your body trembles with fear at the memory of the Hun Bats.
-@iLargeHealthPotion
+@iLargeHealthPotion8
 @p0
 @mM07	
 @c10
@@ -606,13 +605,13 @@
 @k20
 @k30
 @k40
-@pa3
+@rn3
 +
 #30
 @vfalse
 ~ROARRRRR!!! You walk into a room and you notice it is piping hot ...You look up and you see Vampire!! The 3 headed dragon from the depths of the UNDERWORLD!!!
 =-Is it over? Or is this only the beginning.. 
-@iShiningArmor
+@iShiningArmor2, GoldCat
 @pP10
 @mM06	
 @c10
@@ -627,5 +626,5 @@
 @k20
 @k30
 @k40
-@pa5
+@rn5
 +
