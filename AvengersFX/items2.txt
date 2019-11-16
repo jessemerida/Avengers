@@ -128,6 +128,21 @@
 @dv10
 ~A heavy key coated in a layer of red rust.
 +
+@iRustyIronKey11
+@tKEY
+@dv11
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey12
+@tKEY
+@dv12
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey13
+@tKEY
+@dv13
+~A heavy key coated in a layer of red rust.
++
 @iGoldenKey1
 @tKEY
 @dv1
