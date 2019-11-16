@@ -289,6 +289,7 @@ public class Controller implements Initializable {
 
         escapeButton = new Button("Escape");
         gridPaneButtonsHelperCreateHelper(combatGridPane, escapeButton, 0, 2);
+
         combatButtonEventHandlersCreateHelper();
     }
 

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
     </list>
@@ -80,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="120" column="34" selection-start-line="120" selection-start-column="34" selection-end-line="120" selection-end-column="34" />
+            <state relative-caret-position="425">
+              <caret line="186" column="17" lean-forward="true" selection-start-line="186" selection-start-column="17" selection-end-line="186" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#readPlayer#0;class#FileManager#0" />
@@ -118,8 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="323" column="5" lean-forward="true" selection-start-line="323" selection-start-column="5" selection-end-line="323" selection-end-column="5" />
+            <state relative-caret-position="296">
+              <caret line="344" column="5" lean-forward="true" selection-start-line="344" selection-start-column="5" selection-end-line="344" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,8 +131,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="250" column="81" selection-start-line="250" selection-start-column="81" selection-end-line="250" selection-end-column="81" />
+            <state relative-caret-position="187">
+              <caret line="276" column="38" selection-start-line="276" selection-start-column="38" selection-end-line="276" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -449,12 +450,12 @@
       <workItem from="1573756462993" duration="1833000" />
       <workItem from="1573834699438" duration="2449000" />
       <workItem from="1573837315538" duration="2448000" />
-      <workItem from="1573868461996" duration="7511000" />
+      <workItem from="1573868461996" duration="9569000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72629000" />
+    <option name="totallyTimeSpent" value="74687000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -475,14 +476,14 @@
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.2707535" side_tool="true" visible="true" weight="0.23226239" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.2707535" side_tool="true" visible="true" weight="0.23226239" />
       <window_info id="Favorites" order="7" sideWeight="0.42656448" side_tool="true" weight="0.16131191" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39974457" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info active="true" anchor="bottom" x="685" y="316" width="723" height="228" id="Run" order="5" type="WINDOWED" visible="true" weight="0.29457363" />
+      <window_info anchor="bottom" x="685" y="316" width="723" height="228" id="Run" order="5" type="WINDOWED" visible="true" weight="0.29457363" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32950193" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32950193" />
@@ -630,9 +631,6 @@
     <entry file="file://$PROJECT_DIR$/puzzles.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/puzzles2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/items.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -694,24 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="120" column="34" selection-start-line="120" selection-start-column="34" selection-end-line="120" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#readPlayer#0;class#FileManager#0" />
-            <element signature="method#readPlayer2#0;class#FileManager#0" />
-            <element signature="method#readRooms#0;class#FileManager#0" />
-            <element signature="method#readItems#0;class#FileManager#0" />
-            <element signature="method#readItems2#0;class#FileManager#0" />
-            <element signature="method#readPuzzles#0;class#FileManager#0" />
-            <element signature="method#readPuzzles2#0;class#FileManager#0" />
-            <element signature="method#readMonsters#0;class#FileManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/sample.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="1241">
@@ -724,13 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rooms2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -755,10 +728,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/puzzles2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rooms2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="186" column="17" lean-forward="true" selection-start-line="186" selection-start-column="17" selection-end-line="186" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#readPlayer#0;class#FileManager#0" />
+            <element signature="method#readPlayer2#0;class#FileManager#0" />
+            <element signature="method#readRooms#0;class#FileManager#0" />
+            <element signature="method#readItems#0;class#FileManager#0" />
+            <element signature="method#readItems2#0;class#FileManager#0" />
+            <element signature="method#readPuzzles#0;class#FileManager#0" />
+            <element signature="method#readPuzzles2#0;class#FileManager#0" />
+            <element signature="method#readMonsters#0;class#FileManager#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="323" column="5" lean-forward="true" selection-start-line="323" selection-start-column="5" selection-end-line="323" selection-end-column="5" />
+        <state relative-caret-position="296">
+          <caret line="344" column="5" lean-forward="true" selection-start-line="344" selection-start-column="5" selection-end-line="344" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -767,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="250" column="81" selection-start-line="250" selection-start-column="81" selection-end-line="250" selection-end-column="81" />
+        <state relative-caret-position="187">
+          <caret line="276" column="38" selection-start-line="276" selection-start-column="38" selection-end-line="276" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

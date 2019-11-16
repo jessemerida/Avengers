@@ -327,12 +327,25 @@ public class Map {
         return getMonster(currentRoom.getMonsterID()).getAttackPoints();
     }
 
-    public int getPlayerHealth() {
-        return player.getHealth();
+    public int getPlayerDamage() {
+        int playerDamage = player.getDefaultAttack();
+
+        try {
+            Item equippedItem = getItem(player.getEquippedItem());
+            if (equippedItem == null || equippedItem.getItemType() != ItemType.WEAPON) {
+
+            } else {
+                playerDamage = equippedItem.getItemDelta();
+            }
+        } catch (InvalidItemException e) {
+
+        }
+
+        return playerDamage;
     }
 
-    public int getPlayerDamage() {
-        return player.getDefaultAttack();
+    public int getPlayerHealth() {
+        return player.getHealth();
     }
 
     public String playerAttacksMonster() throws InvalidMonsterException {
