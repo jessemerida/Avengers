@@ -64,6 +64,8 @@ public class Map {
 
     private Item getItem(String itemName) throws InvalidItemException {
 
+        itemName = itemName.trim();
+
         Item item = null;
         for (int i = 0; i < allItems.size(); i++) {
             if (allItems.get(i).getItemName().equalsIgnoreCase(itemName)) {
