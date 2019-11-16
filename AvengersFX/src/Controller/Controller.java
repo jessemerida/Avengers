@@ -186,7 +186,6 @@ public class Controller implements Initializable {
             }
         }
 
-
         if (index > 20) {
             index -= 20;
         }
@@ -239,27 +238,34 @@ public class Controller implements Initializable {
         newGameTextArea.setOnMouseClicked(event -> {
             try {
                 map.loadNewGame();
+                updateMiniMap();
+                setUpNavigationGridPane();
+                setUpInventoryGridPane();
             } catch (FileNotFoundException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
             beginAnchorPane.setVisible(false);
+            updateConsoleTextArea();
         });
 
         loadGameTextArea.setOnMouseClicked(event -> {
             try {
                 map.loadSavedGame();
+                updateMiniMap();
+                setUpNavigationGridPane();
+                setUpInventoryGridPane();
             } catch (FileNotFoundException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
             beginAnchorPane.setVisible(false);
+            updateConsoleTextArea();
         });
     }
 
     private void showBeginGameView() {
         beginAnchorPane.setVisible(true);
-
     }
 
     private void gridPaneButtonsHelperCreateHelper(GridPane gridPane, Button button, int columnIndex, int rowIndex) {
@@ -270,6 +276,36 @@ public class Controller implements Initializable {
 
     private void menuButtonsEventHandlerCreateHelper() {
 
+        newGameButton.setOnAction(event -> {
+            setUpBeginGameView();
+        });
+
+        saveGameButton.setOnAction(event -> {
+            try {
+                map.saveGameProgress();
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("Game Saved!");
+            } catch (FileNotFoundException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("Unable to save game.");
+            }
+            updateConsoleTextArea();
+        });
+
+        loadGameButton.setOnAction(event -> {
+            try {
+                map.loadSavedGame();
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("Game loaded!");
+                updateMiniMap();
+                setUpNavigationGridPane();
+                setUpInventoryGridPane();
+            } catch (FileNotFoundException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("Game failed to load.");
+            }
+            updateConsoleTextArea();
+        });
     }
 
     private void menuButtonsCreateHelper() {
@@ -286,7 +322,6 @@ public class Controller implements Initializable {
     }
 
     private void setUpMenuGridPane() {
-
         menuButtonsCreateHelper();
     }
 

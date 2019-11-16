@@ -1,0 +1,195 @@
+@iSmallHealthPotion1
+@tCONSUMABLE
+@dv10
+~A small vial full of red liquid with mysterious healing properties.
++
+@iSmallHealthPotion2
+@tCONSUMABLE
+@dv10
+~A small vial full of red liquid with mysterious healing properties.
++
+@iSmallHealthPotion3
+@tCONSUMABLE
+@dv10
+~A small vial full of red liquid with mysterious healing properties.
++
+@iSmallHealthPotion4
+@tCONSUMABLE
+@dv10
+~A small vial full of red liquid with mysterious healing properties.
++
+@iSmallHealthPotion5
+@tCONSUMABLE
+@dv10
+~A small vial full of red liquid with mysterious healing properties.
++
+@iSmallHealthPotion6
+@tCONSUMABLE
+@dv10
+~A small vial full of red liquid with mysterious healing properties.
++
+@iSmallHealthPotion7
+@tCONSUMABLE
+@dv10
+~A small vial full of red liquid with mysterious healing properties.
++
+@iSmallHealthPotion8
+@tCONSUMABLE
+@dv10
+~A small vial full of red liquid with mysterious healing properties.
++
+@iLargeHealthPotion1
+@tCONSUMABLE
+@dv420
+~A big flask full of red healing liquid.
++
+@iLargeHealthPotion2
+@tCONSUMABLE
+@dv420
+~A big flask full of red healing liquid.
++
+@iLargeHealthPotion3
+@tCONSUMABLE
+@dv420
+~A big flask full of red healing liquid.
++
+@iLargeHealthPotion4
+@tCONSUMABLE
+@dv420
+~A big flask full of red healing liquid.
++
+@iLargeHealthPotion5
+@tCONSUMABLE
+@dv420
+~A big flask full of red healing liquid.
++
+@iLargeHealthPotion6
+@tCONSUMABLE
+@dv420
+~A big flask full of red healing liquid.
++
+@iLargeHealthPotion7
+@tCONSUMABLE
+@dv420
+~A big flask full of red healing liquid.
++
+@iLargeHealthPotion8
+@tCONSUMABLE
+@dv420
+~A big flask full of red healing liquid.
++
+@iRustyIronKey1
+@tKEY
+@dv1
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey2
+@tKEY
+@dv2
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey3
+@tKEY
+@dv3
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey4
+@tKEY
+@dv4
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey5
+@tKEY
+@dv5
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey6
+@tKEY
+@dv6
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey7
+@tKEY
+@dv7
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey8
+@tKEY
+@dv8
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey9
+@tKEY
+@dv9
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey10
+@tKEY
+@dv10
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey11
+@tKEY
+@dv11
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey12
+@tKEY
+@dv12
+~A heavy key coated in a layer of red rust.
++
+@iRustyIronKey13
+@tKEY
+@dv13
+~A heavy key coated in a layer of red rust.
++
+@iGoldenKey1
+@tKEY
+@dv101
+~A shiny key that seems to pick up the light no matter how you hold it.
++
+@iGoldenKey2
+@tKEY
+@dv102
+~A shiny key that seems to pick up the light no matter how you hold it.
++
+@iBatteredArmor1
+@tARMOR
+@dv-5
+~Some dented old armor thats seen better days. Still, its probably better than nothing.
++
+@iBatteredArmor2
+@tARMOR
+@dv-5
+~Some dented old armor thats seen better days. Still, its probably better than nothing.
++
+@iBatteredArmor3
+@tARMOR
+@dv-5
+~Some dented old armor thats seen better days. Still, its probably better than nothing.
++
+@iShiningArmor1
+@tARMOR
+@dv-15
+~Brand new armor in pristine condition.
++
+@iShiningArmor2
+@tARMOR
+@dv-15
+~Brand new armor in pristine condition.
++
+@iRustyDagger
+@tWEAPON
+@dv5
+~The blade of this dagger has been dulled by rust, but it beats fighting with your bare hands.
++
+@iAncientSword
+@tWEAPON
+@dv15
+~This sword was made using long-lost technology to be super sturdy yet light as a feather.
++
+@iGoldCat
+@tRELIC
+@dv0
+~A long-lost treasure that has been sealed away for thousands of years.
++
