@@ -60,7 +60,7 @@
                         </Tab>
                         <Tab fx:id="inventoryTab" text="Inventory">
                             <content>
-                                <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                <ScrollPane>
                                     <content>
                                         <GridPane fx:id="inventoryGridPane" prefHeight="257.0" prefWidth="186.0" style="-fx-background-color: white;">
                                         </GridPane>

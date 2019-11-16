@@ -108,7 +108,7 @@
 @dv6
 ~A heavy key coated in a layer of red rust.
 +
-@i
+@iRustyIronKey7
 @tKEY
 @dv7
 ~A heavy key coated in a layer of red rust.

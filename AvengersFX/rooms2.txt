@@ -60,7 +60,7 @@
 @k20
 @k30
 @k40
-@pa3
+@pa2
 +
 #4
 @vfalse
@@ -115,7 +115,7 @@
 @c20
 @c30
 @c40
-@l1true
+@l1false
 @l2false
 @l3false
 @l4false

@@ -290,7 +290,7 @@ public class Controller implements Initializable {
 
                 } else {
                     consoleTextAreaStringBuilder.append("\nMonster Alive");
-                    showBattleView();
+                    //showBattleView();
                 }
 
             } catch (InvalidRoomException e) {
