@@ -1,7 +1,6 @@
 package Model;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Map {
@@ -18,8 +17,7 @@ public class Map {
 
     }
 
-    public void loadNewGame() throws FileNotFoundException
-    {
+    public void loadNewGame() throws FileNotFoundException {
         player = FileManager.readPlayer("player2.txt");
         allRooms = FileManager.readRooms("rooms2.txt");
         allItems = FileManager.readItems("items2.txt");
@@ -29,8 +27,7 @@ public class Map {
         currentRoom = allRooms.get(0);
     }
 
-    public void loadSavedGame() throws FileNotFoundException
-    {
+    public void loadSavedGame() throws FileNotFoundException {
         player = FileManager.readPlayer("player2.txt");
         allRooms = FileManager.readRooms("rooms2.txt");
         allItems = FileManager.readItems("items2.txt");
@@ -40,7 +37,7 @@ public class Map {
         currentRoom = allRooms.get(0);
     }
 
-    public void saveGameProgress(){
+    public void saveGameProgress() {
         FileManager.savePlayer(player);
         FileManager.saveRooms(allRooms);
         FileManager.saveItems(allItems);
@@ -222,6 +219,23 @@ public class Map {
 
     public ArrayList<String> getPlayerInventory() throws InvalidItemException {
         return player.getInventory();
+    }
+
+    public String getPlayerInventoryItemType(int index) throws InvalidItemException {
+        switch (getItem(player.getInventory().get(index)).getItemType()) {
+            case WEAPON:
+                return "W";
+            case ARMOR:
+                return "A";
+            case CONSUMABLE:
+                return "C";
+            case KEY:
+                return "K";
+            case RELIC:
+                return "R";
+            default:
+                return "W";
+        }
     }
 
     public String getPlayerEquippedItem() {

@@ -13,7 +13,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
@@ -560,6 +559,23 @@ public class Controller implements Initializable {
         }));
     }
 
+    private void inventoryHealButtonEventHandlerCreateHelper(Button healButton, int index) {
+        healButton.setOnAction(event -> {
+            try {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("Used " + map.getPlayerInventory().get(index) + ".");
+                map.equipPlayerItem(map.getPlayerInventory().get(index));
+                map.playerHeal();
+                consoleTextAreaStringBuilder.append("\nHealth restored!");
+            } catch (InvalidItemException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+            setUpInventoryGridPane();
+            updateConsoleTextArea();
+        });
+    }
+
     private void inventoryEquipButtonEventHandlerCreateHelper(Button equipButton, int index) {
         equipButton.setOnAction(event -> {
             try {
@@ -611,14 +627,21 @@ public class Controller implements Initializable {
         inventoryNameButtonEventHandlerCreateHelper(nameButton, index);
 
         try {
-            if (map.compareEquipedPlayerItem(map.getPlayerInventory().get(index))) {
-                Button unequipButton = new Button("Unequip");
-                gridPaneButtonsHelperCreateHelper(inventoryGridPane, unequipButton, 1, index);
-                inventoryUnequipButtonEventHandlerCreateHelper(unequipButton, index);
+            if (map.getPlayerInventoryItemType(index).equals("C")) {
+                Button healButton = new Button("Heal");
+                gridPaneButtonsHelperCreateHelper(inventoryGridPane, healButton, 1, index);
+                inventoryHealButtonEventHandlerCreateHelper(healButton, index);
             } else {
-                Button equipButton = new Button("Equip");
-                gridPaneButtonsHelperCreateHelper(inventoryGridPane, equipButton, 1, index);
-                inventoryEquipButtonEventHandlerCreateHelper(equipButton, index);
+
+                if (map.compareEquipedPlayerItem(map.getPlayerInventory().get(index))) {
+                    Button unequipButton = new Button("Unequip");
+                    gridPaneButtonsHelperCreateHelper(inventoryGridPane, unequipButton, 1, index);
+                    inventoryUnequipButtonEventHandlerCreateHelper(unequipButton, index);
+                } else {
+                    Button equipButton = new Button("Equip");
+                    gridPaneButtonsHelperCreateHelper(inventoryGridPane, equipButton, 1, index);
+                    inventoryEquipButtonEventHandlerCreateHelper(equipButton, index);
+                }
             }
         } catch (InvalidItemException e) {
             printLog("inventoryButtonsCreateHelper shouldn't print?");
