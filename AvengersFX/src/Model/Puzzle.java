@@ -1,5 +1,8 @@
 package Model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class Puzzle {
@@ -79,4 +82,22 @@ public class Puzzle {
         }
     }
 
+    public void toFile() throws IOException
+	{
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("savePuzzles.txt", true));
+		buffwriter.append("@p" + id + "\n");
+		String desc = question;
+		desc = desc.replaceAll("\n", "\n~");
+		buffwriter.append("~" + desc + "\n");
+		buffwriter.append("@a" + answer + "\n");
+		buffwriter.append("@msg" + passMessage + "\n");
+		buffwriter.append("@fmsg" + failMessage + "\n");
+		buffwriter.append("@try" + attemptsAllowed + "\n");
+		buffwriter.append("@h" + hint + "\n");
+		buffwriter.append("@ss" + solved + "\n");
+		buffwriter.append("@dmin" + damageMin + "\n");
+		buffwriter.append("@dmax" + damageMax + "\n");
+		buffwriter.append("+\n");
+		buffwriter.close();
+	}
 }
