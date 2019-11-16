@@ -14,29 +14,38 @@ public class Map {
     private ArrayList<Puzzle> allPuzzles;
     private ArrayList<Monster> allMonsters;
 
-    public Map() throws IOException, FileNotFoundException, InvalidRoomException {
-        readTeamMemberFiles("Jesse");
-        currentRoom = allRooms.get(0);
-        System.out.println("Total Rooms: " + allRooms.size());
+    public Map() {
+
     }
 
-    private void readTeamMemberFiles(String name) throws IOException, FileNotFoundException, InvalidRoomException {
-        switch (name.toUpperCase()) {
-            case "HASAN":
-                player = FileManager.readPlayer("player.txt");
-                allRooms = FileManager.readRooms("rooms.txt");
-                allItems = FileManager.readItems("items.txt");
-                allPuzzles = FileManager.readPuzzles("puzzles.txt");
-                allMonsters = FileManager.readMonsters("monsters.txt");
-                break;
-            case "JESSE":
-                player = FileManager.readPlayer2("player2.txt");
-                allRooms = FileManager.readRooms2("rooms2.txt");
-                allItems = FileManager.readItems2("items2.txt");
-                allPuzzles = FileManager.readPuzzles2("puzzles2.txt");
-                allMonsters = FileManager.readMonsters2("monsters2.txt");
-                break;
-        }
+    public void loadNewGame() throws FileNotFoundException
+    {
+        player = FileManager.readPlayer("player2.txt");
+        allRooms = FileManager.readRooms("rooms2.txt");
+        allItems = FileManager.readItems("items2.txt");
+        allPuzzles = FileManager.readPuzzles("puzzles2.txt");
+        allMonsters = FileManager.readMonsters("monsters2.txt");
+
+        currentRoom = allRooms.get(0);
+    }
+
+    public void loadSavedGame() throws FileNotFoundException
+    {
+        player = FileManager.readPlayer("player2.txt");
+        allRooms = FileManager.readRooms("rooms2.txt");
+        allItems = FileManager.readItems("items2.txt");
+        allPuzzles = FileManager.readPuzzles("puzzles2.txt");
+        allMonsters = FileManager.readMonsters("monsters2.txt");
+
+        currentRoom = allRooms.get(0);
+    }
+
+    public void saveGameProgress(){
+        FileManager.savePlayer(player);
+        FileManager.saveRooms(allRooms);
+        FileManager.saveItems(allItems);
+        FileManager.savePuzzles(allPuzzles);
+        FileManager.saveMonsters(allMonsters);
     }
 
     private Room getRoom(String roomId) throws InvalidRoomException {

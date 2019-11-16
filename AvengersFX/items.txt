@@ -1,9 +1,0 @@
-itemName~itemType~deltaValue~itemDescription
-knife~weapon~15~this is a pointy thing
-potion~consumable~20~this is the good stuff
-potion2~consumable~30~this is also good stuff
-key1~key~2~this is a red key
-key2~key~6~this is a blue key
-sword~weapon~30~this is a rusty sword
-creature~consumable~20~this is a fuzzy boi
-armor1~armor~5~shiny thing

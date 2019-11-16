@@ -1,2 +1,0 @@
-name~health~maxHealth~itemList~defaultAttack
-bob~100~100~knife,potion~10

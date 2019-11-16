@@ -97,13 +97,10 @@ public class Controller implements Initializable {
 
         try {
             map = new Map();
-        } catch (GameException e) {
-            consoleTextArea.setText(e.getMessage());
+            map.loadNewGame();
         } catch (FileNotFoundException e) {
             consoleTextArea.setText(e.getMessage());
             System.exit(0);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
         }
 
         imageStackPane.getStyleClass().add("imagebg");
