@@ -76,7 +76,7 @@ public class Controller implements Initializable {
             System.out.println(e.getMessage());
         }
 
-        imageStackPane.getStyleClass().add("imagebg4");
+        imageStackPane.getStyleClass().add("imagebg");
 
         navigationGridPane.getChildren().clear();
 
@@ -250,8 +250,55 @@ public class Controller implements Initializable {
 
     private void navigationButtonCreateHelper(String name, int index) {
         Button button = new Button(name);
+        printLog("Pattern" + map.getCurrentRoomPattern());
+        for (int i = 0; i < imageStackPane.getStyleClass().size(); ) {
+            imageStackPane.getStyleClass().remove(0);
+        }
+        switch (map.getCurrentRoomPattern()) {
+            case 1:
+                imageStackPane.getStyleClass().add("imagebg4");
+                gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, 4);
+                break;
+            case 2:
 
-        gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, 4);
+                imageStackPane.getStyleClass().add("imagebg2");
+                if (index < 1) {
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
+                } else {
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 4);
+                }
+                break;
+            case 3:
+
+                imageStackPane.getStyleClass().add("imagebg1");
+                gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
+                break;
+            case 4:
+
+                imageStackPane.getStyleClass().add("imagebg3");
+                if (index < 2) {
+                    if (index < 1) {
+                        gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
+                    } else {
+                        gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 4, 0);
+                    }
+                } else {
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 4);
+                }
+                break;
+            case 5:
+
+                imageStackPane.getStyleClass().add("imagebg0");
+                if (index < 1) {
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
+                } else {
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 4, 0);
+                }
+                break;
+            default:
+                gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, 4);
+                break;
+        }
 
         navigationButtonEventHandlerCreateHelper(button, index);
     }
