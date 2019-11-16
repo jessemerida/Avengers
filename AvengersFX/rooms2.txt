@@ -110,7 +110,7 @@
 @iLargeHealthPotion1, GoldenKey1, BatteredArmor1
 @p0
 @mM01	
-@c10
+@c12
 @c20
 @c30
 @c40
@@ -118,7 +118,7 @@
 @l2false
 @l3false
 @l4false
-@k16
+@k10
 @k20
 @k30
 @k40
