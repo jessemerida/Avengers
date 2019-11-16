@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Puzzle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Puzzle.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,6 +79,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rooms2.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/puzzles2.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="3" selection-start-column="3" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
@@ -99,10 +117,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Monster.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/Puzzle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="531">
+              <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -119,8 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="344" column="5" lean-forward="true" selection-start-line="344" selection-start-column="5" selection-end-line="344" selection-end-column="5" />
+            <state relative-caret-position="381">
+              <caret line="281" column="78" selection-start-line="281" selection-start-column="78" selection-end-line="281" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,11 +146,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="276" column="38" selection-start-line="276" selection-start-column="38" selection-end-line="276" selection-end-column="38" />
+            <state relative-caret-position="500">
+              <caret line="426" selection-start-line="426" selection-end-line="426" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -231,8 +249,10 @@
         <option value="$PROJECT_DIR$/src/View/sample.fxml" />
         <option value="$PROJECT_DIR$/rooms2.txt" />
         <option value="$PROJECT_DIR$/items2.txt" />
+        <option value="$PROJECT_DIR$/src/Model/Puzzle.java" />
         <option value="$PROJECT_DIR$/src/Model/Map.java" />
         <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/puzzles2.txt" />
       </list>
     </option>
   </component>
@@ -450,12 +470,12 @@
       <workItem from="1573756462993" duration="1833000" />
       <workItem from="1573834699438" duration="2449000" />
       <workItem from="1573837315538" duration="2448000" />
-      <workItem from="1573868461996" duration="9569000" />
+      <workItem from="1573868461996" duration="12878000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74687000" />
+    <option name="totallyTimeSpent" value="77996000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -476,14 +496,14 @@
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.2707535" side_tool="true" visible="true" weight="0.23226239" />
+      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.2707535" side_tool="true" visible="true" weight="0.23226239" />
       <window_info id="Favorites" order="7" sideWeight="0.42656448" side_tool="true" weight="0.16131191" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39974457" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" x="685" y="316" width="723" height="228" id="Run" order="5" type="WINDOWED" visible="true" weight="0.29457363" />
+      <window_info active="true" anchor="bottom" x="685" y="316" width="723" height="228" id="Run" order="5" type="WINDOWED" visible="true" weight="0.29457363" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32950193" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32950193" />
@@ -612,13 +632,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rooms3.txt" />
-    <entry file="file://$PROJECT_DIR$/src/Model/Puzzle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rooms.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -728,16 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/puzzles2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rooms2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-340">
-          <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -758,21 +761,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="344" column="5" lean-forward="true" selection-start-line="344" selection-start-column="5" selection-end-line="344" selection-end-column="5" />
+        <state relative-caret-position="381">
+          <caret line="281" column="78" selection-start-line="281" selection-start-column="78" selection-end-line="281" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rooms2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Puzzle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="276" column="38" selection-start-line="276" selection-start-column="38" selection-end-line="276" selection-end-column="38" />
+        <state relative-caret-position="500">
+          <caret line="426" selection-start-line="426" selection-end-line="426" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/puzzles2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
         </state>
       </provider>
     </entry>

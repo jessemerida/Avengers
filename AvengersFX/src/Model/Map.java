@@ -267,12 +267,20 @@ public class Map {
         return getPuzzle(currentRoom.getPuzzleId()).getQuestion();
     }
 
-    public String solveCurrentRoomPuzzle(String text) throws InvalidPuzzleException {
+    public boolean solveCurrentRoomPuzzle(String text) throws InvalidPuzzleException {
         return getPuzzle(currentRoom.getPuzzleId()).solvePuzzle(text);
     }
 
     public int getPuzzleAttempts() throws InvalidPuzzleException {
         return getPuzzle(currentRoom.getPuzzleId()).getAttempts();
+    }
+
+    public int getPuzzleAttemptsRemaining() throws InvalidPuzzleException {
+        return getPuzzle(currentRoom.getPuzzleId()).getAttemptsRemaining();
+    }
+
+    public void puzzleReduceAttemptsRemaining() throws InvalidPuzzleException {
+        getPuzzle(currentRoom.getPuzzleId()).reduceAttemptsRemaining();
     }
 
     public String getPuzzleHint() throws InvalidPuzzleException {

@@ -32,6 +32,10 @@ public class Controller implements Initializable {
     private Button examineMonsterButton;
     private Button escapeButton;
 
+    private Button examinePuzzleButton;
+    private Button answerButton;
+    private Button hintButton;
+
     @FXML
     private Rectangle rec1;
     @FXML
@@ -111,6 +115,7 @@ public class Controller implements Initializable {
         setUpNavigationGridPane();
         setUpInventoryGridPane();
         setUpCombatGridPane();
+        setUpPuzzleGridPane();
 
         setUpConsoleTextFieldEventHandler();
 
@@ -208,6 +213,11 @@ public class Controller implements Initializable {
         tabPane.getTabs().addAll(combatTab, inventoryTab);
     }
 
+    private void showPuzzleView() {
+        tabPane.getTabs().clear();
+        tabPane.getTabs().addAll(puzzleTab, inventoryTab);
+    }
+
     private void showBeginGameView() {
 
     }
@@ -216,6 +226,72 @@ public class Controller implements Initializable {
         GridPane.setHalignment(button, HPos.CENTER);
         GridPane.setValignment(button, VPos.CENTER);
         gridPane.add(button, columnIndex, rowIndex);
+    }
+
+    private void puzzleButtonsEventHandlerCreateHelper() {
+        examinePuzzleButton.setOnAction(event -> {
+            try {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getPuzzleQuestion());
+            } catch (InvalidPuzzleException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+
+            updateConsoleTextArea();
+        });
+
+        answerButton.setOnAction(event -> {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append("You have answered: " + consoleTextField.getText());
+
+            try {
+                if (map.solveCurrentRoomPuzzle(consoleTextField.getText())) {
+                    consoleTextAreaStringBuilder.append("\n");
+                    consoleTextAreaStringBuilder.append("Solved! Well done.");
+                } else {
+                    consoleTextAreaStringBuilder.append("\n");
+                    consoleTextAreaStringBuilder.append("Wrong!");
+                    consoleTextAreaStringBuilder.append(map.getPuzzleAttemptsRemaining() + " attempts left.");
+
+                }
+            } catch (InvalidPuzzleException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+
+            updateConsoleTextArea();
+        });
+
+        hintButton.setOnAction(event -> {
+            try {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getPuzzleHint());
+            } catch (InvalidPuzzleException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+
+            updateConsoleTextArea();
+        });
+
+    }
+
+    private void puzzleButtonsCreateHelper() {
+        examinePuzzleButton = new Button("Examine");
+        gridPaneButtonsHelperCreateHelper(puzzleGridPane, examinePuzzleButton, 0, 0);
+
+        answerButton = new Button("Answer");
+        gridPaneButtonsHelperCreateHelper(puzzleGridPane, answerButton, 0, 1);
+
+        hintButton = new Button("Hint");
+        gridPaneButtonsHelperCreateHelper(puzzleGridPane, hintButton, 0, 2);
+
+        puzzleButtonsEventHandlerCreateHelper();
+    }
+
+    private void setUpPuzzleGridPane() {
+        puzzleButtonsCreateHelper();
     }
 
     private void battleDescriptionAssembler() {
@@ -347,6 +423,16 @@ public class Controller implements Initializable {
                 }
 
                 if (map.isCurrentRoomMonsterDead()) {
+                    try {
+
+                        if (map.isCurrentRoomPuzzleSolved() && map.getPuzzleAttempts() > 0) {
+                            showPuzzleView();
+                        }
+
+                    } catch (InvalidPuzzleException e) {
+                        consoleTextAreaStringBuilder.append("\nMule");
+                        consoleTextAreaStringBuilder.append(e.getMessage());
+                    }
 
                 } else {
                     showBattleView();
@@ -532,7 +618,7 @@ public class Controller implements Initializable {
         try {
             if (consoleTextField.getText().equalsIgnoreCase("Commands")) {
                 consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("-Commands-" + "\nmove to <roomNumber>" + "\nstats: Player Stats" + "\nI: Inventory" + "\npickup <item>: add <item> to inventory" + "\ndrop <item>: Discard <item> to current room" + "\ninspect <item>: Look at <item>" + "\nunequip: Empty players hand" + "\nequip <item>: Place <item> from inventory to players hand" + "\nheal: Use consumable" + "\nexplore: List items in the room");
+                consoleTextAreaStringBuilder.append("-Commands-" + "\nmove to <roomNumber>" + "\nstats: Player Stats" + "\nI: Inventory" + "\npickup <item>: add <item> to inventory" + "\ndrop <item>: Discard <item> to current room" + "\ninspect <item>: Look at <item>" + "\nunequip: Empty players hand" + "\nequip <item>: Place <item> from inventory to players hand" + "\nheal: Use consumable" + "\nexplore: List items in the room" + "\nclear: Clear all text from console.");
             } else if (command.contains("move to")) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.movePlayerTo(command.split(" ")[2]));
@@ -589,27 +675,6 @@ public class Controller implements Initializable {
             consoleTextAreaStringBuilder.append("\nGame Exception from Commands\n");
             consoleTextAreaStringBuilder.append(e.getMessage());
         }
-
-        try {
-            if (map.isCurrentRoomPuzzleSolved()) {
-            } else {
-                consoleTextAreaStringBuilder.append("\nPuzzle Unsolved!");
-                if (map.getPuzzleAttempts() > 0) {
-                    consoleTextAreaStringBuilder.append("\n");
-                    consoleTextAreaStringBuilder.append(map.getPuzzleHint());
-                }
-            }
-        } catch (InvalidPuzzleException e) {
-            consoleTextAreaStringBuilder.append("\nPuzzle Exception from Puzzle Part");
-        }
-
-
-        if (map.isCurrentRoomMonsterDead()) {
-
-        } else {
-            consoleTextAreaStringBuilder.append("\nMonster Alive!");
-        }
-
     }
 
     private void setUpConsoleTextFieldEventHandler() {
