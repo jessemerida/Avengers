@@ -110,6 +110,7 @@ public class Map {
     }
 
     public String movePlayerToPreviousRoom() {
+        currentRoom.setVisited(true);
         currentRoom = previousRoom;
         return currentRoom.getDescription();
     }

@@ -252,10 +252,11 @@ public class Controller implements Initializable {
                     consoleTextAreaStringBuilder.append("Solved! Well done.");
                     showDefaultView();
                 } else {
+                    map.puzzleReduceAttemptsRemaining();
                     consoleTextAreaStringBuilder.append("\n");
                     consoleTextAreaStringBuilder.append("Wrong!");
-                    consoleTextAreaStringBuilder.append(map.getPuzzleAttemptsRemaining() + " attempts left.");
-                    if (map.getPuzzleAttemptsRemaining() < 1) {
+                    consoleTextAreaStringBuilder.append("\n" + map.getPuzzleAttemptsRemaining() + " attempts left.");
+                    if (map.getPuzzleAttemptsRemaining() <= 0) {
                         consoleTextAreaStringBuilder.append("\n");
                         consoleTextAreaStringBuilder.append("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
                         map.movePlayerToPreviousRoom();
@@ -462,16 +463,13 @@ public class Controller implements Initializable {
 
                 if (map.isCurrentRoomMonsterDead()) {
                     try {
-
-                        if (map.isCurrentRoomPuzzleSolved() && map.getPuzzleAttempts() > 0) {
+                        if (!map.isCurrentRoomPuzzleSolved() && map.getPuzzleAttemptsRemaining() > 0) {
                             showPuzzleView();
                         }
-
                     } catch (InvalidPuzzleException e) {
-                        consoleTextAreaStringBuilder.append("\nMule");
+                        consoleTextAreaStringBuilder.append("\n");
                         consoleTextAreaStringBuilder.append(e.getMessage());
                     }
-
                 } else {
                     showBattleView();
                 }
