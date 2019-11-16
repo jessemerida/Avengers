@@ -37,7 +37,7 @@ public class Map {
         currentRoom = allRooms.get(0);
     }
 
-    public void saveGameProgress() {
+    public void saveGameProgress() throws FileNotFoundException {
         FileManager.savePlayer(player);
         FileManager.saveRooms(allRooms);
         FileManager.saveItems(allItems);

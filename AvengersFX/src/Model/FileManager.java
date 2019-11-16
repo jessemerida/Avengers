@@ -57,12 +57,19 @@ public class FileManager {
         return player;
     }
 
-    public static void savePlayer(Player player) throws IOException
+    public static void savePlayer(Player player) throws FileNotFoundException
     {
-        BufferedWriter buffwriter = new BufferedWriter(new FileWriter("savePlayer.txt", false));
+	try
+	{
+        	BufferedWriter buffwriter = new BufferedWriter(new FileWriter("savePlayer.txt", false));
 		buffwriter.write("");
 		buffwriter.close();
-        player.toFile();
+        	player.toFile();
+	}
+	catch (IOException e) 
+	{
+            throw new FileNotFoundException("Player save file not found.");
+	}
     }
 
     public static ArrayList<Room> readRooms(String fileName) throws FileNotFoundException {
@@ -174,15 +181,22 @@ public class FileManager {
         return allRooms;
     }
 
-    public static void saveRooms(ArrayList<Room> allRooms) throws IOException
+    public static void saveRooms(ArrayList<Room> allRooms) throws FileNotFoundException
     {
-        BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveRooms.txt", false));
+	try
+	{
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveRooms.txt", false));
 		buffwriter.write("");
 		buffwriter.close();
-        for(Room r: allRooms)
+		for(Room r: allRooms)
 		{
 			r.toFile();
 		}
+	}
+	catch (IOException e) 
+	{
+	    throw new FileNotFoundException("Room save file not found.");
+	}
     }
 
     public static ArrayList<Item> readItems(String fileName) throws FileNotFoundException {
@@ -229,15 +243,22 @@ public class FileManager {
         return allItems;
     }
 
-    public static void saveItems(ArrayList<Item> allItems) throws IOException
+    public static void saveItems(ArrayList<Item> allItems) throws FileNotFoundException
     {
-        BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveItems.txt", false));
+	try
+	{
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveItems.txt", false));
 		buffwriter.write("");
 		buffwriter.close();
-        for(Item i: allItems)
+		for(Item i: allItems)
 		{
 			i.toFile();
 		}
+	}
+	catch (IOException e) 
+	{
+	    throw new FileNotFoundException("Item save file not found.");
+	}
     }
 
     public static ArrayList<Puzzle> readPuzzles(String fileName) throws FileNotFoundException {
@@ -302,15 +323,22 @@ public class FileManager {
         return allPuzzles;
     }
 
-    public static void savePuzzles(ArrayList<Puzzle> allPuzzles) throws IOException
+    public static void savePuzzles(ArrayList<Puzzle> allPuzzles) throws FileNotFoundException
     {
-        BufferedWriter buffwriter = new BufferedWriter(new FileWriter("savePuzzles.txt", false));
+	try
+	{
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("savePuzzles.txt", false));
 		buffwriter.write("");
 		buffwriter.close();
-        for(Puzzle p: allPuzzles)
+		for(Puzzle p: allPuzzles)
 		{
 			p.toFile();
 		}
+	}
+	catch (IOException e) 
+	{
+	    throw new FileNotFoundException("Puzzle save file not found.");
+	}
     }
 
     public static ArrayList<Monster> readMonsters(String fileName) throws FileNotFoundException {
@@ -367,14 +395,20 @@ public class FileManager {
         return allMonsters;
     }
 
-    public static void saveMonsters(ArrayList<Monster> allMonsters) throws IOException
+    public static void saveMonsters(ArrayList<Monster> allMonsters) throws FileNotFoundException
     {
-        BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveMonsters.txt", false));
+	    try
+	    {
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveMonsters.txt", false));
 		buffwriter.write("");
 		buffwriter.close();
-        for(Monster m: allMonsters)
+		for(Monster m: allMonsters)
 		{
 			m.toFile();
 		}
+	} 
+	    catch (IOException e) {
+            throw new FileNotFoundException("Monster save file not found.");
+        }    
     }
 }
