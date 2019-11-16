@@ -1,6 +1,6 @@
 @nTim
 @hp100
 @mhp100
-@iRustyDagger, RustyIronKey1, RustyIronKey2, RustyIronKey3, RustyIronKey4
+@iRustyDagger, RustyIronKey2, RustyIronKey3, RustyIronKey4
 @ap10
 +

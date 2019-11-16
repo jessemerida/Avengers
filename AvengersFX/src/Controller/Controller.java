@@ -133,7 +133,7 @@ public class Controller implements Initializable {
 
         setUpConsoleTextFieldEventHandler();
 
-        setUpBeginGameView();
+        beginGameViewButtonsEventHandlerCreateHelper();
 
         showDefaultView();
 
@@ -204,6 +204,13 @@ public class Controller implements Initializable {
         //consoleTextArea.deselect(); //removes the highlighting
     }
 
+    private void resetAndUpdateGameView() {
+        updateMiniMap();
+        setUpNavigationGridPane();
+        setUpInventoryGridPane();
+        showDefaultView();
+    }
+
     private void updateConsoleTextArea() {
         consoleTextArea.setText(consoleTextAreaStringBuilder.toString());
         returnToResults();
@@ -219,28 +226,39 @@ public class Controller implements Initializable {
         consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
     }
 
+    private void showBeginGameView() {
+        beginAnchorPane.setVisible(true);
+    }
+
     private void showDefaultView() {
         tabPane.getTabs().clear();
         tabPane.getTabs().addAll(navigationTab, inventoryTab, menuTab);
+        tabPane.getSelectionModel().select(navigationTab);
     }
 
     private void showBattleView() {
         tabPane.getTabs().clear();
         tabPane.getTabs().addAll(combatTab, inventoryTab);
+        tabPane.getSelectionModel().select(combatTab);
     }
 
     private void showPuzzleView() {
         tabPane.getTabs().clear();
         tabPane.getTabs().addAll(puzzleTab, inventoryTab);
+        tabPane.getSelectionModel().select(puzzleTab);
     }
 
-    private void setUpBeginGameView() {
+    private void gridPaneButtonsHelperCreateHelper(GridPane gridPane, Button button, int columnIndex, int rowIndex) {
+        GridPane.setHalignment(button, HPos.CENTER);
+        GridPane.setValignment(button, VPos.CENTER);
+        gridPane.add(button, columnIndex, rowIndex);
+    }
+
+    private void beginGameViewButtonsEventHandlerCreateHelper() {
         newGameTextArea.setOnMouseClicked(event -> {
             try {
                 map.loadNewGame();
-                updateMiniMap();
-                setUpNavigationGridPane();
-                setUpInventoryGridPane();
+                resetAndUpdateGameView();
             } catch (FileNotFoundException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
@@ -252,9 +270,7 @@ public class Controller implements Initializable {
         loadGameTextArea.setOnMouseClicked(event -> {
             try {
                 map.loadSavedGame();
-                updateMiniMap();
-                setUpNavigationGridPane();
-                setUpInventoryGridPane();
+                resetAndUpdateGameView();
             } catch (FileNotFoundException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
@@ -262,16 +278,6 @@ public class Controller implements Initializable {
             beginAnchorPane.setVisible(false);
             updateConsoleTextArea();
         });
-    }
-
-    private void showBeginGameView() {
-        beginAnchorPane.setVisible(true);
-    }
-
-    private void gridPaneButtonsHelperCreateHelper(GridPane gridPane, Button button, int columnIndex, int rowIndex) {
-        GridPane.setHalignment(button, HPos.CENTER);
-        GridPane.setValignment(button, VPos.CENTER);
-        gridPane.add(button, columnIndex, rowIndex);
     }
 
     private void menuButtonsEventHandlerCreateHelper() {
@@ -297,9 +303,7 @@ public class Controller implements Initializable {
                 map.loadSavedGame();
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append("Game loaded!");
-                updateMiniMap();
-                setUpNavigationGridPane();
-                setUpInventoryGridPane();
+                resetAndUpdateGameView();
             } catch (FileNotFoundException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append("Game failed to load.");
