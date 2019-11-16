@@ -183,7 +183,7 @@ public class FileManager {
                     if (currLine.contains("@k2")) connection2Key = Integer.parseInt(currLine.substring(3));
                     if (currLine.contains("@k3")) connection3Key = Integer.parseInt(currLine.substring(3));
                     if (currLine.contains("@k4")) connection4Key = Integer.parseInt(currLine.substring(3));
-                    if (currLine.contains("@pa")) pattern = Integer.parseInt(currLine.substring(3));
+                    if (currLine.contains("@rn")) pattern = Integer.parseInt(currLine.substring(3));
                 }
 
                 if (currLine.contains("+")) {
