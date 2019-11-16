@@ -7,6 +7,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
@@ -85,9 +86,16 @@ public class Controller implements Initializable {
 
     @FXML
     private TextArea consoleTextArea;
+    @FXML
+    private TextArea newGameTextArea;
+    @FXML
+    private TextArea loadGameTextArea;
 
     @FXML
     private TextField consoleTextField;
+
+    @FXML
+    private AnchorPane beginAnchorPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -116,10 +124,13 @@ public class Controller implements Initializable {
 
         setUpConsoleTextFieldEventHandler();
 
+        setUpBeginGameView();
+
         showDefaultView();
 
         roomDescriptionAssembler();
         updateConsoleTextArea();
+
     }
 
     @FXML
@@ -213,6 +224,28 @@ public class Controller implements Initializable {
     private void showPuzzleView() {
         tabPane.getTabs().clear();
         tabPane.getTabs().addAll(puzzleTab, inventoryTab);
+    }
+
+    private void setUpBeginGameView() {
+        newGameTextArea.setOnMouseClicked(event -> {
+            try {
+                map.loadNewGame();
+            } catch (FileNotFoundException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+            beginAnchorPane.setVisible(false);
+        });
+
+        loadGameTextArea.setOnMouseClicked(event -> {
+            try {
+                map.loadSavedGame();
+            } catch (FileNotFoundException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+            beginAnchorPane.setVisible(false);
+        });
     }
 
     private void showBeginGameView() {
