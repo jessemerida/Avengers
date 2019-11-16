@@ -37,6 +37,10 @@ public class Controller implements Initializable {
     private Button puzzleHintButton;
     private Button puzzleEscapeButton;
 
+    private Button newGameButton;
+    private Button saveGameButton;
+    private Button loadGameButton;
+
     @FXML
     private Rectangle rec1;
     @FXML
@@ -68,6 +72,8 @@ public class Controller implements Initializable {
     private GridPane combatGridPane;
     @FXML
     private GridPane puzzleGridPane;
+    @FXML
+    private GridPane menuGridPane;
 
     @FXML
     private Tab navigationTab;
@@ -77,6 +83,8 @@ public class Controller implements Initializable {
     private Tab combatTab;
     @FXML
     private Tab puzzleTab;
+    @FXML
+    private Tab menuTab;
 
     @FXML
     private TabPane tabPane;
@@ -121,6 +129,7 @@ public class Controller implements Initializable {
         setUpInventoryGridPane();
         setUpCombatGridPane();
         setUpPuzzleGridPane();
+        setUpMenuGridPane();
 
         setUpConsoleTextFieldEventHandler();
 
@@ -213,7 +222,7 @@ public class Controller implements Initializable {
 
     private void showDefaultView() {
         tabPane.getTabs().clear();
-        tabPane.getTabs().addAll(navigationTab, inventoryTab);
+        tabPane.getTabs().addAll(navigationTab, inventoryTab, menuTab);
     }
 
     private void showBattleView() {
@@ -249,6 +258,7 @@ public class Controller implements Initializable {
     }
 
     private void showBeginGameView() {
+        beginAnchorPane.setVisible(true);
 
     }
 
@@ -256,6 +266,28 @@ public class Controller implements Initializable {
         GridPane.setHalignment(button, HPos.CENTER);
         GridPane.setValignment(button, VPos.CENTER);
         gridPane.add(button, columnIndex, rowIndex);
+    }
+
+    private void menuButtonsEventHandlerCreateHelper() {
+
+    }
+
+    private void menuButtonsCreateHelper() {
+        newGameButton = new Button("New Game");
+        gridPaneButtonsHelperCreateHelper(menuGridPane, newGameButton, 1, 0);
+
+        saveGameButton = new Button("Save Game");
+        gridPaneButtonsHelperCreateHelper(menuGridPane, saveGameButton, 1, 2);
+
+        loadGameButton = new Button("Load Game");
+        gridPaneButtonsHelperCreateHelper(menuGridPane, loadGameButton, 1, 4);
+
+        menuButtonsEventHandlerCreateHelper();
+    }
+
+    private void setUpMenuGridPane() {
+
+        menuButtonsCreateHelper();
     }
 
     private void puzzleButtonsEventHandlerCreateHelper() {
