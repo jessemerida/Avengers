@@ -1,5 +1,8 @@
 package Model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Player {
@@ -79,4 +82,26 @@ public class Player {
         }
     }
 
+    public void toFile() throws IOException
+	{
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("savePlayer.txt", true));
+		buffwriter.append("@n" + name + "\n");
+		buffwriter.append("@hp" + currenthealthPoints + "\n");
+		buffwriter.append("@mhp" + maxHealthPoints + "\n");
+		if (items.size() > 0)
+		{
+			for (int i = 0; i < items.size(); i++)
+			{
+				if (i == 0)
+					buffwriter.append("@i" + items.get(i));
+				else
+					buffwriter.append(", " + items.get(i));
+			}
+		}
+		else
+			buffwriter.append("@i0");
+		buffwriter.append("\n@ap" + defaultAttack + "\n");
+		buffwriter.append("+\n");
+		buffwriter.close();
+	}
 }
