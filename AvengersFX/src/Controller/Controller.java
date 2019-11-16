@@ -142,9 +142,10 @@ public class Controller implements Initializable {
     private void updateMiniMap() {
         int index = Integer.parseInt(map.getCurrentRoomID());
 
-        for (Rectangle rec : rectangleArrayList) {it p
+        for (Rectangle rec : rectangleArrayList) {
             rec.setFill(Color.WHITE);
         }
+        //Todo previous visited rooms are gray
 
         if (index > 20) {
             index -= 20;
