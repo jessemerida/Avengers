@@ -28,11 +28,11 @@ public class Map {
     }
 
     public void loadSavedGame() throws FileNotFoundException {
-        player = FileManager.readPlayer("player2.txt");
-        allRooms = FileManager.readRooms("rooms2.txt");
-        allItems = FileManager.readItems("items2.txt");
-        allPuzzles = FileManager.readPuzzles("puzzles2.txt");
-        allMonsters = FileManager.readMonsters("monsters2.txt");
+        player = FileManager.readPlayer("savePlayer.txt");
+        allRooms = FileManager.readRooms("saveRooms.txt");
+        allItems = FileManager.readItems("saveItems.txt");
+        allPuzzles = FileManager.readPuzzles("savePuzzles.txt");
+        allMonsters = FileManager.readMonsters("saveMonsters.txt");
 
         currentRoom = allRooms.get(0);
     }
