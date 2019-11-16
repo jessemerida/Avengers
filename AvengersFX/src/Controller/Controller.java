@@ -142,10 +142,28 @@ public class Controller implements Initializable {
     private void updateMiniMap() {
         int index = Integer.parseInt(map.getCurrentRoomID());
 
-        for (Rectangle rec : rectangleArrayList) {
-            rec.setFill(Color.WHITE);
+        for (int i = 0; i < rectangleArrayList.size(); i++) {
+            if (index < 11) {
+                if (map.getIsVisited(i)) {
+                    rectangleArrayList.get(i).setFill(Color.GRAY);
+                } else {
+                    rectangleArrayList.get(i).setFill(Color.WHITE);
+                }
+            } else if (index < 21) {
+                if (map.getIsVisited(i + 10)) {
+                    rectangleArrayList.get(i).setFill(Color.GRAY);
+                } else {
+                    rectangleArrayList.get(i).setFill(Color.WHITE);
+                }
+            } else {
+                if (map.getIsVisited(i + 20)) {
+                    rectangleArrayList.get(i).setFill(Color.GRAY);
+                } else {
+                    rectangleArrayList.get(i).setFill(Color.WHITE);
+                }
+            }
         }
-        //Todo previous visited rooms are gray
+
 
         if (index > 20) {
             index -= 20;
@@ -372,12 +390,13 @@ public class Controller implements Initializable {
         nameButton.setOnAction((event -> {
             try {
                 consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " ");
                 consoleTextAreaStringBuilder.append(map.inspectItem(map.getPlayerInventory().get(index)));
-                updateConsoleTextArea();
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
+            updateConsoleTextArea();
         }));
     }
 
@@ -387,12 +406,12 @@ public class Controller implements Initializable {
                 map.equipPlayerItem(map.getPlayerInventory().get(index));
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " equipped.");
-                updateConsoleTextArea();
                 setUpInventoryGridPane();
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
+            updateConsoleTextArea();
         });
     }
 
@@ -402,12 +421,12 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " unequipped.");
                 map.unequipPlayerItem();
-                updateConsoleTextArea();
                 setUpInventoryGridPane();
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
+            updateConsoleTextArea();
         });
     }
 
@@ -417,12 +436,12 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " dropped.");
                 map.dropPlayerItem(map.getPlayerInventory().get(index));
-                updateConsoleTextArea();
                 setUpInventoryGridPane();
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
+            updateConsoleTextArea();
         });
     }
 
@@ -442,6 +461,7 @@ public class Controller implements Initializable {
                 inventoryEquipButtonEventHandlerCreateHelper(equipButton, index);
             }
         } catch (InvalidItemException e) {
+            printLog("inventoryButtonsCreateHelper shouldn't print?");
             consoleTextAreaStringBuilder.setLength(0);
             consoleTextAreaStringBuilder.append("\n");
             consoleTextAreaStringBuilder.append(e.getMessage());

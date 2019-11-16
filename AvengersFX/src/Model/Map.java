@@ -182,6 +182,14 @@ public class Map {
         return currentRoom.getRoomId();
     }
 
+    public boolean getCurrentRoomIsVisited() {
+        return currentRoom.isVisited();
+    }
+
+    public boolean getIsVisited(int index) {
+        return allRooms.get(index).isVisited();
+    }
+
     public String getCurrentRoomDescription() {
         return currentRoom.getDescription();
     }
