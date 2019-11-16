@@ -145,12 +145,12 @@
 +
 @iGoldenKey1
 @tKEY
-@dv1
+@dv101
 ~A shiny key that seems to pick up the light no matter how you hold it.
 +
 @iGoldenKey2
 @tKEY
-@dv2
+@dv102
 ~A shiny key that seems to pick up the light no matter how you hold it.
 +
 @iBatteredArmor1
