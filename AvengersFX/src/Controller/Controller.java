@@ -249,11 +249,21 @@ public class Controller implements Initializable {
                 if (map.solveCurrentRoomPuzzle(consoleTextField.getText())) {
                     consoleTextAreaStringBuilder.append("\n");
                     consoleTextAreaStringBuilder.append("Solved! Well done.");
+                    showDefaultView();
                 } else {
                     consoleTextAreaStringBuilder.append("\n");
                     consoleTextAreaStringBuilder.append("Wrong!");
                     consoleTextAreaStringBuilder.append(map.getPuzzleAttemptsRemaining() + " attempts left.");
-
+                    if (map.getPuzzleAttemptsRemaining() < 1) {
+                        consoleTextAreaStringBuilder.append("\n");
+                        consoleTextAreaStringBuilder.append("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
+                        map.movePlayerToPreviousRoom();
+                        consoleTextAreaStringBuilder.append("\n");
+                        consoleTextAreaStringBuilder.append("You manage to escape to the previous room.");
+                        showDefaultView();
+                        setUpNavigationGridPane();
+                        updateMiniMap();
+                    }
                 }
             } catch (InvalidPuzzleException e) {
                 consoleTextAreaStringBuilder.append("\n");
