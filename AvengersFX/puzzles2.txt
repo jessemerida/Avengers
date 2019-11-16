@@ -23,31 +23,31 @@
 @dmax15
 +
 @p3
-~This animal can be quite long, but it doesn’t have a great height, it can have deadly venom 
+~This animal can be quite long, but it doesnt have a great height, it can have deadly venom 
 ~though, so beware because it can bite.
 @aSnake
 @msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
-@hCobras, pythons, are considered a …..
+@hCobras, pythons, are considered 
 @ssfalse
 @dmin5
 @dmax15
 +
 @p4
-~This builds a hill but isn’t a mole, in fact it is a small insect, it can sometimes be red or fire, and 
+~This builds a hill but isnt a mole, in fact it is a small insect, it can sometimes be red or fire, and 
 ~it builds tunnels that connect.
 @aAnt
 @msgAnswer correct.
 @fmsgAnswer incorrect.
 @try3
-@hThey make their homes in the grass and they’re made up of sand
+@hThey make their homes in the grass and theyre made up of sand
 @ssfalse
 @dmin5
 @dmax15
 +
 @p5
-~These winged creatures often scare people, if you touch one you are brave, they’re often 
+~These winged creatures often scare people, if you touch one you are brave, theyre often 
 ~found just hanging out, upside down inside a cave.
 @aBat
 @msgAnswer correct.
@@ -59,7 +59,7 @@
 @dmax15
 +
 @p6
-~It’s sometimes in the form of a bat, and upside down it hangs, but when it’s in its human form, 
+~Its sometimes in the form of a bat, and upside down it hangs, but when its in its human form, 
 ~in its mouth you will find fangs.
 @aVampire
 @msgAnswer correct.
@@ -83,7 +83,7 @@
 @dmax15
 +
 @p8
-~When you put a person in this you shouldn’t hear any knocks if you do there’s been a mistake 
+~When you put a person in this you shouldnt hear any knocks if you do theres been a mistake 
 ~and you should open this pine box.
 @aCoffin
 @msgAnswer correct.
@@ -95,7 +95,7 @@
 @dmax15
 +
 @p9
-~I’m often a rectangle but I’m not a soccer goal I often have a handle and sometimes have a 
+~Im often a rectangle but Im not a soccer goal I often have a handle and sometimes have a 
 ~keyhole.
 @aDoor
 @msgAnswer correct.
@@ -107,7 +107,7 @@
 @dmax15
 +
 @p10
-~I am a type of family pet that is sometimes known as a feline if I get into an accident it’s OK 
+~I am a type of family pet that is sometimes known as a feline if I get into an accident its OK 
 ~because lives I have nine.
 @aCat
 @msgAnswer correct.
