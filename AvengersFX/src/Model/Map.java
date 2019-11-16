@@ -293,6 +293,10 @@ public class Map {
         }
     }
 
+    public String getMonsterName() throws InvalidMonsterException {
+        return getMonster(currentRoom.getMonsterID()).getName();
+    }
+
     public String getMonsterDescription() throws InvalidMonsterException {
         String description = "";
         Monster monster = getMonster(currentRoom.getMonsterID());
@@ -319,8 +323,16 @@ public class Map {
         return monster.getHealthPoints();
     }
 
+    public int getMonsterDamage() throws InvalidMonsterException {
+        return getMonster(currentRoom.getMonsterID()).getAttackPoints();
+    }
+
     public int getPlayerHealth() {
         return player.getHealth();
+    }
+
+    public int getPlayerDamage() {
+        return player.getDefaultAttack();
     }
 
     public String playerAttacksMonster() throws InvalidMonsterException {

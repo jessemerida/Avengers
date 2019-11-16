@@ -208,16 +208,53 @@ public class Controller implements Initializable {
         tabPane.getTabs().addAll(combatTab, inventoryTab);
     }
 
+    private void showBeginGameView() {
+
+    }
+
     private void gridPaneButtonsHelperCreateHelper(GridPane gridPane, Button button, int columnIndex, int rowIndex) {
         GridPane.setHalignment(button, HPos.CENTER);
         GridPane.setValignment(button, VPos.CENTER);
         gridPane.add(button, columnIndex, rowIndex);
     }
 
+    private void battleDescriptionAssembler() {
+        try {
+            consoleTextAreaStringBuilder.setLength(0);
+            consoleTextAreaStringBuilder.append("\nYou deal " + map.getPlayerDamage() + " damage!");
+            consoleTextAreaStringBuilder.append("\n" + map.getMonsterName() + " deals " + map.getMonsterDamage() + " damage to you!");
+            consoleTextAreaStringBuilder.append("\nHealth:" + map.getPlayerHealth());
+            consoleTextAreaStringBuilder.append("\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
+            consoleTextAreaStringBuilder.append("\nDamage:" + map.getPlayerDamage());
+            consoleTextAreaStringBuilder.append("\t" + map.getMonsterName() + " Damage:" + map.getMonsterDamage());
+
+        } catch (InvalidMonsterException e) {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(e.getMessage());
+        }
+    }
+
     private void combatButtonEventHandlersCreateHelper() {
         attackButton.setOnAction(event -> {
-            consoleTextAreaStringBuilder.append("\n");
-            consoleTextAreaStringBuilder.append("Mad deeps.");
+            try {
+                map.playerAttacksMonster();
+                map.monsterAttacksPlayer();
+
+                battleDescriptionAssembler();
+
+                if (map.getPlayerHealth() < 1) {
+                    consoleTextAreaStringBuilder.append("\nYou have been slain!");
+                    showBeginGameView();
+                }
+
+                if (map.getPlayerHealth() > 0 && map.getMonsterHealth() < 1) {
+                    consoleTextAreaStringBuilder.append("\nYou are Victorious!");
+                    showDefaultView();
+                }
+            } catch (InvalidMonsterException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
             updateConsoleTextArea();
         });
 
@@ -233,8 +270,12 @@ public class Controller implements Initializable {
         });
 
         escapeButton.setOnAction(event -> {
+            map.movePlayerToPreviousRoom();
             consoleTextAreaStringBuilder.append("\n");
-            consoleTextAreaStringBuilder.append("RUN AWAY! Doesn't work yet.");
+            consoleTextAreaStringBuilder.append("You manage to escape to the previous room.");
+            showDefaultView();
+            setUpNavigationGridPane();
+            updateMiniMap();
             updateConsoleTextArea();
         });
     }
@@ -307,8 +348,7 @@ public class Controller implements Initializable {
                 if (map.isCurrentRoomMonsterDead()) {
 
                 } else {
-                    consoleTextAreaStringBuilder.append("\nMonster Alive");
-                    //showBattleView();
+                    showBattleView();
                 }
 
             } catch (InvalidRoomException e) {
