@@ -25,16 +25,17 @@ public class Controller implements Initializable {
 
     private StringBuilder consoleTextAreaStringBuilder;
 
-    private Button exploreButton;
-    private Button pickupAllButton;
+    private Button navigationExploreButton;
+    private Button navigationPickupAllButton;
 
-    private Button attackButton;
-    private Button examineMonsterButton;
-    private Button escapeButton;
+    private Button combatAttackButton;
+    private Button combatExamineButton;
+    private Button combatEscapeButton;
 
-    private Button examinePuzzleButton;
-    private Button answerButton;
-    private Button hintButton;
+    private Button puzzleExamineButton;
+    private Button puzzleAnswerButton;
+    private Button puzzleHintButton;
+    private Button puzzleEscapeButton;
 
     @FXML
     private Rectangle rec1;
@@ -229,7 +230,7 @@ public class Controller implements Initializable {
     }
 
     private void puzzleButtonsEventHandlerCreateHelper() {
-        examinePuzzleButton.setOnAction(event -> {
+        puzzleExamineButton.setOnAction(event -> {
             try {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getPuzzleQuestion());
@@ -241,7 +242,7 @@ public class Controller implements Initializable {
             updateConsoleTextArea();
         });
 
-        answerButton.setOnAction(event -> {
+        puzzleAnswerButton.setOnAction(event -> {
             consoleTextAreaStringBuilder.append("\n");
             consoleTextAreaStringBuilder.append("You have answered: " + consoleTextField.getText());
 
@@ -273,7 +274,7 @@ public class Controller implements Initializable {
             updateConsoleTextArea();
         });
 
-        hintButton.setOnAction(event -> {
+        puzzleHintButton.setOnAction(event -> {
             try {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getPuzzleHint());
@@ -285,17 +286,44 @@ public class Controller implements Initializable {
             updateConsoleTextArea();
         });
 
+        puzzleEscapeButton.setOnAction(event -> {
+            try {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("You manage to escape to the previous room.");
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
+                map.movePlayerToPreviousRoom();
+                showDefaultView();
+                setUpNavigationGridPane();
+                updateMiniMap();
+
+                if (map.getPlayerHealth() < 1) {
+                    consoleTextAreaStringBuilder.append("\nYou have been slain!");
+                    showBeginGameView();
+                }
+
+            } catch (InvalidPuzzleException e) {
+                consoleTextAreaStringBuilder.append("\n");
+                consoleTextAreaStringBuilder.append(e.getMessage());
+            }
+
+            updateConsoleTextArea();
+        });
+
     }
 
     private void puzzleButtonsCreateHelper() {
-        examinePuzzleButton = new Button("Examine");
-        gridPaneButtonsHelperCreateHelper(puzzleGridPane, examinePuzzleButton, 0, 0);
+        puzzleExamineButton = new Button("Examine");
+        gridPaneButtonsHelperCreateHelper(puzzleGridPane, puzzleExamineButton, 0, 0);
 
-        answerButton = new Button("Answer");
-        gridPaneButtonsHelperCreateHelper(puzzleGridPane, answerButton, 0, 1);
+        puzzleAnswerButton = new Button("Answer");
+        gridPaneButtonsHelperCreateHelper(puzzleGridPane, puzzleAnswerButton, 0, 1);
 
-        hintButton = new Button("Hint");
-        gridPaneButtonsHelperCreateHelper(puzzleGridPane, hintButton, 0, 2);
+        puzzleHintButton = new Button("Hint");
+        gridPaneButtonsHelperCreateHelper(puzzleGridPane, puzzleHintButton, 0, 2);
+
+        puzzleEscapeButton = new Button("Escape");
+        gridPaneButtonsHelperCreateHelper(puzzleGridPane, puzzleEscapeButton, 0, 3);
 
         puzzleButtonsEventHandlerCreateHelper();
     }
@@ -321,7 +349,7 @@ public class Controller implements Initializable {
     }
 
     private void combatButtonEventHandlersCreateHelper() {
-        attackButton.setOnAction(event -> {
+        combatAttackButton.setOnAction(event -> {
             try {
                 map.playerAttacksMonster();
                 map.monsterAttacksPlayer();
@@ -344,7 +372,7 @@ public class Controller implements Initializable {
             updateConsoleTextArea();
         });
 
-        examineMonsterButton.setOnAction(event -> {
+        combatExamineButton.setOnAction(event -> {
             try {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(map.getMonsterDescription());
@@ -355,7 +383,7 @@ public class Controller implements Initializable {
             updateConsoleTextArea();
         });
 
-        escapeButton.setOnAction(event -> {
+        combatEscapeButton.setOnAction(event -> {
             map.movePlayerToPreviousRoom();
             consoleTextAreaStringBuilder.append("\n");
             consoleTextAreaStringBuilder.append("You manage to escape to the previous room.");
@@ -367,14 +395,14 @@ public class Controller implements Initializable {
     }
 
     private void combatButtonsCreateHelper() {
-        attackButton = new Button("Attack");
-        gridPaneButtonsHelperCreateHelper(combatGridPane, attackButton, 0, 0);
+        combatAttackButton = new Button("Attack");
+        gridPaneButtonsHelperCreateHelper(combatGridPane, combatAttackButton, 0, 0);
 
-        examineMonsterButton = new Button("Examine");
-        gridPaneButtonsHelperCreateHelper(combatGridPane, examineMonsterButton, 0, 1);
+        combatExamineButton = new Button("Examine");
+        gridPaneButtonsHelperCreateHelper(combatGridPane, combatExamineButton, 0, 1);
 
-        escapeButton = new Button("Escape");
-        gridPaneButtonsHelperCreateHelper(combatGridPane, escapeButton, 0, 2);
+        combatEscapeButton = new Button("Escape");
+        gridPaneButtonsHelperCreateHelper(combatGridPane, combatEscapeButton, 0, 2);
 
         combatButtonEventHandlersCreateHelper();
     }
@@ -384,7 +412,7 @@ public class Controller implements Initializable {
     }
 
     private void navigationButtonsNotInFXMLEventHandlerHelper() {
-        pickupAllButton.setOnAction(event -> {
+        navigationPickupAllButton.setOnAction(event -> {
             try {
                 for (int i = 0; i < map.getCurrentRoomItems().size(); ) {
                     consoleTextAreaStringBuilder.append("\n");
@@ -403,18 +431,18 @@ public class Controller implements Initializable {
             }
         });
 
-        exploreButton.setOnAction((event -> {
+        navigationExploreButton.setOnAction((event -> {
             roomDescriptionAssembler();
             updateConsoleTextArea();
         }));
     }
 
     private void navigationButtonsNotInFXMLCreateHelper() {
-        exploreButton = new Button("Explore");
-        gridPaneButtonsHelperCreateHelper(navigationGridPane, exploreButton, 2, 2);
+        navigationExploreButton = new Button("Explore");
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationExploreButton, 2, 2);
 
-        pickupAllButton = new Button("PickUp All");
-        gridPaneButtonsHelperCreateHelper(navigationGridPane, pickupAllButton, 2, 1);
+        navigationPickupAllButton = new Button("PickUp All");
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationPickupAllButton, 2, 1);
 
         navigationButtonsNotInFXMLEventHandlerHelper();
     }
