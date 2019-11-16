@@ -1,5 +1,9 @@
 package Model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Item
 {
 	private String itemName;
@@ -42,5 +46,18 @@ public class Item
 //			return "weapon stuff";
 //		}
 
+	}
+	
+	public void toFile() throws IOException
+	{
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveItems.txt", true));
+		buffwriter.append("@i" + itemName + "\n");
+		buffwriter.append("@t" + itemType + "\n");
+		buffwriter.append("@dv" + itemDelta + "\n");
+		String desc = description;
+		desc = desc.replaceAll("\n", "\n~");
+		buffwriter.append("~" + desc + "\n");
+		buffwriter.append("+\n");
+		buffwriter.close();
 	}
 }
