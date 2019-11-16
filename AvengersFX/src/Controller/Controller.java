@@ -76,18 +76,20 @@ public class Controller implements Initializable {
             System.out.println(e.getMessage());
         }
 
-        navigationGridPane.getChildren().clear();
         imageStackPane.getStyleClass().add("imagebg4");
+
+        navigationGridPane.getChildren().clear();
 
         setUpNavigationGridPane();
         setUpCombatGridPane();
-        initializeNavigationButtonsNotInFXML();
+        navigationButtonsNotInFXMLCreateHelper();
 
         setUpConsoleTextFieldEventHandler();
 
         navigationButtonsNotInFXMLEventHandlerHelper();
 
-        resetView();
+        showDefaultView();
+
         roomDescriptionAssembler();
         updateConsoleTextArea();
     }
@@ -120,29 +122,23 @@ public class Controller implements Initializable {
         consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
     }
 
-    private void initializeGridPaneButtonsHelper(GridPane gridPane, Button button, int columnIndex, int rowIndex) {
+    private void showDefaultView() {
+        tabPane.getTabs().clear();
+        tabPane.getTabs().addAll(navigationTab, inventoryTab);
+    }
+
+    private void showBattleView() {
+        tabPane.getTabs().clear();
+        tabPane.getTabs().addAll(combatTab, inventoryTab);
+    }
+
+    private void gridPaneButtonsHelperCreateHelper(GridPane gridPane, Button button, int columnIndex, int rowIndex) {
         GridPane.setHalignment(button, HPos.CENTER);
         GridPane.setValignment(button, VPos.CENTER);
         gridPane.add(button, columnIndex, rowIndex);
     }
 
-    public void resetView() {
-        tabPane.getTabs().clear();
-        tabPane.getTabs().addAll(navigationTab, inventoryTab);
-    }
-
-    private void initializeCombatButtons() {
-        attackButton = new Button("Attack");
-        initializeGridPaneButtonsHelper(combatGridPane, attackButton, 0, 0);
-
-        examineMonsterButton = new Button("Examine");
-        initializeGridPaneButtonsHelper(combatGridPane, examineMonsterButton, 0, 1);
-
-        escapeButton = new Button("Escape");
-        initializeGridPaneButtonsHelper(combatGridPane, escapeButton, 0, 2);
-    }
-
-    public void setUpCombatButtonEventHandlers() {
+    private void combatButtonEventHandlersCreateHelper() {
         attackButton.setOnAction(event -> {
             consoleTextAreaStringBuilder.append("\n");
             consoleTextAreaStringBuilder.append("Mad deeps.");
@@ -167,19 +163,21 @@ public class Controller implements Initializable {
         });
     }
 
+    private void combatButtonsCreateHelper() {
+        attackButton = new Button("Attack");
+        gridPaneButtonsHelperCreateHelper(combatGridPane, attackButton, 0, 0);
+
+        examineMonsterButton = new Button("Examine");
+        gridPaneButtonsHelperCreateHelper(combatGridPane, examineMonsterButton, 0, 1);
+
+        escapeButton = new Button("Escape");
+        gridPaneButtonsHelperCreateHelper(combatGridPane, escapeButton, 0, 2);
+        combatButtonEventHandlersCreateHelper();
+    }
+
     private void setUpCombatGridPane() {
-        initializeCombatButtons();
-        setUpCombatButtonEventHandlers();
+        combatButtonsCreateHelper();
     }
-
-    private void initializeNavigationButtonsNotInFXML() {
-        exploreButton = new Button("Explore");
-        initializeGridPaneButtonsHelper(navigationGridPane, exploreButton, 2, 2);
-        pickupAllButton = new Button("PickUp All");
-        initializeGridPaneButtonsHelper(navigationGridPane, pickupAllButton, 2, 1);
-        navigationButtonsNotInFXMLEventHandlerHelper();
-    }
-
 
     private void navigationButtonsNotInFXMLEventHandlerHelper() {
         pickupAllButton.setOnAction(event -> {
@@ -207,6 +205,16 @@ public class Controller implements Initializable {
         }));
     }
 
+    private void navigationButtonsNotInFXMLCreateHelper() {
+        exploreButton = new Button("Explore");
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, exploreButton, 2, 2);
+
+        pickupAllButton = new Button("PickUp All");
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, pickupAllButton, 2, 1);
+
+        navigationButtonsNotInFXMLEventHandlerHelper();
+    }
+
     private void navigationButtonEventHandlerCreateHelper(Button button, int index) {
         button.setOnAction((event -> {
             try {
@@ -214,6 +222,7 @@ public class Controller implements Initializable {
                     map.playerUnlocksDoor(map.getCurrentRoomValidConnections().get(index));
                     consoleTextAreaStringBuilder.append("\n");
                     consoleTextAreaStringBuilder.append("Door " + map.getCurrentRoomValidConnections().get(index) + " unlocked!");
+                    setUpInventoryGridPane();
                 } else {
                     map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
                     roomDescriptionAssembler();
@@ -223,7 +232,7 @@ public class Controller implements Initializable {
 
                 } else {
                     consoleTextAreaStringBuilder.append("\nMonster Alive");
-                    tabPane.getTabs().remove(navigationTab);
+                    showBattleView();
                 }
 
             } catch (InvalidRoomException e) {
@@ -241,15 +250,15 @@ public class Controller implements Initializable {
 
     private void navigationButtonCreateHelper(String name, int index) {
         Button button = new Button(name);
-        GridPane.setHalignment(button, HPos.CENTER);
-        GridPane.setValignment(button, VPos.CENTER);
+
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, 4);
+
         navigationButtonEventHandlerCreateHelper(button, index);
-        navigationGridPane.add(button, index, 4);
     }
 
     private void setUpNavigationGridPane() {
         navigationGridPane.getChildren().clear();
-        initializeNavigationButtonsNotInFXML();
+        navigationButtonsNotInFXMLCreateHelper();
         ArrayList<String> connections = map.getCurrentRoomValidConnections();
         for (int i = 0; i < connections.size(); i++) {
             navigationButtonCreateHelper(connections.get(i), i);
@@ -316,17 +325,17 @@ public class Controller implements Initializable {
 
     private void inventoryButtonsCreateHelper(String name, int index) {
         Button nameButton = new Button(name);
-        inventoryGridPane.add(nameButton, 0, index);
+        gridPaneButtonsHelperCreateHelper(inventoryGridPane, nameButton, 0, index);
         inventoryNameButtonEventHandlerCreateHelper(nameButton, index);
 
         try {
             if (map.compareEquipedPlayerItem(map.getPlayerInventory().get(index))) {
                 Button unequipButton = new Button("Unequip");
-                inventoryGridPane.add(unequipButton, 1, index);
+                gridPaneButtonsHelperCreateHelper(inventoryGridPane, unequipButton, 1, index);
                 inventoryUnequipButtonEventHandlerCreateHelper(unequipButton, index);
             } else {
                 Button equipButton = new Button("Equip");
-                inventoryGridPane.add(equipButton, 1, index);
+                gridPaneButtonsHelperCreateHelper(inventoryGridPane, equipButton, 1, index);
                 inventoryEquipButtonEventHandlerCreateHelper(equipButton, index);
             }
         } catch (InvalidItemException e) {
@@ -337,8 +346,8 @@ public class Controller implements Initializable {
         }
 
         Button dropButton = new Button("Drop");
+        gridPaneButtonsHelperCreateHelper(inventoryGridPane, dropButton, 2, index);
         inventoryDropButtonEventHandlerCreateHelper(dropButton, index);
-        inventoryGridPane.add(dropButton, 2, index);
     }
 
     private void setUpInventoryGridPane() {
@@ -352,17 +361,6 @@ public class Controller implements Initializable {
             consoleTextAreaStringBuilder.append("\n");
             consoleTextAreaStringBuilder.append(e.getMessage());
         }
-    }
-
-    private void setUpConsoleTextFieldEventHandler() {
-        consoleTextField.setOnKeyPressed((event) -> {
-            if (event.getCode().equals(KeyCode.ENTER)) {
-                consoleTextAreaStringBuilder.setLength(0);
-                consoleTextFieldCommands();
-                consoleTextField.setText("");
-                updateConsoleTextArea();
-            }
-        });
     }
 
     private void consoleTextFieldCommands() {
@@ -448,6 +446,21 @@ public class Controller implements Initializable {
             consoleTextAreaStringBuilder.append("\nMonster Alive!");
         }
 
+    }
+
+    private void setUpConsoleTextFieldEventHandler() {
+        consoleTextField.setOnKeyPressed((event) -> {
+            if (event.getCode().equals(KeyCode.ENTER)) {
+                consoleTextAreaStringBuilder.setLength(0);
+                consoleTextFieldCommands();
+                consoleTextField.setText("");
+                updateConsoleTextArea();
+            }
+        });
+
+        consoleTextField.setOnMouseClicked(event -> {
+            consoleTextField.setText("");
+        });
     }
 
     private boolean findAndActivatePuzzle() throws InvalidPuzzleException {
