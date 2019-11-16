@@ -440,7 +440,7 @@ public class FileManager {
                         else description += "\n" + currLine.substring(1);
                     }
                     if (currLine.contains("@ds")) isDead = Boolean.parseBoolean(currLine.substring(3));
-                    if (currLine.contains("@hp")) attackPointsMin = Integer.parseInt(currLine.substring(3));
+                    if (currLine.contains("@hp")) healthPoints = Integer.parseInt(currLine.substring(3));
                     if (currLine.contains("@apmin")) attackPointsMin = Integer.parseInt(currLine.substring(6));
                     if (currLine.contains("@apmax")) attackPointsMax = Integer.parseInt(currLine.substring(6));
                 }
