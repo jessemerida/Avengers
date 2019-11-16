@@ -188,8 +188,7 @@ public class FileManager {
 
                 if (currLine.contains("+")) {
                     allRooms.add(new Room(roomId, isVisited, description, descriptionVisited, items, puzzleID, monsterID, connection1, connection2, connection3, connection4, connection1Locked, connection2Locked, connection3Locked, connection4Locked, connection1Key, connection2Key, connection3Key, connection4Key, pattern));
-                    //                                        if (items.get(0).equals("0")) items.clear();
-                    // USED TO BE HERE
+                    if (items.get(0).equals("0")) items.clear();
                     roomId = "";
                     isVisited = false;
                     description = "";
