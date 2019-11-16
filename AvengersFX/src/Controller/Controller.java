@@ -204,16 +204,19 @@ public class Controller implements Initializable {
         //consoleTextArea.deselect(); //removes the highlighting
     }
 
+    private void updateConsoleTextArea() {
+        consoleTextArea.setText(consoleTextAreaStringBuilder.toString());
+        returnToResults();
+    }
+
     private void resetAndUpdateGameView() {
         updateMiniMap();
         setUpNavigationGridPane();
         setUpInventoryGridPane();
         showDefaultView();
-    }
-
-    private void updateConsoleTextArea() {
-        consoleTextArea.setText(consoleTextAreaStringBuilder.toString());
-        returnToResults();
+        consoleTextAreaStringBuilder.setLength(0);
+        roomDescriptionAssembler();
+        updateConsoleTextArea();
     }
 
     private void roomDescriptionAssembler() {
