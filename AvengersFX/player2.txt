@@ -1,4 +1,4 @@
-﻿@nTim
+@nTim
 @hp100
 @mhp100
 @i0
