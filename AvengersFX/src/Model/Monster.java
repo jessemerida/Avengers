@@ -1,5 +1,8 @@
 package Model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Random;
 
 public class Monster
@@ -69,4 +72,19 @@ public class Monster
 		return "Name: " + name +"\nHealth: " + healthPoints;
 	}
 
+	public void toFile() throws IOException
+	{
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveMonsters.txt", true));
+		buffwriter.append("@m" + id + "\n");
+		buffwriter.append("@n" + name + "\n");
+		String desc = description;
+		desc = desc.replaceAll("\n", "\n~");
+		buffwriter.append("~" + desc + "\n");
+		buffwriter.append("@ds" + isDead + "\n");
+		buffwriter.append("@hp" + healthPoints + "\n");
+		buffwriter.append("@apmin" + attackPointsMin + "\n");
+		buffwriter.append("@apmax" + attackPointsMax + "\n");
+		buffwriter.append("+\n");
+		buffwriter.close();
+	}
 }
