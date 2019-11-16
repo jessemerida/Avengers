@@ -1,5 +1,8 @@
 package Model;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Room {
@@ -190,4 +193,45 @@ public class Room {
         return pattern;
     }
 
+    public void toFile() throws IOException
+	{
+		BufferedWriter buffwriter = new BufferedWriter(new FileWriter("saveRooms.txt", true));
+		buffwriter.append("#" + roomId + "\n");
+		buffwriter.append("@v" + isVisited + "\n");
+		String desc = description;
+		desc = desc.replaceAll("\n", "\n~");
+		buffwriter.append("~" + desc + "\n");
+		String desc2 = descriptionVisited;
+		desc = desc2.replaceAll("\n", "\n=-");
+		buffwriter.append("=-" + desc2 + "\n");
+		if (items.size() > 0)
+		{
+			for (int i = 0; i < items.size(); i++)
+			{
+				if (i == 0)
+					buffwriter.append("@i" + items.get(i));
+				else
+					buffwriter.append(", " + items.get(i));
+			}
+		}
+		else
+			buffwriter.append("@i0");
+		buffwriter.append("\n@p" + puzzleID + "\n");
+		buffwriter.append("@m" + monsterID + "\n");
+		buffwriter.append("@c1" + connection1 + "\n");
+		buffwriter.append("@c2" + connection2 + "\n");
+		buffwriter.append("@c3" + connection3 + "\n");
+		buffwriter.append("@c4" + connection4 + "\n");
+		buffwriter.append("@l1" + connection1Locked + "\n");
+		buffwriter.append("@l2" + connection2Locked + "\n");
+		buffwriter.append("@l3" + connection3Locked + "\n");
+		buffwriter.append("@l4" + connection4Locked + "\n");
+		buffwriter.append("@k1" + connection1Key + "\n");
+		buffwriter.append("@k2" + connection2Key + "\n");
+		buffwriter.append("@k3" + connection3Key + "\n");
+		buffwriter.append("@k4" + connection4Key + "\n");
+		buffwriter.append("@rn" + pattern + "\n");
+		buffwriter.append("+\n");
+		buffwriter.close();
+	}
 }
