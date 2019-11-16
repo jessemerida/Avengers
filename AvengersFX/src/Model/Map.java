@@ -178,6 +178,10 @@ public class Map {
         return currentRoom.getDescription();
     }
 
+    public String getCurrentRoomID() {
+        return currentRoom.getRoomId();
+    }
+
     public String getCurrentRoomDescription() {
         return currentRoom.getDescription();
     }

@@ -9,6 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,6 +31,29 @@ public class Controller implements Initializable {
     private Button attackButton;
     private Button examineMonsterButton;
     private Button escapeButton;
+
+    @FXML
+    private Rectangle rec1;
+    @FXML
+    private Rectangle rec2;
+    @FXML
+    private Rectangle rec3;
+    @FXML
+    private Rectangle rec4;
+    @FXML
+    private Rectangle rec5;
+    @FXML
+    private Rectangle rec6;
+    @FXML
+    private Rectangle rec7;
+    @FXML
+    private Rectangle rec8;
+    @FXML
+    private Rectangle rec9;
+    @FXML
+    private Rectangle rec10;
+
+    ArrayList<Rectangle> rectangleArrayList;
 
     @FXML
     private GridPane navigationGridPane;
@@ -80,13 +105,14 @@ public class Controller implements Initializable {
 
         navigationGridPane.getChildren().clear();
 
+        setUpMiniMap();
+        updateMiniMap();
+
         setUpNavigationGridPane();
+        setUpInventoryGridPane();
         setUpCombatGridPane();
-        navigationButtonsNotInFXMLCreateHelper();
 
         setUpConsoleTextFieldEventHandler();
-
-        navigationButtonsNotInFXMLEventHandlerHelper();
 
         showDefaultView();
 
@@ -95,8 +121,39 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void printLog(String message) {
+    private void printLog(String message) {
         System.out.println(new Date().toString() + "\n" + message);
+    }
+
+    private void setUpMiniMap() {
+        rectangleArrayList = new ArrayList<>();
+        rectangleArrayList.add(rec1);
+        rectangleArrayList.add(rec2);
+        rectangleArrayList.add(rec3);
+        rectangleArrayList.add(rec4);
+        rectangleArrayList.add(rec5);
+        rectangleArrayList.add(rec6);
+        rectangleArrayList.add(rec7);
+        rectangleArrayList.add(rec8);
+        rectangleArrayList.add(rec9);
+        rectangleArrayList.add(rec10);
+    }
+
+    private void updateMiniMap() {
+        int index = Integer.parseInt(map.getCurrentRoomID());
+
+        for (Rectangle rec : rectangleArrayList) {it p
+            rec.setFill(Color.WHITE);
+        }
+
+        if (index > 20) {
+            index -= 20;
+        }
+        if (index > 10) {
+            index -= 10;
+        }
+
+        rectangleArrayList.get(index - 1).setFill(Color.web("#8effaa"));
     }
 
     private void returnToResults() {
@@ -242,6 +299,7 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append("\nItemException\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
+            updateMiniMap();
             updateConsoleTextArea();
             setUpNavigationGridPane();
         }));
@@ -250,17 +308,17 @@ public class Controller implements Initializable {
 
     private void navigationButtonCreateHelper(String name, int index) {
         Button button = new Button(name);
-        printLog("Pattern" + map.getCurrentRoomPattern());
+
         for (int i = 0; i < imageStackPane.getStyleClass().size(); ) {
             imageStackPane.getStyleClass().remove(0);
         }
+
         switch (map.getCurrentRoomPattern()) {
             case 1:
                 imageStackPane.getStyleClass().add("imagebg4");
                 gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, 4);
                 break;
             case 2:
-
                 imageStackPane.getStyleClass().add("imagebg2");
                 if (index < 1) {
                     gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
@@ -269,12 +327,10 @@ public class Controller implements Initializable {
                 }
                 break;
             case 3:
-
                 imageStackPane.getStyleClass().add("imagebg1");
                 gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
                 break;
             case 4:
-
                 imageStackPane.getStyleClass().add("imagebg3");
                 if (index < 2) {
                     if (index < 1) {
@@ -287,7 +343,6 @@ public class Controller implements Initializable {
                 }
                 break;
             case 5:
-
                 imageStackPane.getStyleClass().add("imagebg0");
                 if (index < 1) {
                     gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
