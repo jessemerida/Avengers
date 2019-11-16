@@ -257,29 +257,37 @@ public class Controller implements Initializable {
         gridPane.add(button, columnIndex, rowIndex);
     }
 
+    private void newGameButtonEventHandlerCreateFuctionalityHelper() {
+        try {
+            map.loadNewGame();
+            resetAndUpdateGameView();
+        } catch (FileNotFoundException e) {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(e.getMessage());
+        }
+        beginAnchorPane.setVisible(false);
+        updateConsoleTextArea();
+    }
+
+    private void loadGameButtonEventHandlerCreateFunctionalityHelper() {
+        try {
+            map.loadSavedGame();
+            resetAndUpdateGameView();
+        } catch (FileNotFoundException e) {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(e.getMessage());
+        }
+        beginAnchorPane.setVisible(false);
+        updateConsoleTextArea();
+    }
+
     private void beginGameViewButtonsEventHandlerCreateHelper() {
         newGameTextArea.setOnMouseClicked(event -> {
-            try {
-                map.loadNewGame();
-                resetAndUpdateGameView();
-            } catch (FileNotFoundException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
-            }
-            beginAnchorPane.setVisible(false);
-            updateConsoleTextArea();
+            newGameButtonEventHandlerCreateFuctionalityHelper();
         });
 
         loadGameTextArea.setOnMouseClicked(event -> {
-            try {
-                map.loadSavedGame();
-                resetAndUpdateGameView();
-            } catch (FileNotFoundException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
-            }
-            beginAnchorPane.setVisible(false);
-            updateConsoleTextArea();
+            loadGameButtonEventHandlerCreateFunctionalityHelper();
         });
     }
 
@@ -302,16 +310,7 @@ public class Controller implements Initializable {
         });
 
         loadGameButton.setOnAction(event -> {
-            try {
-                map.loadSavedGame();
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Game loaded!");
-                resetAndUpdateGameView();
-            } catch (FileNotFoundException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Game failed to load.");
-            }
-            updateConsoleTextArea();
+            loadGameButtonEventHandlerCreateFunctionalityHelper();
         });
     }
 
