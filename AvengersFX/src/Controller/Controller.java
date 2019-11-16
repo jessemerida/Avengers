@@ -277,7 +277,7 @@ public class Controller implements Initializable {
     private void menuButtonsEventHandlerCreateHelper() {
 
         newGameButton.setOnAction(event -> {
-            setUpBeginGameView();
+            showBeginGameView();
         });
 
         saveGameButton.setOnAction(event -> {
