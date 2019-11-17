@@ -338,7 +338,7 @@
 @vfalse
 ~**CRACKKKK** as you walk into the room you see that the floor has infringed 2 inches and you hear a click. There is an army of ants starting to move towards you to covering the pathway.
 =-The insects still wonder the floor.
-@iSmallHealthPotion4, RustyIronkKey9
+@iSmallHealthPotion4, RustyIronKey9
 @pP04
 @m0
 @c113
