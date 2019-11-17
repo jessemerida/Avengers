@@ -1,16 +1,16 @@
 #1
-@vfalse
+@vtrue
 ~You came across 4 doors. To open a door you can knock or use this item to unlock. 1st door, you can hear an animal-like noises of scratching and breathing. 2nd door has blood splattered across with chants from rituals. 3rd door is almost falling off the edges. 4th door has sounds of babies crying.
 =-The room is still hauntingly noisy with whispers coming in from the other rooms. 
-@iRustyDagger, RustyIronKey1, RustyIronKey2, RustyIronKey3, RustyIronKey4
+@i0
 @p0
 @m0	
 @c12
 @c23
 @c34
 @c45
-@l1true
-@l2true
+@l1false
+@l2false
 @l3true
 @l4true
 @k11
@@ -20,10 +20,10 @@
 @rn1
 +
 #2
-@vfalse
+@vtrue
 ~The ancient civilization believed that potions were best to be taken. Life is uncertain, even in the afterlife. Room has an eerie ancient feel. You look across and see there is a deadlock on the door across. It is locked. 
 =-The air in the room is thick with dust. Who knows how long it has gone untouched until you arrived.
-@iSmallHealthPotion1, SmallHealthPotion2
+@i0
 @p0
 @m0	
 @c11
@@ -41,10 +41,10 @@
 @rn2
 +
 #3
-@vfalse
+@vtrue
 ~It is damp and dim, but one can still see. Clank! You step on something.
 =-The room is still as dark as you left it. 
-@iRustyIronKey5
+@i0
 @p0
 @m0	
 @c11

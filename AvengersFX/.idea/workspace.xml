@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/savePlayer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savePlayer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saveRooms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saveRooms.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -134,8 +136,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="607" column="24" selection-start-line="607" selection-start-column="24" selection-end-line="607" selection-end-column="24" />
+            <state relative-caret-position="285">
+              <caret line="484" column="98" selection-start-line="484" selection-start-column="98" selection-end-line="484" selection-end-column="98" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -157,11 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>??</find>
-      <find>null</find>
-      <find>Healing</find>
-      <find>@pat</find>
-      <find>inFile.close();</find>
       <find>pick</find>
       <find>(image</find>
       <find>a {</find>
@@ -187,6 +184,11 @@
       <find>false</find>
       <find>showBattle</find>
       <find>player</find>
+      <find>append</find>
+      <find>update</find>
+      <find>updatePlayer</find>
+      <find>showBattleView</find>
+      <find>slain</find>
     </findStrings>
     <replaceStrings>
       <replace>consoleTextAreaStringBuilder.append</replace>
@@ -466,7 +468,7 @@
       <workItem from="1573868461996" duration="15318000" />
       <workItem from="1573939367797" duration="7626000" />
       <workItem from="1573954294661" duration="1988000" />
-      <workItem from="1573965004511" duration="8257000" />
+      <workItem from="1573965004511" duration="12858000" />
     </task>
     <task id="LOCAL-00001" summary="unlocking connection 6-&gt;2">
       <created>1573922840386</created>
@@ -486,7 +488,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113197000" />
+    <option name="totallyTimeSpent" value="117798000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -793,8 +795,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="607" column="24" selection-start-line="607" selection-start-column="24" selection-end-line="607" selection-end-column="24" />
+        <state relative-caret-position="285">
+          <caret line="484" column="98" selection-start-line="484" selection-start-column="98" selection-end-line="484" selection-end-column="98" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
