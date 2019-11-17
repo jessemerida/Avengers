@@ -569,7 +569,7 @@
 @vfalse
 ~You walk into a room and you see lots of shelves and racks along the wall. There is nothing in the middle of the floor. Wonder if they're still alive.
 =-You wonder what these old racks may have held at one point.
-@iSmallHealthPotion8, AncientSword, RustryIronKey13
+@iSmallHealthPotion8, AncientSword, RustyIronKey13
 @p0
 @m0	
 @c124
