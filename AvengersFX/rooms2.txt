@@ -105,7 +105,7 @@
 +
 #6
 @vfalse
-~You feel mist all around you. It’s as if the rain was drizzling inside. Finally, the blurred Corpse Wing appears. You run into the closet out of fear and desperation.
+~You feel mist all around you. It's as if the rain was drizzling inside. Finally, the blurred Corpse Wing appears. You run into the closet out of fear and desperation.
 =-The creature lies on the ground. You wonder if it is still alive.
 @iLargeHealthPotion1, GoldenKey1, BatteredArmor1
 @p0
