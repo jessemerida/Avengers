@@ -126,7 +126,7 @@
 +
 #7
 @vfalse
-~Darn it ! Another Booby Trap! The door across is locked. Smoke starts to seem in through the cracks of the doors and vents. Another health potion appears.
+~Darn it ! Another Booby Trap! The door across is locked. Smoke starts to seem in through the cracks of the doors and vents.
 =-The smoke still lingers in the room. 
 @iRustyIronKey6
 @pP02
