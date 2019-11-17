@@ -382,7 +382,7 @@ public class Map {
         return player.getHealth();
     }
 
-    public int getPlayerMaxHealth(){
+    public int getPlayerMaxHealth() {
         return player.getMaxHealthPoints();
     }
 

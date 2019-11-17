@@ -235,9 +235,9 @@ public class Controller implements Initializable {
         consoleTextAreaStringBuilder.append("\n");
         consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
         consoleTextAreaStringBuilder.append("\n");
-        consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
+        consoleTextAreaStringBuilder.append("Items:" + map.getCurrentRoomItems());
         consoleTextAreaStringBuilder.append("\n");
-        consoleTextAreaStringBuilder.append(map.getCurrentRoomValidConnections());
+        consoleTextAreaStringBuilder.append("Connections:" + map.getCurrentRoomValidConnections());
     }
 
     private void showBeginGameView() {
@@ -460,15 +460,15 @@ public class Controller implements Initializable {
         puzzleButtonsCreateHelper();
     }
 
-    private void battleDescriptionAssembler() {
+    private void combatDescriptionAssembler() {
         try {
             consoleTextAreaStringBuilder.setLength(0);
             consoleTextAreaStringBuilder.append("\nYou deal " + map.getPlayerDamage() + " damage!");
             consoleTextAreaStringBuilder.append("\n" + map.getMonsterName() + " deals " + map.getMonsterDamage() + " damage to you!");
             consoleTextAreaStringBuilder.append("\nHealth:" + map.getPlayerHealth());
             consoleTextAreaStringBuilder.append("\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
-            consoleTextAreaStringBuilder.append("\nDamage:" + map.getPlayerDamage());
-            consoleTextAreaStringBuilder.append("\t" + map.getMonsterName() + " Damage:" + map.getMonsterDamage());
+            //consoleTextAreaStringBuilder.append("\nDamage:" + map.getPlayerDamage());
+            //consoleTextAreaStringBuilder.append("\t" + map.getMonsterName() + " Damage:" + map.getMonsterDamage());
 
         } catch (InvalidMonsterException e) {
             consoleTextAreaStringBuilder.append("\n");
@@ -492,7 +492,7 @@ public class Controller implements Initializable {
 
                 updatePlayerHealthHUD();
 
-                battleDescriptionAssembler();
+                combatDescriptionAssembler();
 
                 if (map.getPlayerHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou have been slain!");
@@ -779,16 +779,16 @@ public class Controller implements Initializable {
 
         try {
             if (map.getPlayerInventoryItemType(index).equals("C")) {
-                Button healButton = new Button("Heal");
+                Button healButton = new Button("H");
                 gridPaneButtonsHelperCreateHelper(inventoryGridPane, healButton, 1, index);
                 inventoryHealButtonEventHandlerCreateHelper(healButton, index);
             } else {
                 if (map.compareEquipedPlayerItem(map.getPlayerInventory().get(index))) {
-                    Button unequipButton = new Button("Unequip");
+                    Button unequipButton = new Button("U");
                     gridPaneButtonsHelperCreateHelper(inventoryGridPane, unequipButton, 1, index);
                     inventoryUnequipButtonEventHandlerCreateHelper(unequipButton, index);
                 } else {
-                    Button equipButton = new Button("Equip");
+                    Button equipButton = new Button("E");
                     gridPaneButtonsHelperCreateHelper(inventoryGridPane, equipButton, 1, index);
                     inventoryEquipButtonEventHandlerCreateHelper(equipButton, index);
                 }
@@ -801,7 +801,7 @@ public class Controller implements Initializable {
             updateConsoleTextArea();
         }
 
-        Button dropButton = new Button("Drop");
+        Button dropButton = new Button("D");
         gridPaneButtonsHelperCreateHelper(inventoryGridPane, dropButton, 2, index);
         inventoryDropButtonEventHandlerCreateHelper(dropButton, index);
     }
