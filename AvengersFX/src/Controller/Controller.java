@@ -67,6 +67,13 @@ public class Controller implements Initializable {
     private Rectangle playerHealthRectangle;
     @FXML
     private Rectangle playerMaxHealthRectangle;
+    @FXML
+    private Rectangle monsterHealthRectangle;
+    @FXML
+    private Rectangle monsterMaxHealthRectangle;
+
+    @FXML
+    private Label monsterNameLabel;
 
     private ArrayList<Rectangle> rectangleArrayList;
 
@@ -126,15 +133,7 @@ public class Controller implements Initializable {
             System.exit(0);
         }
 
-        //        imageTopStackPane.getStyleClass().add("image0");
-        //        imageStackPane.getStyleClass().add("imagebg");
-        //
-        //        navigationGridPane.getChildren().clear();
-
         setUpMiniMap();
-        updatePlayerHealthHUD();
-        updateMiniMap();
-
         setUpNavigationGridPane();
         setUpInventoryGridPane();
         setUpCombatGridPane();
@@ -145,6 +144,8 @@ public class Controller implements Initializable {
 
         beginGameViewButtonsEventHandlerCreateHelper();
 
+        hideMonsterHealthBars();
+        updateMiniMap();
         showDefaultView();
 
         roomDescriptionAssembler();
@@ -244,13 +245,29 @@ public class Controller implements Initializable {
         beginAnchorPane.setVisible(true);
     }
 
+    private void showMonsterHealthBars() {
+        monsterHealthRectangle.setVisible(true);
+        monsterMaxHealthRectangle.setVisible(true);
+        monsterNameLabel.setVisible(true);
+    }
+
+    private void hideMonsterHealthBars() {
+        monsterHealthRectangle.setVisible(false);
+        monsterMaxHealthRectangle.setVisible(false);
+        monsterNameLabel.setVisible(false);
+    }
+
     private void showDefaultView() {
+        hideMonsterHealthBars();
+
         tabPane.getTabs().clear();
         tabPane.getTabs().addAll(navigationTab, inventoryTab, menuTab);
         tabPane.getSelectionModel().select(navigationTab);
     }
 
     private void showBattleView() {
+        showMonsterHealthBars();
+
         tabPane.getTabs().clear();
         tabPane.getTabs().addAll(combatTab, inventoryTab);
         tabPane.getSelectionModel().select(combatTab);
@@ -484,6 +501,18 @@ public class Controller implements Initializable {
         }
     }
 
+    private void updateMonsterHealthHUD() {
+        try {
+            if (map.getMonsterHealth() == map.getPlayerMaxHealth()) {
+                playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth());
+            } else {
+                playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth() * (map.getPlayerHealth() % map.getPlayerMaxHealth()) / 100);
+            }
+        } catch (InvalidMonsterException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void combatButtonEventHandlersCreateHelper() {
         combatAttackButton.setOnAction(event -> {
             try {
@@ -491,6 +520,7 @@ public class Controller implements Initializable {
                 map.monsterAttacksPlayer();
 
                 updatePlayerHealthHUD();
+                updateMonsterHealthHUD();
 
                 combatDescriptionAssembler();
 
