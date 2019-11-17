@@ -721,6 +721,7 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
+            updatePlayerHealthHUD();
             setUpInventoryGridPane();
             updateConsoleTextArea();
         });
