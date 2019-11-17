@@ -369,7 +369,7 @@ public class Map {
             if (equippedItem == null || equippedItem.getItemType() != ItemType.WEAPON) {
 
             } else {
-                playerDamage = equippedItem.getItemDelta();
+                playerDamage += equippedItem.getItemDelta();
             }
         } catch (InvalidItemException e) {
 
@@ -392,8 +392,8 @@ public class Map {
         }
 
         if (equippedItem == null || equippedItem.getItemType() != ItemType.WEAPON) {
-            monster.acceptDamage(player.getDefaultAttack());
-            return "player did " + player.getDefaultAttack() + " damage";
+            monster.acceptDamage(player.getDefaultAttack() + player.getDefaultAttack());
+            return "player did " + (player.getDefaultAttack() + player.getDefaultAttack()) + " damage";
         } else {
             monster.acceptDamage(equippedItem.getItemDelta());
             return "player did " + equippedItem.getItemDelta() + " damage";
