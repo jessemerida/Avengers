@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.*;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
@@ -12,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -410,7 +412,9 @@ public class Controller implements Initializable {
 
                 if (map.getPlayerHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou have been slain!");
-                    showBeginGameView();
+                    PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
+                    pauseTransition.setOnFinished((event1) -> showBeginGameView());
+                    pauseTransition.play();
                 }
 
             } catch (InvalidPuzzleException e) {
@@ -475,7 +479,9 @@ public class Controller implements Initializable {
 
                 if (map.getPlayerHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou have been slain!");
-                    showBeginGameView();
+                    PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
+                    pauseTransition.setOnFinished((event1) -> showBeginGameView());
+                    pauseTransition.play();
                 }
 
                 if (map.getPlayerHealth() > 0 && map.getMonsterHealth() < 1) {
