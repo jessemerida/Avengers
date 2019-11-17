@@ -357,6 +357,12 @@ public class Map {
         return monster.getHealthPoints();
     }
 
+    public int getMonsterMaxHealth() throws InvalidMonsterException {
+        Monster monster = getMonster(currentRoom.getMonsterID());
+
+        return monster.getMaxHealthPoints();
+    }
+
     public int getMonsterDamage() throws InvalidMonsterException {
         return getMonster(currentRoom.getMonsterID()).getAttackPoints();
     }

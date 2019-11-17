@@ -503,10 +503,10 @@ public class Controller implements Initializable {
 
     private void updateMonsterHealthHUD() {
         try {
-            if (map.getMonsterHealth() == map.getPlayerMaxHealth()) {
-                playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth());
+            if (map.getMonsterHealth() == map.getMonsterMaxHealth()) {
+                monsterHealthRectangle.setWidth(monsterMaxHealthRectangle.getWidth());
             } else {
-                playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth() * (map.getPlayerHealth() % map.getPlayerMaxHealth()) / 100);
+                monsterHealthRectangle.setWidth(monsterMaxHealthRectangle.getWidth() * (map.getMonsterHealth() % map.getMonsterMaxHealth()) / 100);
             }
         } catch (InvalidMonsterException e) {
             e.printStackTrace();

@@ -95,6 +95,9 @@
             <Rectangle fx:id="playerMaxHealthRectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="667.0" layoutY="172.0" stroke="#8effaa" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
             <Rectangle fx:id="playerHealthRectangle" arcHeight="5.0" arcWidth="5.0" fill="#8effaa" height="26.0" layoutX="667.0" layoutY="172.0" stroke="#8effaa" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
             <Label layoutX="667.0" layoutY="155.0" text="Health" />
+            <Rectangle fx:id="monsterMaxHealthRectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="667.0" layoutY="302.0" stroke="RED" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
+            <Rectangle fx:id="monsterHealthRectangle" arcHeight="5.0" arcWidth="5.0" fill="RED" height="26.0" layoutX="667.0" layoutY="302.0" stroke="RED" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
+            <Label fx:id="monsterNameLabel" layoutX="667.0" layoutY="285.0" text="Health" />
                 <TextArea fx:id="consoleTextArea" editable="false" layoutX="282.0" layoutY="398.0" prefHeight="300.0" prefWidth="680.0" styleClass="myBorder" text="    AWAKEN my child, and embrace the glory that is your birthright. Know that I, AM the OVERMIND, the ETERNAL WILL of the Swarm; and that you have been created to serve me. Behold that I shall set you amongst the greatest of my Cerebrates, that you might benefit from their wisdom and experience.&#10;&#10;...For I have found a creature that may yet become the greatest of my agents! Even now, it resides within a protective Chrysalis, awaiting its rebirth into the Swarm. You must watch over the Chrysalis, and ensure that no harm comes to the creature within it. Go now and keep safe my prize!!" wrapText="true" />
                 <GridPane fx:id="minimapGridPane" layoutX="62.0" layoutY="120.0" prefHeight="200.0" prefWidth="200.0">
                     <columnConstraints>
