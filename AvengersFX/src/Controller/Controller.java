@@ -132,6 +132,7 @@ public class Controller implements Initializable {
         //        navigationGridPane.getChildren().clear();
 
         setUpMiniMap();
+        updatePlayerHealthHUD();
         updateMiniMap();
 
         setUpNavigationGridPane();
@@ -220,6 +221,7 @@ public class Controller implements Initializable {
 
     private void resetAndUpdateGameView() {
         updateMiniMap();
+        updatePlayerHealthHUD();
         setUpNavigationGridPane();
         setUpInventoryGridPane();
         showDefaultView();
@@ -370,12 +372,22 @@ public class Controller implements Initializable {
                     if (map.getPuzzleAttemptsRemaining() <= 0) {
                         consoleTextAreaStringBuilder.append("\n");
                         consoleTextAreaStringBuilder.append("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
-                        map.movePlayerToPreviousRoom();
-                        consoleTextAreaStringBuilder.append("\n");
-                        consoleTextAreaStringBuilder.append("You manage to escape to the previous room.");
-                        showDefaultView();
-                        setUpNavigationGridPane();
-                        updateMiniMap();
+
+                        if (map.getPlayerHealth() < 1) {
+                            consoleTextAreaStringBuilder.append("\nYou have been slain!");
+                            tabPane.getTabs().removeAll(navigationTab, inventoryTab, menuTab);
+                            PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
+                            pauseTransition.setOnFinished((event1) -> showBeginGameView());
+                            pauseTransition.play();
+                        } else {
+                            map.movePlayerToPreviousRoom();
+                            consoleTextAreaStringBuilder.append("\n");
+                            consoleTextAreaStringBuilder.append("You manage to escape to the previous room.");
+                            showDefaultView();
+                            setUpNavigationGridPane();
+                            updateMiniMap();
+                            updatePlayerHealthHUD();
+                        }
                     }
                 }
             } catch (InvalidPuzzleException e) {
@@ -412,6 +424,7 @@ public class Controller implements Initializable {
 
                 if (map.getPlayerHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou have been slain!");
+                    tabPane.getTabs().removeAll(navigationTab, inventoryTab, menuTab);
                     PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
                     pauseTransition.setOnFinished((event1) -> showBeginGameView());
                     pauseTransition.play();
@@ -464,7 +477,11 @@ public class Controller implements Initializable {
     }
 
     private void updatePlayerHealthHUD() {
-        playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth() * (map.getPlayerHealth() % map.getPlayerMaxHealth()) / 100);
+        if (map.getPlayerHealth() == map.getPlayerMaxHealth()) {
+            playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth());
+        } else {
+            playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth() * (map.getPlayerHealth() % map.getPlayerMaxHealth()) / 100);
+        }
     }
 
     private void combatButtonEventHandlersCreateHelper() {
@@ -479,6 +496,7 @@ public class Controller implements Initializable {
 
                 if (map.getPlayerHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou have been slain!");
+                    tabPane.getTabs().removeAll(navigationTab, inventoryTab, menuTab);
                     PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
                     pauseTransition.setOnFinished((event1) -> showBeginGameView());
                     pauseTransition.play();
