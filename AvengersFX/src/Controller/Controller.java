@@ -220,6 +220,13 @@ public class Controller implements Initializable {
         returnToResults();
     }
 
+    private void consoleTextAreaStringBuilderHelper(String... messages) {
+        for (String message : messages) {
+            consoleTextAreaStringBuilder.append("\n");
+            consoleTextAreaStringBuilder.append(message);
+        }
+    }
+
     private void resetAndUpdateGameView() {
         updateMiniMap();
         updatePlayerHealthHUD();
@@ -233,12 +240,7 @@ public class Controller implements Initializable {
 
     private void roomDescriptionAssembler() {
         consoleTextAreaStringBuilder.setLength(0);
-        consoleTextAreaStringBuilder.append("\n");
-        consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
-        consoleTextAreaStringBuilder.append("\n");
-        consoleTextAreaStringBuilder.append("Items:" + map.getCurrentRoomItems());
-        consoleTextAreaStringBuilder.append("\n");
-        consoleTextAreaStringBuilder.append("Connections:" + map.getCurrentRoomValidConnections());
+        consoleTextAreaStringBuilderHelper(map.getCurrentRoomDescription(), "Items:" + map.getCurrentRoomItems(), "Connections:" + map.getCurrentRoomValidConnections());
     }
 
     private void showBeginGameView() {
@@ -302,44 +304,33 @@ public class Controller implements Initializable {
             map.loadSavedGame();
             resetAndUpdateGameView();
         } catch (FileNotFoundException e) {
-            consoleTextAreaStringBuilder.append("\n");
-            consoleTextAreaStringBuilder.append(e.getMessage());
+            consoleTextAreaStringBuilderHelper(e.getMessage());
         }
         beginAnchorPane.setVisible(false);
         updateConsoleTextArea();
     }
 
     private void beginGameViewButtonsEventHandlerCreateHelper() {
-        newGameTextArea.setOnMouseClicked(event -> {
-            newGameButtonEventHandlerCreateFuctionalityHelper();
-        });
+        newGameTextArea.setOnMouseClicked(event -> newGameButtonEventHandlerCreateFuctionalityHelper());
 
-        loadGameTextArea.setOnMouseClicked(event -> {
-            loadGameButtonEventHandlerCreateFunctionalityHelper();
-        });
+        loadGameTextArea.setOnMouseClicked(event -> loadGameButtonEventHandlerCreateFunctionalityHelper());
     }
 
     private void menuButtonsEventHandlerCreateHelper() {
 
-        newGameButton.setOnAction(event -> {
-            showBeginGameView();
-        });
+        newGameButton.setOnAction(event -> showBeginGameView());
 
         saveGameButton.setOnAction(event -> {
             try {
                 map.saveGameProgress();
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Game Saved!");
+                consoleTextAreaStringBuilderHelper("Game Saved!");
             } catch (FileNotFoundException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Unable to save game.");
+                consoleTextAreaStringBuilderHelper("Unable to save game.");
             }
             updateConsoleTextArea();
         });
 
-        loadGameButton.setOnAction(event -> {
-            loadGameButtonEventHandlerCreateFunctionalityHelper();
-        });
+        loadGameButton.setOnAction(event -> loadGameButtonEventHandlerCreateFunctionalityHelper());
     }
 
     private void menuButtonsCreateHelper() {
@@ -373,8 +364,7 @@ public class Controller implements Initializable {
         });
 
         puzzleAnswerButton.setOnAction(event -> {
-            consoleTextAreaStringBuilder.append("\n");
-            consoleTextAreaStringBuilder.append("You have answered: " + consoleTextField.getText());
+            consoleTextAreaStringBuilderHelper("You have answered: " + consoleTextField.getText());
 
             try {
                 if (map.solveCurrentRoomPuzzle(consoleTextField.getText())) {
@@ -383,33 +373,32 @@ public class Controller implements Initializable {
                     showDefaultView();
                 } else {
                     map.puzzleReduceAttemptsRemaining();
-                    consoleTextAreaStringBuilder.append("\n");
-                    consoleTextAreaStringBuilder.append("Wrong!");
-                    consoleTextAreaStringBuilder.append("\n" + map.getPuzzleAttemptsRemaining() + " attempts left.");
+
+                    consoleTextAreaStringBuilderHelper("Wrong!", map.getPuzzleAttemptsRemaining() + " attempts left.");
+
                     if (map.getPuzzleAttemptsRemaining() <= 0) {
-                        consoleTextAreaStringBuilder.append("\n");
-                        consoleTextAreaStringBuilder.append("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
+                        consoleTextAreaStringBuilderHelper("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
 
                         if (map.getPlayerHealth() < 1) {
-                            consoleTextAreaStringBuilder.append("\nYou have been slain!");
+                            consoleTextAreaStringBuilderHelper("You have been slain!");
                             tabPane.getTabs().removeAll(navigationTab, inventoryTab, menuTab);
                             PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
                             pauseTransition.setOnFinished((event1) -> showBeginGameView());
                             pauseTransition.play();
                         } else {
                             map.movePlayerToPreviousRoom();
-                            consoleTextAreaStringBuilder.append("\n");
-                            consoleTextAreaStringBuilder.append("You manage to escape to the previous room.");
-                            showDefaultView();
+
+                            consoleTextAreaStringBuilderHelper("You manage to escape to the previous room.");
+
                             setUpNavigationGridPane();
                             updateMiniMap();
                             updatePlayerHealthHUD();
+                            showDefaultView();
                         }
                     }
                 }
             } catch (InvalidPuzzleException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
+                consoleTextAreaStringBuilderHelper(e.getMessage());
             }
 
             updateConsoleTextArea();
@@ -429,16 +418,15 @@ public class Controller implements Initializable {
 
         puzzleEscapeButton.setOnAction(event -> {
             try {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("You manage to escape to the previous room.");
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
+                consoleTextAreaStringBuilderHelper("You manage to escape to the previous room.", "You take " + map.applyPuzzleDamageToPlayer() + " damage.");
+
                 map.movePlayerToPreviousRoom();
                 showDefaultView();
                 setUpNavigationGridPane();
                 updateMiniMap();
                 updatePlayerHealthHUD();
 
+                // Todo slain thing
                 if (map.getPlayerHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou have been slain!");
                     tabPane.getTabs().removeAll(navigationTab, inventoryTab, menuTab);
@@ -480,16 +468,9 @@ public class Controller implements Initializable {
     private void combatDescriptionAssembler() {
         try {
             consoleTextAreaStringBuilder.setLength(0);
-            consoleTextAreaStringBuilder.append("\nYou deal " + map.getPlayerDamage() + " damage!");
-            consoleTextAreaStringBuilder.append("\n" + map.getMonsterName() + " deals " + map.getMonsterDamage() + " damage to you!");
-            consoleTextAreaStringBuilder.append("\nHealth:" + map.getPlayerHealth());
-            consoleTextAreaStringBuilder.append("\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
-            //consoleTextAreaStringBuilder.append("\nDamage:" + map.getPlayerDamage());
-            //consoleTextAreaStringBuilder.append("\t" + map.getMonsterName() + " Damage:" + map.getMonsterDamage());
-
+            consoleTextAreaStringBuilderHelper("You deal " + map.getPlayerDamage() + " damage!", map.getMonsterName() + " deals " + map.getMonsterDamage() + " damage to you!", "Health:" + map.getPlayerHealth() + "\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
         } catch (InvalidMonsterException e) {
-            consoleTextAreaStringBuilder.append("\n");
-            consoleTextAreaStringBuilder.append(e.getMessage());
+            consoleTextAreaStringBuilderHelper(e.getMessage());
         }
     }
 
@@ -513,6 +494,10 @@ public class Controller implements Initializable {
         }
     }
 
+    private void playerIsSlainScript() {
+
+    }
+
     private void combatButtonEventHandlersCreateHelper() {
         combatAttackButton.setOnAction(event -> {
             try {
@@ -524,6 +509,8 @@ public class Controller implements Initializable {
 
                 combatDescriptionAssembler();
 
+
+                //Todo playerIsSlainScript
                 if (map.getPlayerHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou have been slain!");
                     tabPane.getTabs().removeAll(navigationTab, inventoryTab, menuTab);
@@ -531,6 +518,8 @@ public class Controller implements Initializable {
                     pauseTransition.setOnFinished((event1) -> showBeginGameView());
                     pauseTransition.play();
                 }
+
+                playerIsSlainScript();
 
                 if (map.getPlayerHealth() > 0 && map.getMonsterHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou are Victorious!");
@@ -586,20 +575,14 @@ public class Controller implements Initializable {
         navigationPickupAllButton.setOnAction(event -> {
             try {
                 for (int i = 0; i < map.getCurrentRoomItems().size(); ) {
-                    consoleTextAreaStringBuilder.append("\n");
-                    consoleTextAreaStringBuilder.append("Picked up " + map.getCurrentRoomItems().get(0) + ".");
+                    consoleTextAreaStringBuilderHelper("Picked up " + map.getCurrentRoomItems().get(0) + ".");
                     map.pickupPlayerItem(map.getCurrentRoomItems().get(0));
-                    updateConsoleTextArea();
                 }
                 setUpInventoryGridPane();
             } catch (InvalidItemException e) {
-                consoleTextAreaStringBuilder.setLength(0);
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Could not pick up all items.");
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
-                updateConsoleTextArea();
+                consoleTextAreaStringBuilderHelper("Could not pick up all items.", e.getMessage());
             }
+            updateConsoleTextArea();
         });
 
         navigationExploreButton.setOnAction((event -> {
@@ -623,8 +606,7 @@ public class Controller implements Initializable {
             try {
                 if (map.getIfPlayerEquippedKeyItem() && map.isConnectionLocked(map.getCurrentRoomValidConnections().get(index))) {
                     map.playerUnlocksDoor(map.getCurrentRoomValidConnections().get(index));
-                    consoleTextAreaStringBuilder.append("\n");
-                    consoleTextAreaStringBuilder.append("Door " + map.getCurrentRoomValidConnections().get(index) + " unlocked!");
+                    consoleTextAreaStringBuilderHelper("Door " + map.getCurrentRoomValidConnections().get(index) + " unlocked!");
                     setUpInventoryGridPane();
                 } else {
                     map.movePlayerTo(map.getCurrentRoomValidConnections().get(index));
@@ -636,24 +618,22 @@ public class Controller implements Initializable {
                         if (!map.isCurrentRoomPuzzleSolved() && map.getPuzzleAttemptsRemaining() > 0) {
                             showPuzzleView();
                         }
-                    } catch (InvalidPuzzleException e) {
-                        consoleTextAreaStringBuilder.append("\n");
-                        consoleTextAreaStringBuilder.append(e.getMessage());
+                    } catch (InvalidPuzzleException e2) {
+                        consoleTextAreaStringBuilderHelper(e2.getMessage());
                     }
                 } else {
                     showBattleView();
                 }
 
             } catch (InvalidRoomException e) {
-                consoleTextAreaStringBuilder.append("\nRoomException\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
-            } catch (InvalidItemException e) {
-                consoleTextAreaStringBuilder.append("\nItemException\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
+                consoleTextAreaStringBuilderHelper(e.getMessage());
+            } catch (InvalidItemException e1) {
+                consoleTextAreaStringBuilderHelper(e1.getMessage());
             }
+
             updateMiniMap();
-            updateConsoleTextArea();
             setUpNavigationGridPane();
+            updateConsoleTextArea();
         }));
 
     }
@@ -728,9 +708,7 @@ public class Controller implements Initializable {
     private void inventoryNameButtonEventHandlerCreateHelper(Button nameButton, int index) {
         nameButton.setOnAction((event -> {
             try {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " ");
-                consoleTextAreaStringBuilder.append(map.inspectItem(map.getPlayerInventory().get(index)));
+                consoleTextAreaStringBuilderHelper(map.getPlayerInventory().get(index) + " " + map.inspectItem(map.getPlayerInventory().get(index)));
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
@@ -742,15 +720,15 @@ public class Controller implements Initializable {
     private void inventoryHealButtonEventHandlerCreateHelper(Button healButton, int index) {
         healButton.setOnAction(event -> {
             try {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Used " + map.getPlayerInventory().get(index) + ".");
+                consoleTextAreaStringBuilderHelper("Used " + map.getPlayerInventory().get(index) + ".", "Health restored!");
+
                 map.equipPlayerItem(map.getPlayerInventory().get(index));
                 map.playerHeal();
-                consoleTextAreaStringBuilder.append("\nHealth restored!");
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilder.append("\n");
                 consoleTextAreaStringBuilder.append(e.getMessage());
             }
+
             updatePlayerHealthHUD();
             setUpInventoryGridPane();
             updateConsoleTextArea();
@@ -761,12 +739,10 @@ public class Controller implements Initializable {
         equipButton.setOnAction(event -> {
             try {
                 map.equipPlayerItem(map.getPlayerInventory().get(index));
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " equipped.");
+                consoleTextAreaStringBuilderHelper(map.getPlayerInventory().get(index) + " equipped.");
                 setUpInventoryGridPane();
             } catch (InvalidItemException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
+                consoleTextAreaStringBuilderHelper(e.getMessage());
             }
             updateConsoleTextArea();
         });
@@ -775,13 +751,11 @@ public class Controller implements Initializable {
     private void inventoryUnequipButtonEventHandlerCreateHelper(Button equipButton, int index) {
         equipButton.setOnAction(event -> {
             try {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " unequipped.");
                 map.unequipPlayerItem();
+                consoleTextAreaStringBuilderHelper(map.getPlayerInventory().get(index) + " unequipped.");
                 setUpInventoryGridPane();
             } catch (InvalidItemException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
+                consoleTextAreaStringBuilderHelper(e.getMessage());
             }
             updateConsoleTextArea();
         });
@@ -790,13 +764,11 @@ public class Controller implements Initializable {
     private void inventoryDropButtonEventHandlerCreateHelper(Button dropButton, int index) {
         dropButton.setOnAction(event -> {
             try {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getPlayerInventory().get(index) + " dropped.");
                 map.dropPlayerItem(map.getPlayerInventory().get(index));
+                consoleTextAreaStringBuilderHelper(map.getPlayerInventory().get(index) + " dropped.");
                 setUpInventoryGridPane();
             } catch (InvalidItemException e) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(e.getMessage());
+                consoleTextAreaStringBuilderHelper(e.getMessage());
             }
             updateConsoleTextArea();
         });
@@ -853,63 +825,39 @@ public class Controller implements Initializable {
         String command = consoleTextField.getText();
         try {
             if (consoleTextField.getText().equalsIgnoreCase("Commands")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("-Commands-" + "\nmove to <roomNumber>" + "\nstats: Player Stats" + "\nI: Inventory" + "\npickup <item>: add <item> to inventory" + "\ndrop <item>: Discard <item> to current room" + "\ninspect <item>: Look at <item>" + "\nunequip: Empty players hand" + "\nequip <item>: Place <item> from inventory to players hand" + "\nheal: Use consumable" + "\nexplore: List items in the room" + "\nclear: Clear all text from console.");
+                consoleTextAreaStringBuilderHelper("-Commands-" + "\nmove to <roomNumber>" + "\nstats: Player Stats" + "\nI: Inventory" + "\npickup <item>: add <item> to inventory" + "\ndrop <item>: Discard <item> to current room" + "\ninspect <item>: Look at <item>" + "\nunequip: Empty players hand" + "\nequip <item>: Place <item> from inventory to players hand" + "\nheal: Use consumable" + "\nexplore: List items in the room" + "\nclear: Clear all text from console.");
             } else if (command.contains("move to")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.movePlayerTo(command.split(" ")[2]));
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Connections: " + map.getCurrentRoomValidConnections());
+                consoleTextAreaStringBuilderHelper(map.movePlayerTo(command.split(" ")[2]), map.getCurrentRoomItems().toString(), "Connections: " + map.getCurrentRoomValidConnections());
             } else if (command.equalsIgnoreCase("stats")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getPlayerStats());
+                consoleTextAreaStringBuilderHelper(map.getPlayerStats());
             } else if (command.equalsIgnoreCase("I")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getPlayerInventory().toString());
+                consoleTextAreaStringBuilderHelper(map.getPlayerInventory().toString());
             } else if (command.contains("pickup")) {
-                consoleTextAreaStringBuilder.append("\n");
-                String string = command.split(" ")[1];
-                consoleTextAreaStringBuilder.append(map.pickupPlayerItem(string));
+                consoleTextAreaStringBuilderHelper(map.pickupPlayerItem(command.split(" ")[1]));
                 setUpInventoryGridPane();
             } else if (command.contains("drop")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.dropPlayerItem(command.split(" ")[1]));
+                consoleTextAreaStringBuilderHelper(map.dropPlayerItem(command.split(" ")[1]));
             } else if (command.contains("inspect")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.inspectItem(command.split(" ")[1]));
+                consoleTextAreaStringBuilderHelper(map.inspectItem(command.split(" ")[1]));
             } else if (command.equalsIgnoreCase("unequip")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.unequipPlayerItem());
+                consoleTextAreaStringBuilderHelper(map.unequipPlayerItem());
             } else if (command.contains("equip")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.equipPlayerItem(command.split(" ")[1]));
+                consoleTextAreaStringBuilderHelper(map.equipPlayerItem(command.split(" ")[1]));
             } else if (command.equalsIgnoreCase("heal")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.playerHeal());
+                consoleTextAreaStringBuilderHelper(map.playerHeal());
             } else if (command.equalsIgnoreCase("explore")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getCurrentRoomDescription());
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.getCurrentRoomItems());
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Connections:" + map.getCurrentRoomValidConnections());
+                consoleTextAreaStringBuilderHelper(map.getCurrentRoomDescription(), map.getCurrentRoomItems().toString(), "Connections:" + map.getCurrentRoomValidConnections());
             } else if (command.contains("unlock")) {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append(map.playerUnlocksDoor(command.split(" ")[1]));
+                consoleTextAreaStringBuilderHelper(map.playerUnlocksDoor(command.split(" ")[1]));
             } else if (command.equalsIgnoreCase("clear")) {
                 consoleTextAreaStringBuilder.setLength(0);
             } else {
-                consoleTextAreaStringBuilder.append("\n");
-                consoleTextAreaStringBuilder.append("Please ented a valid command. \nEnter 'Commands' to see a list of valid commands");
+                consoleTextAreaStringBuilderHelper("Please ented a valid command. \nEnter 'Commands' to see a list of valid commands");
             }
         } catch (InvalidRoomException e) {
-            consoleTextAreaStringBuilder.append("\nRoom Exception from Commands\n");
-            consoleTextAreaStringBuilder.append(e.getMessage());
+            consoleTextAreaStringBuilderHelper(e.getMessage());
         } catch (GameException e) {
-            consoleTextAreaStringBuilder.append("\nGame Exception from Commands\n");
-            consoleTextAreaStringBuilder.append(e.getMessage());
+            consoleTextAreaStringBuilderHelper(e.getMessage());
         }
     }
 
@@ -923,86 +871,7 @@ public class Controller implements Initializable {
             }
         });
 
-        consoleTextField.setOnMouseClicked(event -> {
-            consoleTextField.setText("");
-        });
-    }
-
-    private boolean findAndActivatePuzzle() throws InvalidPuzzleException {
-        for (int i = 0; i < map.getPuzzleAttempts() && map.isCurrentRoomPuzzleSolved() == false; i++) {
-            consoleTextAreaStringBuilder.append(map.getPuzzleQuestion());
-
-            String answer = consoleTextField.getText();
-            if (answer.equalsIgnoreCase("hint")) {
-                consoleTextAreaStringBuilder.append(map.getPuzzleHint());
-                i--; //this is so using the hint does not use any of the attempts
-            } else if (answer.equalsIgnoreCase("exit")) {
-                return false;
-            } else {
-                consoleTextAreaStringBuilder.append(map.solveCurrentRoomPuzzle(answer));
-            }
-
-        }
-
-        if (map.isCurrentRoomPuzzleSolved() == false) {
-            return false;
-        }
-        return true;
-    }
-
-    private boolean findAndActivateMonster() {
-        while (map.isCurrentRoomMonsterDead() == false) {
-            try {
-                consoleTextAreaStringBuilder.append("-Player-\n" + map.getPlayerStats() + "\n-Monster-\n" + map.getMonsterStats());
-                Thread.sleep(10);
-                consoleTextAreaStringBuilder.append("Enter Command:");
-
-                String command = consoleTextField.getText();
-
-                if (command.equalsIgnoreCase("commands")) {
-                    consoleTextAreaStringBuilder.append("\n-Commands-" + "\nAttack: Attack the monster" + "\nHeal: Give yourself some health" + "\nStudy: Study the monster" + "\nI: Inventory" + "\nInspect <item>: Look at <item>" + "\nUnequip: Empty players hand" + "\nEquip <item>: Place <item> from inventory to players hand");
-
-                } else if (command.equalsIgnoreCase("attack")) {
-                    consoleTextAreaStringBuilder.append(map.playerAttacksMonster());
-
-                    if (map.isCurrentRoomMonsterDead() == false) {
-                        consoleTextAreaStringBuilder.append(map.monsterAttacksPlayer());
-                    }
-
-                    if (map.getPlayerHealth() <= 0) {
-                        return true;
-                    }
-
-                } else if (command.equalsIgnoreCase("heal")) {
-                    consoleTextAreaStringBuilder.append(map.playerHeal());
-
-                    if (map.isCurrentRoomMonsterDead() == false) {
-                        consoleTextAreaStringBuilder.append(map.monsterAttacksPlayer());
-                    }
-
-                } else if (command.equalsIgnoreCase("study")) {
-                    consoleTextAreaStringBuilder.append(map.getMonsterDescription());
-                } else if (command.equalsIgnoreCase("i")) {
-                    consoleTextAreaStringBuilder.append(map.getPlayerInventory().toString());
-                } else if (command.contains("inspect")) {
-                    consoleTextAreaStringBuilder.append(map.inspectItem(command.split(" ")[1]));
-                } else if (command.equalsIgnoreCase(("unequip"))) {
-                    consoleTextAreaStringBuilder.append(map.unequipPlayerItem());
-                } else if (command.contains("equip")) {
-                    consoleTextAreaStringBuilder.append(map.equipPlayerItem(command.split(" ")[1]));
-                } else if (command.equalsIgnoreCase("exit")) {
-                    return false;
-                } else {
-                    consoleTextAreaStringBuilder.append("Please ented a valid command. \nEnter 'Commands' to see a list of valid commands");
-                }
-            } catch (GameException e) {
-                consoleTextAreaStringBuilder.append(e.getMessage());
-            } catch (InterruptedException e) {
-                consoleTextAreaStringBuilder.append("THIS SHOULD NEVER PRINT");
-            }
-
-        }
-        return true;
+        consoleTextField.setOnMouseClicked(event -> consoleTextField.setText(""));
     }
 
 }
