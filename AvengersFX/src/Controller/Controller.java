@@ -90,6 +90,8 @@ public class Controller implements Initializable {
     private TabPane tabPane;
 
     @FXML
+    private StackPane imageTopStackPane;
+    @FXML
     private StackPane imageStackPane;
 
     @FXML
@@ -118,9 +120,10 @@ public class Controller implements Initializable {
             System.exit(0);
         }
 
-        imageStackPane.getStyleClass().add("imagebg");
-
-        navigationGridPane.getChildren().clear();
+        //        imageTopStackPane.getStyleClass().add("image0");
+        //        imageStackPane.getStyleClass().add("imagebg");
+        //
+        //        navigationGridPane.getChildren().clear();
 
         setUpMiniMap();
         updateMiniMap();
@@ -595,15 +598,18 @@ public class Controller implements Initializable {
 
         for (int i = 0; i < imageStackPane.getStyleClass().size(); ) {
             imageStackPane.getStyleClass().remove(0);
+            imageTopStackPane.getStyleClass().remove(0);
         }
 
         switch (map.getCurrentRoomPattern()) {
             case 1:
+                imageTopStackPane.getStyleClass().add("imagebg0");
                 imageStackPane.getStyleClass().add("imagebg4");
                 gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, 4);
                 break;
             case 2:
-                imageStackPane.getStyleClass().add("imagebg2");
+                imageTopStackPane.getStyleClass().add("imagebg1");
+                imageStackPane.getStyleClass().add("imagebg1");
                 if (index < 1) {
                     gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
                 } else {
@@ -611,11 +617,13 @@ public class Controller implements Initializable {
                 }
                 break;
             case 3:
-                imageStackPane.getStyleClass().add("imagebg1");
+                imageTopStackPane.getStyleClass().add("imagebg1");
+                imageStackPane.getStyleClass().add("imagebg0");
                 gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
                 break;
             case 4:
-                imageStackPane.getStyleClass().add("imagebg3");
+                imageTopStackPane.getStyleClass().add("imagebg2");
+                imageStackPane.getStyleClass().add("imagebg1");
                 if (index < 2) {
                     if (index < 1) {
                         gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
@@ -627,6 +635,7 @@ public class Controller implements Initializable {
                 }
                 break;
             case 5:
+                imageTopStackPane.getStyleClass().add("imagebg2");
                 imageStackPane.getStyleClass().add("imagebg0");
                 if (index < 1) {
                     gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
@@ -738,7 +747,6 @@ public class Controller implements Initializable {
                 gridPaneButtonsHelperCreateHelper(inventoryGridPane, healButton, 1, index);
                 inventoryHealButtonEventHandlerCreateHelper(healButton, index);
             } else {
-
                 if (map.compareEquipedPlayerItem(map.getPlayerInventory().get(index))) {
                     Button unequipButton = new Button("Unequip");
                     gridPaneButtonsHelperCreateHelper(inventoryGridPane, unequipButton, 1, index);
