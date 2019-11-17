@@ -76,6 +76,11 @@ public class Player {
 
     public void acceptDamage(int damage) {
         currentHealthPoints -= damage;
+
+        if(currentHealthPoints <=0)
+        {
+            currentHealthPoints = 0;
+        }
     }
 
     public void acceptHeal(int hp) {

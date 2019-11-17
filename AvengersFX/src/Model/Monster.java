@@ -43,6 +43,7 @@ public class Monster
 		if (this.healthPoints <= 0)
 		{
 			isDead = true;
+			this.healthPoints = 0;
 		}
 	}
 
