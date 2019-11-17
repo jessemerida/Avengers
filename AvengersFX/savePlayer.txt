@@ -1,6 +1,6 @@
 @nTim
 @hp100
 @mhp100
-@i0
+@iRustyDagger,    SmallHealthPotion1,    SmallHealthPotion2,    BatteredArmor1,    SmallHealthPotion3,    SmallHealthPotion4,   BatteredArmor2,   ShiningArmor1,   SmallHealthPotion5,   SmallHealthPotion6,   SmallHealthPotion7,   SmallHealthPotion8,   AncientSword,  BatteredArmor3,  ShiningArmor2,  GoldCat, LargeHealthPotion7
 @ap10
 +
