@@ -382,6 +382,10 @@ public class Map {
         return player.getHealth();
     }
 
+    public int getPlayerMaxHealth(){
+        return player.getMaxHealthPoints();
+    }
+
     public String playerAttacksMonster() throws InvalidMonsterException {
         Monster monster = getMonster(currentRoom.getMonsterID());
         Item equippedItem = null;

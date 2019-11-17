@@ -61,8 +61,12 @@ public class Controller implements Initializable {
     private Rectangle rec9;
     @FXML
     private Rectangle rec10;
+    @FXML
+    private Rectangle playerHealthRectangle;
+    @FXML
+    private Rectangle playerMaxHealthRectangle;
 
-    ArrayList<Rectangle> rectangleArrayList;
+    private ArrayList<Rectangle> rectangleArrayList;
 
     @FXML
     private GridPane navigationGridPane;
@@ -402,6 +406,7 @@ public class Controller implements Initializable {
                 showDefaultView();
                 setUpNavigationGridPane();
                 updateMiniMap();
+                updatePlayerHealthHUD();
 
                 if (map.getPlayerHealth() < 1) {
                     consoleTextAreaStringBuilder.append("\nYou have been slain!");
@@ -454,11 +459,17 @@ public class Controller implements Initializable {
         }
     }
 
+    private void updatePlayerHealthHUD() {
+        playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth() * (map.getPlayerHealth() % map.getPlayerMaxHealth()) / 100);
+    }
+
     private void combatButtonEventHandlersCreateHelper() {
         combatAttackButton.setOnAction(event -> {
             try {
                 map.playerAttacksMonster();
                 map.monsterAttacksPlayer();
+
+                updatePlayerHealthHUD();
 
                 battleDescriptionAssembler();
 

@@ -48,6 +48,10 @@ public class Player {
         return currentHealthPoints;
     }
 
+    public int getMaxHealthPoints() {
+        return maxHealthPoints;
+    }
+
     public ArrayList<String> getInventory() {
         return items;
     }

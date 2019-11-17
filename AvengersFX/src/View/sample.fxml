@@ -22,27 +22,6 @@
     <content>
         <AnchorPane fx:id="gameAnchorPane" prefHeight="768.0" prefWidth="1024.0" styleClass="bodybg" stylesheets="@background.css">
             <children>
-                <AnchorPane fx:id="beginAnchorPane" prefHeight="768.0" prefWidth="1024.0" styleClass="bodybg" stylesheets="@background.css">
-                    <children>
-                        <Rectangle accessibleText="Accessob;eText" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="62.0" layoutY="20.0" stroke="#757264" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="7.0" styleClass="myBorder" width="900.0" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="162.0" layoutY="20.0" stroke="#757264" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="7.0" width="700.0" />
-                        <Text layoutX="325.0" layoutY="75.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="The Last Treasure" textAlignment="CENTER">
-                            <font>
-                                <Font size="48.0" />
-                            </font>
-                        </Text>
-                        <TextArea fx:id="newGameTextArea" editable="false" layoutX="156.0" layoutY="300.0" prefHeight="100.0" prefWidth="200.0" styleClass="myBorder" stylesheets="@background.css" text="New Game">
-                            <font>
-                                <Font size="29.0" />
-                            </font>
-                        </TextArea>
-                        <TextArea fx:id="loadGameTextArea" editable="false" layoutX="668.0" layoutY="300.0" prefHeight="100.0" prefWidth="200.0" styleClass="myBorder" stylesheets="@background.css" text="Load Game">
-                            <font>
-                                <Font size="29.0" />
-                            </font>
-                        </TextArea>
-                    </children>
-                </AnchorPane>
                 <Rectangle fx:id="topOuterRectangle" accessibleText="Accessob;eText" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="62.0" layoutY="20.0" stroke="#757264" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="7.0" styleClass="myBorder" width="900.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="162.0" layoutY="20.0" stroke="#757264" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="7.0" width="700.0" />
                 <Text layoutX="325.0" layoutY="75.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="The Last Treasure" textAlignment="CENTER">
@@ -113,7 +92,8 @@
             <StackPane fx:id="backStackPane" layoutX="622.0" layoutY="120.0" maxHeight="260.0" maxWidth="340.0" prefHeight="260.0" prefWidth="340.0" style="-fx-background-color: white; -fx-border-color: #757264; -fx-border-width: 7px;" />
             <StackPane fx:id="imageTopStackPane" layoutX="282.0" layoutY="120.0" maxHeight="130.0" maxWidth="340.0" prefHeight="130.0" prefWidth="340.0" style="-fx-border-color: #757264; -fx-border-width: 7px;" styleClass="imagebg0" />
                 <StackPane fx:id="imageStackPane" layoutX="282.0" layoutY="250.0" maxHeight="130.0" maxWidth="340.0" prefHeight="130.0" prefWidth="340.0" style="-fx-border-color: #757264; -fx-border-width: 7px;" styleClass="imagebg0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="667.0" layoutY="172.0" stroke="#8effaa" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
+            <Rectangle fx:id="playerMaxHealthRectangle" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="26.0" layoutX="667.0" layoutY="172.0" stroke="#8effaa" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
+            <Rectangle fx:id="playerHealthRectangle" arcHeight="5.0" arcWidth="5.0" fill="#8effaa" height="26.0" layoutX="667.0" layoutY="172.0" stroke="#8effaa" strokeType="INSIDE" strokeWidth="5.0" width="250.0" />
             <Label layoutX="667.0" layoutY="155.0" text="Health" />
                 <TextArea fx:id="consoleTextArea" editable="false" layoutX="282.0" layoutY="398.0" prefHeight="300.0" prefWidth="680.0" styleClass="myBorder" text="    AWAKEN my child, and embrace the glory that is your birthright. Know that I, AM the OVERMIND, the ETERNAL WILL of the Swarm; and that you have been created to serve me. Behold that I shall set you amongst the greatest of my Cerebrates, that you might benefit from their wisdom and experience.&#10;&#10;...For I have found a creature that may yet become the greatest of my agents! Even now, it resides within a protective Chrysalis, awaiting its rebirth into the Swarm. You must watch over the Chrysalis, and ensure that no harm comes to the creature within it. Go now and keep safe my prize!!" wrapText="true" />
                 <GridPane fx:id="minimapGridPane" layoutX="62.0" layoutY="120.0" prefHeight="200.0" prefWidth="200.0">
@@ -146,6 +126,27 @@
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                     </padding>
                 </GridPane>
+                <AnchorPane fx:id="beginAnchorPane" prefHeight="768.0" prefWidth="1024.0" styleClass="bodybg" stylesheets="@background.css">
+                    <children>
+                        <Rectangle accessibleText="Accessob;eText" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="62.0" layoutY="20.0" stroke="#757264" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="7.0" styleClass="myBorder" width="900.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="80.0" layoutX="162.0" layoutY="20.0" stroke="#757264" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="7.0" width="700.0" />
+                        <Text layoutX="325.0" layoutY="75.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="The Last Treasure" textAlignment="CENTER">
+                            <font>
+                                <Font size="48.0" />
+                            </font>
+                        </Text>
+                        <TextArea fx:id="newGameTextArea" editable="false" layoutX="156.0" layoutY="300.0" prefHeight="100.0" prefWidth="200.0" styleClass="myBorder" stylesheets="@background.css" text="New Game">
+                            <font>
+                                <Font size="29.0" />
+                            </font>
+                        </TextArea>
+                        <TextArea fx:id="loadGameTextArea" editable="false" layoutX="668.0" layoutY="300.0" prefHeight="100.0" prefWidth="200.0" styleClass="myBorder" stylesheets="@background.css" text="Load Game">
+                            <font>
+                                <Font size="29.0" />
+                            </font>
+                        </TextArea>
+                    </children>
+                </AnchorPane>
             </children>
         </AnchorPane>
     </content>

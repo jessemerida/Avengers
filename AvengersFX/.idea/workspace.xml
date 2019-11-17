@@ -4,10 +4,18 @@
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Controller/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Model/Map$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Model/Map$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Model/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Model/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/View/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/View/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saveItems.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saveItems.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saveMonsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saveMonsters.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savePlayer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savePlayer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savePuzzles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savePuzzles.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/saveRooms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saveRooms.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,6 +25,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="209" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -82,10 +93,33 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/savePlayer.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="263" column="95" selection-start-line="263" selection-start-column="95" selection-end-line="263" selection-end-column="95" />
+            <state relative-caret-position="476">
+              <caret line="37" column="103" lean-forward="true" selection-start-line="37" selection-start-column="103" selection-end-line="37" selection-end-column="103" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#639#647#0" expanded="true" />
+                <element signature="e#2782#2788#0" expanded="true" />
+                <element signature="e#3006#3014#0" expanded="true" />
+                <element signature="e#8549#8555#0" expanded="true" />
+                <element signature="e#10644#10652#0" expanded="true" />
+                <element signature="e#13727#13736#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+            <state relative-caret-position="330">
+              <caret line="385" column="43" selection-start-line="385" selection-start-column="43" selection-end-line="385" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,11 +139,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="211" column="17" selection-start-line="211" selection-start-column="17" selection-end-line="211" selection-end-column="17" />
+            <state relative-caret-position="262">
+              <caret line="462" column="127" selection-start-line="462" selection-start-column="127" selection-end-line="462" selection-end-column="127" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,7 +155,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/sample.fxml">
           <provider editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="153" column="35" selection-start-line="153" selection-start-column="35" selection-end-line="153" selection-end-column="35" />
+              <caret line="149" column="23" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="23" />
             </state>
           </provider>
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
@@ -159,6 +193,8 @@
       <find>visited</find>
       <find>roomID</find>
       <find>Game</find>
+      <find>stack</find>
+      <find>image</find>
     </findStrings>
     <replaceStrings>
       <replace>consoleTextAreaStringBuilder.append</replace>
@@ -198,12 +234,12 @@
         <option value="$PROJECT_DIR$/items2.txt" />
         <option value="$PROJECT_DIR$/src/Model/Puzzle.java" />
         <option value="$PROJECT_DIR$/puzzles2.txt" />
-        <option value="$PROJECT_DIR$/src/Model/Player.java" />
         <option value="$PROJECT_DIR$/rooms2.txt" />
         <option value="$PROJECT_DIR$/src/Model/FileManager.java" />
+        <option value="$PROJECT_DIR$/src/Model/Player.java" />
         <option value="$PROJECT_DIR$/src/Model/Map.java" />
-        <option value="$PROJECT_DIR$/src/View/sample.fxml" />
         <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/View/sample.fxml" />
       </list>
     </option>
   </component>
@@ -449,7 +485,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97102000" />
+    <option name="totallyTimeSpent" value="102795000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -470,14 +506,14 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info content_ui="combo" id="Project" order="5" sideWeight="0.39520958" weight="0.23493975" />
-      <window_info active="true" id="Structure" order="6" sideWeight="0.6047904" visible="true" weight="0.23159304" />
+      <window_info id="Structure" order="6" sideWeight="0.6047904" visible="true" weight="0.23159304" />
       <window_info id="Favorites" order="7" sideWeight="0.42656448" weight="0.16085792" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39974457" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" x="71" y="147" width="723" height="444" id="Run" order="5" type="WINDOWED" visible="true" weight="0.29457363" />
+      <window_info anchor="bottom" x="71" y="147" width="723" height="444" id="Run" order="5" type="WINDOWED" weight="0.29457363" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32950193" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32950193" />
@@ -489,6 +525,7 @@
       <window_info anchor="bottom" id="Docker" order="14" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="bottom" id="Terminal" order="16" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3299866" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -553,12 +590,13 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AvengersFX$MainFX.ic" NAME="MainFX Coverage Results" MODIFIED="1573950963981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gitignore.txt" />
     <entry file="file://$PROJECT_DIR$/items3.txt" />
-    <entry file="file://$PROJECT_DIR$/monsters.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/monsters.txt" />
     <entry file="file://$PROJECT_DIR$/monsters3.txt" />
     <entry file="file://$PROJECT_DIR$/player3.txt" />
     <entry file="file://$PROJECT_DIR$/puzzles3.txt" />
@@ -591,21 +629,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rooms3.txt" />
-    <entry file="file://$PROJECT_DIR$/rooms.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/player.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/rooms.txt" />
+    <entry file="file://$PROJECT_DIR$/player.txt" />
     <entry file="file://$PROJECT_DIR$/player2.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/puzzles.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/items.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/puzzles.txt" />
+    <entry file="file://$PROJECT_DIR$/items.txt" />
     <entry file="file://$PROJECT_DIR$/src/Model/Item.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -699,28 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-961">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1143#1144#0" expanded="true" />
-            <element signature="e#1178#1179#0" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-            <element signature="e#1315#1316#0" expanded="true" />
-            <element signature="e#1357#1358#0" expanded="true" />
-            <element signature="e#1404#1405#0" expanded="true" />
-            <element signature="e#1432#1433#0" expanded="true" />
-            <element signature="e#1865#1866#0" expanded="true" />
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1990#1991#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Puzzle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -728,13 +736,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="22" column="28" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.java" />
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -747,18 +749,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="263" column="95" selection-start-line="263" selection-start-column="95" selection-end-line="263" selection-end-column="95" />
+        <state relative-caret-position="476">
+          <caret line="37" column="103" lean-forward="true" selection-start-line="37" selection-start-column="103" selection-end-line="37" selection-end-column="103" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#639#647#0" expanded="true" />
+            <element signature="e#2782#2788#0" expanded="true" />
+            <element signature="e#3006#3014#0" expanded="true" />
+            <element signature="e#8549#8555#0" expanded="true" />
+            <element signature="e#10644#10652#0" expanded="true" />
+            <element signature="e#13727#13736#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/savePlayer.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="385" column="43" selection-start-line="385" selection-start-column="43" selection-end-line="385" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+        <state relative-caret-position="262">
+          <caret line="462" column="127" selection-start-line="462" selection-start-column="127" selection-end-line="462" selection-end-column="127" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -768,15 +789,15 @@
     <entry file="file://$PROJECT_DIR$/src/View/sample.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="153" column="35" selection-start-line="153" selection-start-column="35" selection-end-line="153" selection-end-column="35" />
+          <caret line="149" column="23" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="23" />
         </state>
       </provider>
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="211" column="17" selection-start-line="211" selection-start-column="17" selection-end-line="211" selection-end-column="17" />
+        <state relative-caret-position="194">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
