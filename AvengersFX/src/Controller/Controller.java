@@ -566,7 +566,7 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilderHelper("Could not pick up all items.", e.getMessage());
             }
 
-            if (map.playerGameWinCondition()) {
+            if (map.getWinCondition()) {
                 consoleTextAreaStringBuilderHelper("Congratulations!!!", "You have obtained The Last Treasure!!", "Thank you for playing!", "Credits:", "Hasan: Controller, Model", "Jess: GUI Design, FileIO", "Jesse: FileIO, Game Design", "Joshua: Controller, View");
             }
             updateConsoleTextArea();
@@ -580,10 +580,14 @@ public class Controller implements Initializable {
 
     private void navigationButtonsNotInFXMLCreateHelper() {
         navigationExploreButton = new Button("Explore");
-        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationExploreButton, 2, 3);
+        GridPane.setHalignment(navigationExploreButton, HPos.CENTER);
+        GridPane.setValignment(navigationExploreButton, VPos.CENTER);
+        navigationGridPane.add(navigationExploreButton, 0, 3, 5, 1);
 
         navigationPickupAllButton = new Button("PickUp All");
-        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationPickupAllButton, 2, 2);
+        GridPane.setHalignment(navigationPickupAllButton, HPos.CENTER);
+        GridPane.setValignment(navigationPickupAllButton, VPos.CENTER);
+        navigationGridPane.add(navigationPickupAllButton, 0, 2, 5, 1);
 
         navigationButtonsNotInFXMLEventHandlerHelper();
     }
@@ -693,15 +697,17 @@ public class Controller implements Initializable {
         navigationGridPane.getChildren().clear();
         navigationButtonsNotInFXMLCreateHelper();
 
-        //Todo fix me
+        //Todo this only needs be run once, but is run each time this method is called. Could be moved to fxml or in initialize.
         navigationGridPane.getColumnConstraints().clear();
         navigationGridPane.getRowConstraints().clear();
         for (int i = 0; i < 5; i++) {
             ColumnConstraints column = new ColumnConstraints(35);
+            column.setHgrow(Priority.ALWAYS);
             RowConstraints row = new RowConstraints(35);
             navigationGridPane.getRowConstraints().add(row);
             navigationGridPane.getColumnConstraints().add(column);
         }
+
         ArrayList<String> connections = map.getCurrentRoomValidConnections();
         for (int i = 0; i < connections.size(); i++) {
             navigationButtonCreateHelper(connections.get(i), i);
