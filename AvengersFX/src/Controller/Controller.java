@@ -474,7 +474,12 @@ public class Controller implements Initializable {
     private void combatDescriptionAssembler(int damage) {
         try {
             consoleTextAreaStringBuilder.setLength(0);
-            consoleTextAreaStringBuilderHelper("You deal " + map.getPlayerDamage() + " damage!", map.getMonsterName() + " deals " + damage + " damage to you!", "Health:" + map.getPlayerHealth() + "\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
+            if (map.getMonsterHealth() > 0) {
+                consoleTextAreaStringBuilderHelper("You deal " + map.getPlayerDamage() + " damage!", map.getMonsterName() + " deals " + damage + " damage to you!", "Health:" + map.getPlayerHealth() + "\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
+
+            } else {
+                consoleTextAreaStringBuilderHelper("You deal " + map.getPlayerDamage() + " damage!", "Health:" + map.getPlayerHealth() + "\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
+            }
         } catch (InvalidMonsterException e) {
             consoleTextAreaStringBuilderHelper(e.getMessage());
         }
@@ -518,7 +523,11 @@ public class Controller implements Initializable {
         combatAttackButton.setOnAction(event -> {
             try {
                 map.playerAttacksMonster();
-                combatDescriptionAssembler(map.monsterAttacksPlayer());
+                if (map.getMonsterHealth() > 0) {
+                    combatDescriptionAssembler(map.monsterAttacksPlayer());
+                } else {
+                    combatDescriptionAssembler(0);
+                }
 
                 updatePlayerHealthHUD();
                 updateMonsterHealthHUD();

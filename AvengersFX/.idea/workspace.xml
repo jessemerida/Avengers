@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Controller/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/saveMonsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saveMonsters.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savePlayer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savePlayer.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savePuzzles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savePuzzles.txt" afterDir="false" />
@@ -144,8 +142,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="622" column="24" selection-start-line="622" selection-start-column="24" selection-end-line="622" selection-end-column="24" />
+            <state relative-caret-position="353">
+              <caret line="480" column="99" selection-start-line="480" selection-start-column="99" selection-end-line="480" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -192,11 +190,11 @@
       <find>navigation</find>
       <find>always</find>
       <find>menuG</find>
-      <find>const</find>
       <find>currentRoom.setVisited(true);</find>
       <find>setVisited</find>
       <find>getRoom</find>
       <find>getRoom(</find>
+      <find>const</find>
     </findStrings>
     <replaceStrings>
       <replace>consoleTextAreaStringBuilder.append</replace>
@@ -248,8 +246,8 @@
         <option value="$PROJECT_DIR$/rooms2.txt" />
         <option value="$PROJECT_DIR$/src/Model/FileManager.java" />
         <option value="$PROJECT_DIR$/src/View/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/Model/Map.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -480,7 +478,7 @@
       <workItem from="1573868461996" duration="15318000" />
       <workItem from="1573939367797" duration="7626000" />
       <workItem from="1573954294661" duration="1988000" />
-      <workItem from="1573965004511" duration="28312000" />
+      <workItem from="1573965004511" duration="29130000" />
     </task>
     <task id="LOCAL-00001" summary="unlocking connection 6-&gt;2">
       <created>1573922840386</created>
@@ -500,7 +498,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="133252000" />
+    <option name="totallyTimeSpent" value="134070000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -521,7 +519,7 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info content_ui="combo" id="Project" order="5" sideWeight="0.39520958" weight="0.23493975" />
-      <window_info id="Structure" order="6" sideWeight="0.6047904" visible="true" weight="0.23828648" />
+      <window_info id="Structure" order="6" sideWeight="0.6047904" weight="0.23828648" />
       <window_info id="Favorites" order="7" sideWeight="0.42656448" weight="0.16085792" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -788,6 +786,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -798,17 +803,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="622" column="24" selection-start-line="622" selection-start-column="24" selection-end-line="622" selection-end-column="24" />
+        <state relative-caret-position="353">
+          <caret line="480" column="99" selection-start-line="480" selection-start-column="99" selection-end-line="480" selection-end-column="99" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

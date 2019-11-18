@@ -1,18 +1,18 @@
 #1
-@vtrue
+@vfalse
 ~You came across 4 doors. To open a door you can knock or use this item to unlock. 1st door, you can hear an animal-like noises of scratching and breathing. 2nd door has blood splattered across with chants from rituals. 3rd door is almost falling off the edges. 4th door has sounds of babies crying.
 =-The room is still hauntingly noisy with whispers coming in from the other rooms. 
-@i0
+@iRustyDagger, RustyIronKey1, RustyIronKey2, RustyIronKey3, RustyIronKey4
 @p0
 @m0	
 @c12
 @c23
 @c34
 @c45
-@l1false
-@l2false
-@l3false
-@l4false
+@l1true
+@l2true
+@l3true
+@l4true
 @k11
 @k22
 @k33
@@ -20,10 +20,10 @@
 @rn1
 +
 #2
-@vtrue
+@vfalse
 ~The ancient civilization believed that potions were best to be taken. Life is uncertain, even in the afterlife. Room has an eerie ancient feel. You look across and see there is a deadlock on the door across. It is locked. 
 =-The air in the room is thick with dust. Who knows how long it has gone untouched until you arrived.
-@i0
+@iSmallHealthPotion1, SmallHealthPotion2
 @p0
 @m0	
 @c11
@@ -31,7 +31,7 @@
 @c30
 @c40
 @l1false
-@l2false
+@l2true
 @l3false
 @l4false
 @k10
@@ -41,10 +41,10 @@
 @rn2
 +
 #3
-@vtrue
+@vfalse
 ~It is damp and dim, but one can still see. Clank! You step on something.
 =-The room is still as dark as you left it. 
-@i0
+@iRustyIronKey5
 @p0
 @m0	
 @c11
@@ -62,10 +62,10 @@
 @rn2
 +
 #4
-@vtrue
+@vfalse
 ~***Boom!*** The walls are closing in slowly through the sides. Booby Trap! 
 =-The booby trap still lies open on the ground. You do your best to avoid it while in the room.
-@i0
+@iSmallHealthPotion3
 @pP01
 @m0	
 @c11
@@ -83,7 +83,7 @@
 @rn2
 +
 #5
-@vtrue
+@vfalse
 ~You remember it's your ringtone to remind you to feed your newborn. What a relief!! There are a lot of cobwebs, meaning no one has been here in a while. 
 =-You notice the webs that liter the room have no spiders or insects on them. Where could they have gone?
 @i0
@@ -104,10 +104,10 @@
 @rn2
 +
 #6
-@vtrue
+@vfalse
 ~You feel mist all around you. It's as if the rain was drizzling inside. Finally, the blurred Corpse Wing appears. You run into the closet out of fear and desperation.
 =-The creature lies on the ground. You wonder if it is still alive.
-@i0
+@iLargeHealthPotion1, GoldenKey1, BatteredArmor1
 @p0
 @mM01	
 @c12
@@ -125,10 +125,10 @@
 @rn3
 +
 #7
-@vtrue
+@vfalse
 ~Darn it ! Another Booby Trap! The door across is locked. Smoke starts to seem in through the cracks of the doors and vents.
 =-The smoke still lingers in the room. 
-@i0
+@iRustyIronKey6
 @pP02
 @m0	
 @c13
@@ -136,7 +136,7 @@
 @c30
 @c40
 @l1false
-@l2false
+@l2true
 @l3false
 @l4false
 @k10
@@ -146,10 +146,10 @@
 @rn2
 +
 #8
-@vtrue
+@vfalse
 ~Small little spiders scatter across when you enter. There's a desk with open drawers.
 =-Well, you found where all the spiders went to at least.
-@i0
+@iRustyIronKey7
 @p0
 @m0	
 @c14
@@ -157,7 +157,7 @@
 @c30
 @c40
 @l1false
-@l2false
+@l2true
 @l3false
 @l4false
 @k10
@@ -167,7 +167,7 @@
 @rn2
 +
 #9
-@vtrue
+@vfalse
 ~As the crying child noise continues, you realize it was not just your ringtone. There's an actual child in this room. It's curse face. There are no other doors. 
 =-An ominous presence haunts the room. 
 @iLargeHealthPotion2
