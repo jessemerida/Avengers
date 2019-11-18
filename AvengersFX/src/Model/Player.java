@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Player {
     private String name;
@@ -53,6 +54,7 @@ public class Player {
     }
 
     public ArrayList<String> getInventory() {
+        Collections.sort(items);
         return items;
     }
 
