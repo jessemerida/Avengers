@@ -130,7 +130,7 @@ public class Controller implements Initializable {
             map.loadNewGame();
         } catch (FileNotFoundException e) {
             consoleTextArea.setText(e.getMessage());
-            System.exit(0);
+            printLog(e.getMessage());
         }
 
         setUpMiniMap();
@@ -140,9 +140,9 @@ public class Controller implements Initializable {
         setUpPuzzleGridPane();
         setUpMenuGridPane();
 
+        setUpBeginGameViewButtonsEventHandlers();
         setUpConsoleTextFieldEventHandler();
 
-        beginGameViewButtonsEventHandlerCreateHelper();
 
         hideMonsterHealthBars();
         updateMiniMap();
@@ -150,7 +150,6 @@ public class Controller implements Initializable {
 
         roomDescriptionAssembler();
         updateConsoleTextArea();
-
     }
 
     private void printLog(String message) {
@@ -292,6 +291,7 @@ public class Controller implements Initializable {
             resetAndUpdateGameView();
         } catch (FileNotFoundException e) {
             consoleTextAreaStringBuilderHelper(e.getMessage());
+            printLog(e.getMessage());
         }
         beginAnchorPane.setVisible(false);
         updateConsoleTextArea();
@@ -303,12 +303,13 @@ public class Controller implements Initializable {
             resetAndUpdateGameView();
         } catch (FileNotFoundException e) {
             consoleTextAreaStringBuilderHelper(e.getMessage());
+            printLog(e.getMessage());
         }
         beginAnchorPane.setVisible(false);
         updateConsoleTextArea();
     }
 
-    private void beginGameViewButtonsEventHandlerCreateHelper() {
+    private void setUpBeginGameViewButtonsEventHandlers() {
         newGameTextArea.setOnMouseClicked(event -> newGameButtonEventHandlerCreateFuctionalityHelper());
 
         loadGameTextArea.setOnMouseClicked(event -> loadGameButtonEventHandlerCreateFunctionalityHelper());
@@ -324,6 +325,7 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilderHelper("Game Saved!");
             } catch (FileNotFoundException e) {
                 consoleTextAreaStringBuilderHelper("Unable to save game.");
+                printLog(e.getMessage());
             }
             updateConsoleTextArea();
         });
@@ -348,6 +350,46 @@ public class Controller implements Initializable {
         menuButtonsCreateHelper();
     }
 
+    private void puzzleButtonEventHandlerCreateFunctionalityHelper() {
+        consoleTextAreaStringBuilderHelper("You have answered: " + consoleTextField.getText());
+
+        try {
+            if (map.solveCurrentRoomPuzzle(consoleTextField.getText())) {
+                consoleTextAreaStringBuilderHelper("Solved! Well done.");
+                showDefaultView();
+            } else {
+                map.puzzleReduceAttemptsRemaining();
+                consoleTextAreaStringBuilderHelper("Wrong!", map.getPuzzleAttemptsRemaining() + " attempts left.");
+
+                if (map.getPuzzleAttemptsRemaining() <= 0) {
+                    consoleTextAreaStringBuilderHelper("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
+
+                    if (map.getPlayerHealth() < 1) {
+                        consoleTextAreaStringBuilderHelper("You have been slain!");
+                        tabPane.getTabs().removeAll(navigationTab, inventoryTab, menuTab);
+                        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
+                        pauseTransition.setOnFinished((event1) -> showBeginGameView());
+                        pauseTransition.play();
+                    } else {
+                        map.movePlayerToPreviousRoom();
+
+                        consoleTextAreaStringBuilderHelper("You manage to escape to the previous room.");
+
+                        setUpNavigationGridPane();
+                        updateMiniMap();
+                        updatePlayerHealthHUD();
+                        showDefaultView();
+                    }
+                }
+            }
+        } catch (InvalidPuzzleException e) {
+            consoleTextAreaStringBuilderHelper(e.getMessage());
+        }
+
+        consoleTextField.setText("");
+        updateConsoleTextArea();
+    }
+
     private void puzzleButtonsEventHandlerCreateHelper() {
         puzzleExamineButton.setOnAction(event -> {
             try {
@@ -359,45 +401,7 @@ public class Controller implements Initializable {
             updateConsoleTextArea();
         });
 
-        puzzleAnswerButton.setOnAction(event -> {
-            consoleTextAreaStringBuilderHelper("You have answered: " + consoleTextField.getText());
-
-            try {
-                if (map.solveCurrentRoomPuzzle(consoleTextField.getText())) {
-                    consoleTextAreaStringBuilderHelper("Solved! Well done.");
-                    showDefaultView();
-                } else {
-                    map.puzzleReduceAttemptsRemaining();
-                    consoleTextAreaStringBuilderHelper("Wrong!", map.getPuzzleAttemptsRemaining() + " attempts left.");
-
-                    if (map.getPuzzleAttemptsRemaining() <= 0) {
-                        consoleTextAreaStringBuilderHelper("You take " + map.applyPuzzleDamageToPlayer() + " damage.");
-
-                        if (map.getPlayerHealth() < 1) {
-                            consoleTextAreaStringBuilderHelper("You have been slain!");
-                            tabPane.getTabs().removeAll(navigationTab, inventoryTab, menuTab);
-                            PauseTransition pauseTransition = new PauseTransition(Duration.seconds(3));
-                            pauseTransition.setOnFinished((event1) -> showBeginGameView());
-                            pauseTransition.play();
-                        } else {
-                            map.movePlayerToPreviousRoom();
-
-                            consoleTextAreaStringBuilderHelper("You manage to escape to the previous room.");
-
-                            setUpNavigationGridPane();
-                            updateMiniMap();
-                            updatePlayerHealthHUD();
-                            showDefaultView();
-                        }
-                    }
-                }
-            } catch (InvalidPuzzleException e) {
-                consoleTextAreaStringBuilderHelper(e.getMessage());
-            }
-
-            consoleTextField.setText("");
-            updateConsoleTextArea();
-        });
+        puzzleAnswerButton.setOnAction(event -> puzzleButtonEventHandlerCreateFunctionalityHelper());
 
         puzzleHintButton.setOnAction(event -> {
             try {
@@ -801,7 +805,7 @@ public class Controller implements Initializable {
         String command = consoleTextField.getText();
         try {
             if (consoleTextField.getText().equalsIgnoreCase("Commands")) {
-                consoleTextAreaStringBuilderHelper("-Commands-" + "\nmove to <roomNumber>" + "\nstats: Player Stats" + "\nI: Inventory" + "\npickup <item>: add <item> to inventory" + "\ndrop <item>: Discard <item> to current room" + "\ninspect <item>: Look at <item>" + "\nunequip: Empty players hand" + "\nequip <item>: Place <item> from inventory to players hand" + "\nheal: Use consumable" + "\nexplore: List items in the room" + "\nclear: Clear all text from console.");
+                consoleTextAreaStringBuilderHelper("-Commands-", "move to <roomNumber>", "stats: Player Stats", "I: Inventory", "pickup <item>: add <item> to inventory", "drop <item>: Discard <item> to current room", "inspect <item>: Look at <item>", "unequip: Empty players hand", "equip <item>: Place <item> from inventory to players hand", "heal: Use consumable", "explore: List items in the room", "answer <answer>: Submit <answer> to puzzle", "clear: Clear all text from console.");
             } else if (command.contains("move to")) {
                 consoleTextAreaStringBuilderHelper(map.movePlayerTo(command.split(" ")[2]), map.getCurrentRoomItems().toString(), "Connections: " + map.getCurrentRoomValidConnections());
             } else if (command.equalsIgnoreCase("stats")) {
@@ -827,8 +831,15 @@ public class Controller implements Initializable {
                 consoleTextAreaStringBuilderHelper(map.playerUnlocksDoor(command.split(" ")[1]));
             } else if (command.equalsIgnoreCase("clear")) {
                 consoleTextAreaStringBuilder.setLength(0);
+            } else if (command.contains("answer") && command.split(" ").length > 1) {
+                if (map.isCurrentRoomMonsterDead()) {
+                    if (!map.isCurrentRoomPuzzleSolved() && map.getPuzzleAttemptsRemaining() > 0) {
+                        consoleTextField.setText(command.split(" ")[1]);
+                        puzzleButtonEventHandlerCreateFunctionalityHelper();
+                    }
+                }
             } else {
-                consoleTextAreaStringBuilderHelper("Please ented a valid command. \nEnter 'Commands' to see a list of valid commands");
+                consoleTextAreaStringBuilderHelper("Please ented a valid command.", "Enter 'Commands' to see a list of valid commands");
             }
         } catch (GameException e) {
             consoleTextAreaStringBuilderHelper(e.getMessage());
@@ -840,6 +851,7 @@ public class Controller implements Initializable {
             if (event.getCode().equals(KeyCode.ENTER)) {
                 consoleTextAreaStringBuilder.setLength(0);
                 consoleTextFieldCommands();
+
                 consoleTextField.setText("");
                 updateConsoleTextArea();
             }
