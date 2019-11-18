@@ -195,8 +195,12 @@ public class Map {
         return currentRoom.isVisited();
     }
 
-    public boolean getIsVisited(int index) {
+    public boolean getRoomIsVisited(int index) {
         return allRooms.get(index).isVisited();
+    }
+
+    public boolean getRoomHasItems(int index) {
+        return allRooms.get(index).getItems().size() > 0;
     }
 
     public String getCurrentRoomDescription() {

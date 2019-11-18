@@ -173,20 +173,32 @@ public class Controller implements Initializable {
 
         for (int i = 0; i < rectangleArrayList.size(); i++) {
             if (index < 11) {
-                if (map.getIsVisited(i)) {
-                    rectangleArrayList.get(i).setFill(Color.GRAY);
+                if (map.getRoomIsVisited(i)) {
+                    if (map.getRoomHasItems(i)) {
+                        rectangleArrayList.get(i).setFill(Color.BLUE);
+                    } else {
+                        rectangleArrayList.get(i).setFill(Color.GRAY);
+                    }
                 } else {
                     rectangleArrayList.get(i).setFill(Color.WHITE);
                 }
             } else if (index < 21) {
-                if (map.getIsVisited(i + 10)) {
-                    rectangleArrayList.get(i).setFill(Color.GRAY);
+                if (map.getRoomIsVisited(i + 10)) {
+                    if (map.getRoomHasItems(i)) {
+                        rectangleArrayList.get(i).setFill(Color.BLUE);
+                    } else {
+                        rectangleArrayList.get(i).setFill(Color.GRAY);
+                    }
                 } else {
                     rectangleArrayList.get(i).setFill(Color.WHITE);
                 }
             } else {
-                if (map.getIsVisited(i + 20)) {
-                    rectangleArrayList.get(i).setFill(Color.GRAY);
+                if (map.getRoomIsVisited(i + 20)) {
+                    if (map.getRoomHasItems(i)) {
+                        rectangleArrayList.get(i).setFill(Color.BLUE);
+                    } else {
+                        rectangleArrayList.get(i).setFill(Color.GRAY);
+                    }
                 } else {
                     rectangleArrayList.get(i).setFill(Color.WHITE);
                 }
