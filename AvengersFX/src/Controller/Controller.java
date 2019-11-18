@@ -289,6 +289,17 @@ public class Controller implements Initializable {
         gridPane.add(button, columnIndex, rowIndex, colSpan, rowSpan);
     }
 
+    private void setUpGridPaneHelper(GridPane gridPane) {
+        gridPane.getColumnConstraints().clear();
+        gridPane.getRowConstraints().clear();
+        for (int i = 0; i < 5; i++) {
+            ColumnConstraints column = new ColumnConstraints(35);
+            RowConstraints row = new RowConstraints(35);
+            gridPane.getRowConstraints().add(row);
+            gridPane.getColumnConstraints().add(column);
+        }
+    }
+
     private void newGameButtonEventHandlerCreateFuctionalityHelper() {
         try {
             map.loadNewGame();
@@ -352,14 +363,7 @@ public class Controller implements Initializable {
 
     private void setUpMenuGridPane() {
         //Todo this only needs be run once, but is run each time this method is called. Could be moved to fxml or in initialize.
-        menuGridPane.getColumnConstraints().clear();
-        menuGridPane.getRowConstraints().clear();
-        for (int i = 0; i < 5; i++) {
-            ColumnConstraints column = new ColumnConstraints(35);
-            RowConstraints row = new RowConstraints(35);
-            menuGridPane.getRowConstraints().add(row);
-            menuGridPane.getColumnConstraints().add(column);
-        }
+        setUpGridPaneHelper(menuGridPane);
         menuButtonsCreateHelper();
     }
 
@@ -557,18 +561,19 @@ public class Controller implements Initializable {
 
     private void combatButtonsCreateHelper() {
         combatAttackButton = new Button("Attack");
-        gridPaneButtonsHelperCreateHelper(combatGridPane, combatAttackButton, 0, 0);
+        gridPaneButtonsHelperCreateHelper(combatGridPane, combatAttackButton, 0, 0, 5, 1);
 
         combatExamineButton = new Button("Examine");
-        gridPaneButtonsHelperCreateHelper(combatGridPane, combatExamineButton, 0, 1);
+        gridPaneButtonsHelperCreateHelper(combatGridPane, combatExamineButton, 0, 2, 5, 1);
 
         combatEscapeButton = new Button("Escape");
-        gridPaneButtonsHelperCreateHelper(combatGridPane, combatEscapeButton, 0, 2);
+        gridPaneButtonsHelperCreateHelper(combatGridPane, combatEscapeButton, 0, 4, 5, 1);
 
         combatButtonEventHandlersCreateHelper();
     }
 
     private void setUpCombatGridPane() {
+        setUpGridPaneHelper(combatGridPane);
         combatButtonsCreateHelper();
     }
 
@@ -714,14 +719,7 @@ public class Controller implements Initializable {
         navigationButtonsNotInFXMLCreateHelper();
 
         //Todo this only needs be run once, but is run each time this method is called. Could be moved to fxml or in initialize.
-        navigationGridPane.getColumnConstraints().clear();
-        navigationGridPane.getRowConstraints().clear();
-        for (int i = 0; i < 5; i++) {
-            ColumnConstraints column = new ColumnConstraints(35);
-            RowConstraints row = new RowConstraints(35);
-            navigationGridPane.getRowConstraints().add(row);
-            navigationGridPane.getColumnConstraints().add(column);
-        }
+        setUpGridPaneHelper(navigationGridPane);
 
         ArrayList<String> connections = map.getCurrentRoomValidConnections();
         for (int i = 0; i < connections.size(); i++) {
