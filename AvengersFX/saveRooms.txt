@@ -1,8 +1,8 @@
 #1
-@vfalse
+@vtrue
 ~You came across 4 doors. To open a door you can knock or use this item to unlock. 1st door, you can hear an animal-like noises of scratching and breathing. 2nd door has blood splattered across with chants from rituals. 3rd door is almost falling off the edges. 4th door has sounds of babies crying.
 =-The room is still hauntingly noisy with whispers coming in from the other rooms. 
-@iRustyDagger, RustyIronKey1, RustyIronKey2, RustyIronKey3, RustyIronKey4
+@i0
 @p0
 @m0	
 @c12
@@ -12,7 +12,7 @@
 @l1true
 @l2true
 @l3true
-@l4true
+@l4false
 @k11
 @k22
 @k33
@@ -83,7 +83,7 @@
 @rn2
 +
 #5
-@vfalse
+@vtrue
 ~You remember it's your ringtone to remind you to feed your newborn. What a relief!! There are a lot of cobwebs, meaning no one has been here in a while. 
 =-You notice the webs that liter the room have no spiders or insects on them. Where could they have gone?
 @i0
@@ -167,7 +167,7 @@
 @rn2
 +
 #9
-@vfalse
+@vtrue
 ~As the crying child noise continues, you realize it was not just your ringtone. There's an actual child in this room. It's curse face. There are no other doors. 
 =-An ominous presence haunts the room. 
 @iLargeHealthPotion2

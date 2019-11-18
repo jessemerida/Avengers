@@ -5,6 +5,7 @@
 ~like a poorly taken photograph.
 @dsfalse
 @hp40
+@HmaxP40
 @apmin10
 @apmax25
 +
@@ -13,7 +14,8 @@
 ~The curse face would whimper like a lost child, clutching at a rag doll, it's eyes brimming with 
 ~silver tears that shone brightly in the moonlight.
 @dsfalse
-@hp30
+@hp20
+@HmaxP30
 @apmin10
 @apmax25
 +
@@ -23,6 +25,7 @@
 ~cut from him while he was still alive. Now he is restless, unable to rest in peace and full of fury.
 @dsfalse
 @hp60
+@HmaxP60
 @apmin10
 @apmax25
 +
@@ -32,6 +35,7 @@
 ~mandibles and followed me with it's enormous compound eye.
 @dsfalse
 @hp100
+@HmaxP100
 @apmin10
 @apmax25
 +
@@ -42,6 +46,7 @@
 ~grins and dared each other to go in.
 @dsfalse
 @hp100
+@HmaxP100
 @apmin10
 @apmax25
 +
@@ -52,6 +57,7 @@
 ~then inexplicably the vampire seemed to melt away into the shadows as soundlessly as it had arrived.
 @dsfalse
 @hp100
+@HmaxP100
 @apmin10
 @apmax25
 +
@@ -62,6 +68,7 @@
 ~tentacles would shoot out and pull them into his mouth.
 @dsfalse
 @hp40
+@HmaxP40
 @apmin10
 @apmax25
 +
@@ -72,6 +79,7 @@
 ~of her choice each dawn.
 @dsfalse
 @hp20
+@HmaxP20
 @apmin10
 @apmax25
 +

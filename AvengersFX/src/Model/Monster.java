@@ -15,13 +15,13 @@ public class Monster {
     private int attackPointsMin;
     private int attackPointsMax;
 
-    public Monster(String id, String name, String description, boolean isDead, int healthPoints, int attackPointsMin, int attackPointsMax) {
+    public Monster(String id, String name, String description, boolean isDead, int healthPoints, int maxHealthPoints, int attackPointsMin, int attackPointsMax) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.isDead = isDead;
         this.healthPoints = healthPoints;
-        this.maxHealthPoints = healthPoints;
+        this.maxHealthPoints = maxHealthPoints;
         this.attackPointsMin = attackPointsMin;
         this.attackPointsMax = attackPointsMax;
     }
@@ -77,9 +77,15 @@ public class Monster {
         buffwriter.append("~" + desc + "\n");
         buffwriter.append("@ds" + isDead + "\n");
         buffwriter.append("@hp" + healthPoints + "\n");
+        buffwriter.append("@HmaxP" + maxHealthPoints + "\n");
         buffwriter.append("@apmin" + attackPointsMin + "\n");
         buffwriter.append("@apmax" + attackPointsMax + "\n");
         buffwriter.append("+\n");
         buffwriter.close();
+    }
+
+    @Override
+    public String toString() {
+        return "Monster{" + "id='" + id + '\'' + ", name='" + name + '\'' + ", description='" + description + '\'' + ", isDead=" + isDead + ", healthPoints=" + healthPoints + ", maxHealthPoints=" + maxHealthPoints + ", attackPointsMin=" + attackPointsMin + ", attackPointsMax=" + attackPointsMax + '}';
     }
 }

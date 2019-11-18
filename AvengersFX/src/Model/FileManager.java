@@ -330,6 +330,7 @@ public class FileManager {
         String description = "";
         boolean isDead = false;
         int healthPoints = 0;
+        int maxHealthPoints = 0;
         int attackPointsMin = 0;
         int attackPointsMax = 0;
 
@@ -348,16 +349,21 @@ public class FileManager {
                     }
                     if (currLine.contains("@ds")) isDead = Boolean.parseBoolean(currLine.substring(3));
                     if (currLine.contains("@hp")) healthPoints = Integer.parseInt(currLine.substring(3));
+                    if (currLine.contains("@HmaxP")) {
+                        maxHealthPoints = Integer.parseInt(currLine.substring(6));
+                        System.out.println(maxHealthPoints);
+                    }
                     if (currLine.contains("@apmin")) attackPointsMin = Integer.parseInt(currLine.substring(6));
                     if (currLine.contains("@apmax")) attackPointsMax = Integer.parseInt(currLine.substring(6));
                 }
                 if (currLine.contains("+")) {
-                    allMonsters.add(new Monster(id, name, description, isDead, healthPoints, attackPointsMin, attackPointsMax));
+                    allMonsters.add(new Monster(id, name, description, isDead, healthPoints, maxHealthPoints, attackPointsMin, attackPointsMax));
                     id = "";
                     name = "";
                     description = "";
                     isDead = false;
                     healthPoints = 0;
+                    maxHealthPoints = 0;
                     attackPointsMin = 0;
                     attackPointsMax = 0;
                 }
