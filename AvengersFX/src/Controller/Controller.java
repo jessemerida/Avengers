@@ -565,6 +565,10 @@ public class Controller implements Initializable {
             } catch (InvalidItemException e) {
                 consoleTextAreaStringBuilderHelper("Could not pick up all items.", e.getMessage());
             }
+
+            if (map.playerGameWinCondition()) {
+                consoleTextAreaStringBuilderHelper("Congratulation!!!", "You have obtained The Last Treasure!", "Thank you for playing!", "Credits", "Hasan: Controller, Model", "Jess: GUI Design, FileIO", "Jesse: FileIO, Game Design", "Joshua: Controller, View");
+            }
             updateConsoleTextArea();
         });
 
