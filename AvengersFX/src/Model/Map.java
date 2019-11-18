@@ -529,4 +529,26 @@ public class Map {
             throw new InvalidItemException(connection + " is not a valid direction");
         }
     }
+
+    public boolean getWinCondition()
+    {
+        for(int i = 0 ; i<player.getInventory().size() ; i++)
+        {
+            Item item = null;
+            try
+            {
+                item = getItem(player.getInventory().get(i));
+            }
+            catch (InvalidItemException e)
+            {
+
+            }
+
+            if(item != null && item.getItemType() == ItemType.RELIC)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
