@@ -6,7 +6,7 @@
 @fmsgAnswer incorrect.
 @try3
 @hA boney body
-@ssfalse
+@sstrue
 @dmin5
 @dmax15
 +
@@ -18,7 +18,7 @@
 @fmsgAnswer incorrect.
 @try3
 @hThey walk on webs
-@ssfalse
+@sstrue
 @dmin5
 @dmax15
 +
@@ -30,7 +30,7 @@
 @fmsgAnswer incorrect.
 @try3
 @hCobras, pythons, are considered 
-@ssfalse
+@sstrue
 @dmin5
 @dmax15
 +
@@ -42,7 +42,7 @@
 @fmsgAnswer incorrect.
 @try3
 @hThey make their homes in the grass and theyre made up of sand
-@ssfalse
+@sstrue
 @dmin5
 @dmax15
 +
@@ -66,7 +66,7 @@
 @fmsgAnswer incorrect.
 @try3
 @hThey transform into bats
-@ssfalse
+@sstrue
 @dmin5
 @dmax15
 +
@@ -90,7 +90,7 @@
 @fmsgAnswer incorrect.
 @try3
 @hVampires sleep in these
-@ssfalse
+@sstrue
 @dmin5
 @dmax15
 +

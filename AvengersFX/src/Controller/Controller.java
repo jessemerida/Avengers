@@ -8,9 +8,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -578,10 +576,10 @@ public class Controller implements Initializable {
 
     private void navigationButtonsNotInFXMLCreateHelper() {
         navigationExploreButton = new Button("Explore");
-        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationExploreButton, 2, 2);
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationExploreButton, 2, 3);
 
         navigationPickupAllButton = new Button("PickUp All");
-        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationPickupAllButton, 2, 1);
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationPickupAllButton, 2, 2);
 
         navigationButtonsNotInFXMLEventHandlerHelper();
     }
@@ -630,50 +628,57 @@ public class Controller implements Initializable {
             imageTopStackPane.getStyleClass().remove(0);
         }
 
+        int topDoorsY = 0;
+        int bottomDoorsY = 5;
+
         switch (map.getCurrentRoomPattern()) {
             case 1:
                 imageTopStackPane.getStyleClass().add("imagebg0");
                 imageStackPane.getStyleClass().add("imagebg4");
-                gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, 4);
+                if (index < 2) {
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, bottomDoorsY);
+                } else {
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index + 1, bottomDoorsY);
+                }
                 break;
             case 2:
                 imageTopStackPane.getStyleClass().add("imagebg1");
                 imageStackPane.getStyleClass().add("imagebg1");
                 if (index < 1) {
-                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, topDoorsY);
                 } else {
-                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 4);
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, bottomDoorsY);
                 }
                 break;
             case 3:
                 imageTopStackPane.getStyleClass().add("imagebg1");
                 imageStackPane.getStyleClass().add("imagebg0");
-                gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
+                gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, topDoorsY);
                 break;
             case 4:
                 imageTopStackPane.getStyleClass().add("imagebg2");
                 imageStackPane.getStyleClass().add("imagebg1");
                 if (index < 2) {
                     if (index < 1) {
-                        gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
+                        gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 1, topDoorsY);
                     } else {
-                        gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 4, 0);
+                        gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 3, topDoorsY);
                     }
                 } else {
-                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 4);
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, bottomDoorsY);
                 }
                 break;
             case 5:
                 imageTopStackPane.getStyleClass().add("imagebg2");
                 imageStackPane.getStyleClass().add("imagebg0");
                 if (index < 1) {
-                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 2, 0);
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 1, topDoorsY);
                 } else {
-                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 4, 0);
+                    gridPaneButtonsHelperCreateHelper(navigationGridPane, button, 3, topDoorsY);
                 }
                 break;
             default:
-                gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, 4);
+                gridPaneButtonsHelperCreateHelper(navigationGridPane, button, index, bottomDoorsY);
                 break;
         }
 
@@ -683,6 +688,16 @@ public class Controller implements Initializable {
     private void setUpNavigationGridPane() {
         navigationGridPane.getChildren().clear();
         navigationButtonsNotInFXMLCreateHelper();
+
+        //Todo fix me
+        navigationGridPane.getColumnConstraints().clear();
+        navigationGridPane.getRowConstraints().clear();
+        for (int i = 0; i < 5; i++) {
+            ColumnConstraints column = new ColumnConstraints(35);
+            RowConstraints row = new RowConstraints(35);
+            navigationGridPane.getRowConstraints().add(row);
+            navigationGridPane.getColumnConstraints().add(column);
+        }
         ArrayList<String> connections = map.getCurrentRoomValidConnections();
         for (int i = 0; i < connections.size(); i++) {
             navigationButtonCreateHelper(connections.get(i), i);
