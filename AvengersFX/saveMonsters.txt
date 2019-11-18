@@ -3,8 +3,8 @@
 ~At first the corpse wings was no more than a chill in the air, a shimmer of mist, diffuse. Through 
 ~it the furniture and the wallpaper that peeled with the rising damp became slightly out of focus, 
 ~like a poorly taken photograph.
-@dsfalse
-@hp40
+@dstrue
+@hp0
 @HmaxP40
 @apmin10
 @apmax25
@@ -13,8 +13,8 @@
 @nCurseface
 ~The curse face would whimper like a lost child, clutching at a rag doll, it's eyes brimming with 
 ~silver tears that shone brightly in the moonlight.
-@dsfalse
-@hp20
+@dstrue
+@hp0
 @HmaxP30
 @apmin10
 @apmax25

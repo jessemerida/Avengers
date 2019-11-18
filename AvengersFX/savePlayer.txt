@@ -1,6 +1,6 @@
 @nTim
-@hp77
+@hp88
 @mhp100
-@iRustyDagger, RustyIronKey1, RustyIronKey2, RustyIronKey3
+@iBatteredArmor1, GoldenKey1, LargeHealthPotion1, LargeHealthPotion2, RustyDagger
 @ap10
 +

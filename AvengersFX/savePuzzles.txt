@@ -6,7 +6,7 @@
 @fmsgAnswer incorrect.
 @try3
 @hA boney body
-@ssfalse
+@sstrue
 @dmin5
 @dmax15
 +
@@ -18,7 +18,7 @@
 @fmsgAnswer incorrect.
 @try3
 @hThey walk on webs
-@ssfalse
+@sstrue
 @dmin5
 @dmax15
 +

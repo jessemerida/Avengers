@@ -351,7 +351,6 @@ public class FileManager {
                     if (currLine.contains("@hp")) healthPoints = Integer.parseInt(currLine.substring(3));
                     if (currLine.contains("@HmaxP")) {
                         maxHealthPoints = Integer.parseInt(currLine.substring(6));
-                        System.out.println(maxHealthPoints);
                     }
                     if (currLine.contains("@apmin")) attackPointsMin = Integer.parseInt(currLine.substring(6));
                     if (currLine.contains("@apmax")) attackPointsMax = Integer.parseInt(currLine.substring(6));

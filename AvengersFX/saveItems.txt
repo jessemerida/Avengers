@@ -155,27 +155,27 @@
 +
 @iBatteredArmor1
 @tARMOR
-@dv-5
+@dv5
 ~Some dented old armor thats seen better days. Still, its probably better than nothing.
 +
 @iBatteredArmor2
 @tARMOR
-@dv-5
+@dv5
 ~Some dented old armor thats seen better days. Still, its probably better than nothing.
 +
 @iBatteredArmor3
 @tARMOR
-@dv-5
+@dv5
 ~Some dented old armor thats seen better days. Still, its probably better than nothing.
 +
 @iShiningArmor1
 @tARMOR
-@dv-15
+@dv15
 ~Brand new armor in pristine condition.
 +
 @iShiningArmor2
 @tARMOR
-@dv-15
+@dv15
 ~Brand new armor in pristine condition.
 +
 @iRustyDagger

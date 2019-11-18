@@ -3,12 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monsters2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/monsters2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/image0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/image1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/image2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/image3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/image4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/items2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/items2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Model/FileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Model/FileManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AvengersFX/Model/Map.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AvengersFX/Model/Map.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saveItems.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saveItems.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/saveMonsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saveMonsters.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savePlayer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savePlayer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savePuzzles.txt" beforeDir="false" afterPath="$PROJECT_DIR$/savePuzzles.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/saveRooms.txt" beforeDir="false" afterPath="$PROJECT_DIR$/saveRooms.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Monster.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,16 +93,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/saveMonsters.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/monsters2.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Monster.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="353" column="58" selection-start-line="353" selection-start-column="58" selection-end-line="353" selection-end-column="58" />
+            <state relative-caret-position="306">
+              <caret line="352" column="82" selection-start-line="352" selection-start-column="82" selection-end-line="352" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,10 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
+            <state relative-caret-position="466">
+              <caret line="426" column="16" selection-start-line="426" selection-start-column="16" selection-end-line="426" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -208,17 +207,17 @@
         <option value="$PROJECT_DIR$/src/Model/ItemType.java" />
         <option value="$PROJECT_DIR$/src/View/background.css" />
         <option value="$PROJECT_DIR$/src/Model/Room.java" />
-        <option value="$PROJECT_DIR$/items2.txt" />
         <option value="$PROJECT_DIR$/src/Model/Puzzle.java" />
         <option value="$PROJECT_DIR$/puzzles2.txt" />
         <option value="$PROJECT_DIR$/src/Model/Player.java" />
         <option value="$PROJECT_DIR$/rooms2.txt" />
         <option value="$PROJECT_DIR$/src/View/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/Model/Map.java" />
         <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/Model/Monster.java" />
         <option value="$PROJECT_DIR$/monsters2.txt" />
         <option value="$PROJECT_DIR$/src/Model/FileManager.java" />
+        <option value="$PROJECT_DIR$/items2.txt" />
+        <option value="$PROJECT_DIR$/src/Model/Map.java" />
       </list>
     </option>
   </component>
@@ -450,7 +449,7 @@
       <workItem from="1573939367797" duration="7626000" />
       <workItem from="1573954294661" duration="1988000" />
       <workItem from="1573965004511" duration="29590000" />
-      <workItem from="1574087509006" duration="2978000" />
+      <workItem from="1574087509006" duration="4278000" />
     </task>
     <task id="LOCAL-00001" summary="unlocking connection 6-&gt;2">
       <created>1573922840386</created>
@@ -470,7 +469,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137508000" />
+    <option name="totallyTimeSpent" value="138808000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -490,15 +489,15 @@
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="UI Designer" order="4" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.39520958" weight="0.23493975" />
-      <window_info id="Structure" order="6" sideWeight="0.6047904" visible="true" weight="0.23828648" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.39520958" visible="true" weight="0.23493975" />
+      <window_info id="Structure" order="6" sideWeight="0.6047904" weight="0.23828648" />
       <window_info id="Favorites" order="7" sideWeight="0.42656448" weight="0.16085792" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39974457" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info active="true" anchor="bottom" x="106" y="148" width="903" height="563" id="Run" order="5" type="WINDOWED" visible="true" weight="0.29457363" />
+      <window_info anchor="bottom" x="106" y="148" width="903" height="563" id="Run" order="5" type="WINDOWED" weight="0.29457363" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32950193" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32950193" />
@@ -676,13 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/items2.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1802">
-          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Puzzle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -752,24 +744,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/saveMonsters.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="353" column="58" selection-start-line="353" selection-start-column="58" selection-end-line="353" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/monsters2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Monster.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -781,11 +760,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/monsters2.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/Model/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="352" column="82" selection-start-line="352" selection-start-column="82" selection-end-line="352" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/saveMonsters.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/items2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="178" column="39" lean-forward="true" selection-start-line="178" selection-start-column="39" selection-end-line="178" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/saveItems.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2659" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="426" column="16" selection-start-line="426" selection-start-column="16" selection-end-line="426" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
