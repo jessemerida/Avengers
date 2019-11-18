@@ -567,7 +567,7 @@ public class Controller implements Initializable {
             }
 
             if (map.playerGameWinCondition()) {
-                consoleTextAreaStringBuilderHelper("Congratulation!!!", "You have obtained The Last Treasure!", "Thank you for playing!", "Credits", "Hasan: Controller, Model", "Jess: GUI Design, FileIO", "Jesse: FileIO, Game Design", "Joshua: Controller, View");
+                consoleTextAreaStringBuilderHelper("Congratulations!!!", "You have obtained The Last Treasure!!", "Thank you for playing!", "Credits:", "Hasan: Controller, Model", "Jess: GUI Design, FileIO", "Jesse: FileIO, Game Design", "Joshua: Controller, View");
             }
             updateConsoleTextArea();
         });
