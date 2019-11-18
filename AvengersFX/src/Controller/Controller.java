@@ -283,6 +283,12 @@ public class Controller implements Initializable {
         gridPane.add(button, columnIndex, rowIndex);
     }
 
+    private void gridPaneButtonsHelperCreateHelper(GridPane gridPane, Button button, int columnIndex, int rowIndex, int colSpan, int rowSpan) {
+        GridPane.setHalignment(button, HPos.CENTER);
+        GridPane.setValignment(button, VPos.CENTER);
+        gridPane.add(button, columnIndex, rowIndex, colSpan, rowSpan);
+    }
+
     private void newGameButtonEventHandlerCreateFuctionalityHelper() {
         try {
             map.loadNewGame();
@@ -333,18 +339,27 @@ public class Controller implements Initializable {
 
     private void menuButtonsCreateHelper() {
         newGameButton = new Button("New Game");
-        gridPaneButtonsHelperCreateHelper(menuGridPane, newGameButton, 1, 0);
+        gridPaneButtonsHelperCreateHelper(menuGridPane, newGameButton, 0, 0, 5, 1);
 
         saveGameButton = new Button("Save Game");
-        gridPaneButtonsHelperCreateHelper(menuGridPane, saveGameButton, 1, 2);
+        gridPaneButtonsHelperCreateHelper(menuGridPane, saveGameButton, 0, 2, 5, 1);
 
         loadGameButton = new Button("Load Game");
-        gridPaneButtonsHelperCreateHelper(menuGridPane, loadGameButton, 1, 4);
+        gridPaneButtonsHelperCreateHelper(menuGridPane, loadGameButton, 0, 4, 5, 1);
 
         menuButtonsEventHandlerCreateHelper();
     }
 
     private void setUpMenuGridPane() {
+        //Todo this only needs be run once, but is run each time this method is called. Could be moved to fxml or in initialize.
+        menuGridPane.getColumnConstraints().clear();
+        menuGridPane.getRowConstraints().clear();
+        for (int i = 0; i < 5; i++) {
+            ColumnConstraints column = new ColumnConstraints(35);
+            RowConstraints row = new RowConstraints(35);
+            menuGridPane.getRowConstraints().add(row);
+            menuGridPane.getColumnConstraints().add(column);
+        }
         menuButtonsCreateHelper();
     }
 
@@ -580,14 +595,12 @@ public class Controller implements Initializable {
 
     private void navigationButtonsNotInFXMLCreateHelper() {
         navigationExploreButton = new Button("Explore");
-        GridPane.setHalignment(navigationExploreButton, HPos.CENTER);
-        GridPane.setValignment(navigationExploreButton, VPos.CENTER);
-        navigationGridPane.add(navigationExploreButton, 0, 3, 5, 1);
+        //navigationGridPane.add(navigationExploreButton, 0, 3, 5, 1);
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationExploreButton, 0, 3, 5, 1);
 
         navigationPickupAllButton = new Button("PickUp All");
-        GridPane.setHalignment(navigationPickupAllButton, HPos.CENTER);
-        GridPane.setValignment(navigationPickupAllButton, VPos.CENTER);
-        navigationGridPane.add(navigationPickupAllButton, 0, 2, 5, 1);
+        //navigationGridPane.add(navigationPickupAllButton, 0, 2, 5, 1);
+        gridPaneButtonsHelperCreateHelper(navigationGridPane, navigationPickupAllButton, 0, 2, 5, 1);
 
         navigationButtonsNotInFXMLEventHandlerHelper();
     }
@@ -702,7 +715,6 @@ public class Controller implements Initializable {
         navigationGridPane.getRowConstraints().clear();
         for (int i = 0; i < 5; i++) {
             ColumnConstraints column = new ColumnConstraints(35);
-            column.setHgrow(Priority.ALWAYS);
             RowConstraints row = new RowConstraints(35);
             navigationGridPane.getRowConstraints().add(row);
             navigationGridPane.getColumnConstraints().add(column);
