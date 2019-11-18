@@ -411,7 +411,7 @@ public class Map {
 
     }
 
-    public String monsterAttacksPlayer() throws InvalidMonsterException {
+    public int monsterAttacksPlayer() throws InvalidMonsterException {
         Monster monster = getMonster(currentRoom.getMonsterID());
         int damage = monster.getAttackPoints();
 
@@ -429,7 +429,7 @@ public class Map {
             player.acceptDamage(damage);
         }
 
-        return "monster did " + damage + " damage";
+        return damage;
     }
 
     public String playerHeal() throws InvalidItemException {
@@ -530,22 +530,16 @@ public class Map {
         }
     }
 
-    public boolean getWinCondition()
-    {
-        for(int i = 0 ; i<player.getInventory().size() ; i++)
-        {
+    public boolean getWinCondition() {
+        for (int i = 0; i < player.getInventory().size(); i++) {
             Item item = null;
-            try
-            {
+            try {
                 item = getItem(player.getInventory().get(i));
-            }
-            catch (InvalidItemException e)
-            {
+            } catch (InvalidItemException e) {
 
             }
 
-            if(item != null && item.getItemType() == ItemType.RELIC)
-            {
+            if (item != null && item.getItemType() == ItemType.RELIC) {
                 return true;
             }
         }

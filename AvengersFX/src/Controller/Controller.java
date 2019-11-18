@@ -467,10 +467,10 @@ public class Controller implements Initializable {
         puzzleButtonsCreateHelper();
     }
 
-    private void combatDescriptionAssembler() {
+    private void combatDescriptionAssembler(int damage) {
         try {
             consoleTextAreaStringBuilder.setLength(0);
-            consoleTextAreaStringBuilderHelper("You deal " + map.getPlayerDamage() + " damage!", map.getMonsterName() + " deals " + map.getMonsterDamage() + " damage to you!", "Health:" + map.getPlayerHealth() + "\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
+            consoleTextAreaStringBuilderHelper("You deal " + map.getPlayerDamage() + " damage!", map.getMonsterName() + " deals " + damage + " damage to you!", "Health:" + map.getPlayerHealth() + "\t\t" + map.getMonsterName() + " Health:" + map.getMonsterHealth());
         } catch (InvalidMonsterException e) {
             consoleTextAreaStringBuilderHelper(e.getMessage());
         }
@@ -510,12 +510,11 @@ public class Controller implements Initializable {
         combatAttackButton.setOnAction(event -> {
             try {
                 map.playerAttacksMonster();
-                map.monsterAttacksPlayer();
+                combatDescriptionAssembler(map.monsterAttacksPlayer());
 
                 updatePlayerHealthHUD();
                 updateMonsterHealthHUD();
 
-                combatDescriptionAssembler();
 
                 playerIsSlainScript();
 
