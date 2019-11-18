@@ -477,19 +477,23 @@ public class Controller implements Initializable {
     }
 
     private void updatePlayerHealthHUD() {
+        float playerHealth = map.getPlayerHealth();
+        float playerMaxHealth = map.getPlayerMaxHealth();
         if (map.getPlayerHealth() == map.getPlayerMaxHealth()) {
             playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth());
         } else {
-            playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth() * (map.getPlayerHealth() % map.getPlayerMaxHealth()) / 100);
+            playerHealthRectangle.setWidth(playerMaxHealthRectangle.getWidth() * (playerHealth / playerMaxHealth));
         }
     }
 
     private void updateMonsterHealthHUD() {
         try {
+            float monsterHealth = map.getMonsterHealth();
+            float monsterMaxHealth = map.getMonsterMaxHealth();
             if (map.getMonsterHealth() == map.getMonsterMaxHealth()) {
                 monsterHealthRectangle.setWidth(monsterMaxHealthRectangle.getWidth());
             } else {
-                monsterHealthRectangle.setWidth(monsterMaxHealthRectangle.getWidth() * (map.getMonsterHealth() % map.getMonsterMaxHealth()) / 100);
+                monsterHealthRectangle.setWidth(monsterMaxHealthRectangle.getWidth() * (monsterHealth / monsterMaxHealth));
             }
         } catch (InvalidMonsterException e) {
             e.printStackTrace();
