@@ -1,6 +1,6 @@
 @nTim
-@hp20
+@hp100
 @mhp100
-@iBatteredArmor1, GoldenKey1, LargeHealthPotion1, RustyDagger
+@i0
 @ap10
 +
